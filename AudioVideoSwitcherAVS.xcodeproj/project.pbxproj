@@ -13,6 +13,12 @@
 		072A560228C969E10032F59C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 072A560028C969E10032F59C /* Main.storyboard */; };
 		072A560428C969E40032F59C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 072A560328C969E40032F59C /* Assets.xcassets */; };
 		072A560728C969E40032F59C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 072A560528C969E40032F59C /* LaunchScreen.storyboard */; };
+		07359D7628DBA57800CA7C1F /* ConfiguracionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07359D7528DBA57800CA7C1F /* ConfiguracionViewController.swift */; };
+		0756AA9A28CD33590052CC48 /* PickerDestinyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0756AA9928CD33590052CC48 /* PickerDestinyViewController.swift */; };
+		0756AA9C28CD46090052CC48 /* SourceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0756AA9B28CD46090052CC48 /* SourceButton.swift */; };
+		078F191228CD60F200710740 /* CanalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F191128CD60F200710740 /* CanalButtonView.swift */; };
+		078F191428CD677500710740 /* PickerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F191328CD677500710740 /* PickerImageViewController.swift */; };
+		EDBDE5932997D90B186D807C /* Pods_AudioVideoSwitcherAVS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B8F004F5C69DD9F2036A5A /* Pods_AudioVideoSwitcherAVS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,14 @@
 		072A560328C969E40032F59C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		072A560628C969E40032F59C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		072A560828C969E40032F59C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07359D7528DBA57800CA7C1F /* ConfiguracionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguracionViewController.swift; sourceTree = "<group>"; };
+		0756AA9928CD33590052CC48 /* PickerDestinyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDestinyViewController.swift; sourceTree = "<group>"; };
+		0756AA9B28CD46090052CC48 /* SourceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceButton.swift; sourceTree = "<group>"; };
+		078F191128CD60F200710740 /* CanalButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanalButtonView.swift; sourceTree = "<group>"; };
+		078F191328CD677500710740 /* PickerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerImageViewController.swift; sourceTree = "<group>"; };
+		163492074C892D8F82A38413 /* Pods-AudioVideoSwitcherAVS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioVideoSwitcherAVS.release.xcconfig"; path = "Target Support Files/Pods-AudioVideoSwitcherAVS/Pods-AudioVideoSwitcherAVS.release.xcconfig"; sourceTree = "<group>"; };
+		89B8F004F5C69DD9F2036A5A /* Pods_AudioVideoSwitcherAVS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioVideoSwitcherAVS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4E3BDCB9C6BA00E91F40DD3 /* Pods-AudioVideoSwitcherAVS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioVideoSwitcherAVS.debug.xcconfig"; path = "Target Support Files/Pods-AudioVideoSwitcherAVS/Pods-AudioVideoSwitcherAVS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDBDE5932997D90B186D807C /* Pods_AudioVideoSwitcherAVS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +57,8 @@
 			children = (
 				072A55F928C969E10032F59C /* AudioVideoSwitcherAVS */,
 				072A55F828C969E10032F59C /* Products */,
+				D7D3BA77DD4377BC80221052 /* Pods */,
+				B06EFEB886D0B48417358B26 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +73,7 @@
 		072A55F928C969E10032F59C /* AudioVideoSwitcherAVS */ = {
 			isa = PBXGroup;
 			children = (
+				072A560E28C96D340032F59C /* Views */,
 				072A55FA28C969E10032F59C /* AppDelegate.swift */,
 				072A55FC28C969E10032F59C /* SceneDelegate.swift */,
 				072A55FE28C969E10032F59C /* ViewController.swift */,
@@ -63,8 +81,37 @@
 				072A560328C969E40032F59C /* Assets.xcassets */,
 				072A560528C969E40032F59C /* LaunchScreen.storyboard */,
 				072A560828C969E40032F59C /* Info.plist */,
+				0756AA9928CD33590052CC48 /* PickerDestinyViewController.swift */,
+				078F191328CD677500710740 /* PickerImageViewController.swift */,
+				07359D7528DBA57800CA7C1F /* ConfiguracionViewController.swift */,
 			);
 			path = AudioVideoSwitcherAVS;
+			sourceTree = "<group>";
+		};
+		072A560E28C96D340032F59C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0756AA9B28CD46090052CC48 /* SourceButton.swift */,
+				078F191128CD60F200710740 /* CanalButtonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B06EFEB886D0B48417358B26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89B8F004F5C69DD9F2036A5A /* Pods_AudioVideoSwitcherAVS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7D3BA77DD4377BC80221052 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D4E3BDCB9C6BA00E91F40DD3 /* Pods-AudioVideoSwitcherAVS.debug.xcconfig */,
+				163492074C892D8F82A38413 /* Pods-AudioVideoSwitcherAVS.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +121,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 072A560B28C969E40032F59C /* Build configuration list for PBXNativeTarget "AudioVideoSwitcherAVS" */;
 			buildPhases = (
+				48BD9FCA641BDC451313AA2E /* [CP] Check Pods Manifest.lock */,
 				072A55F328C969E10032F59C /* Sources */,
 				072A55F428C969E10032F59C /* Frameworks */,
 				072A55F528C969E10032F59C /* Resources */,
+				DFBC64870A9F93D96C926E57 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +182,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		48BD9FCA641BDC451313AA2E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AudioVideoSwitcherAVS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFBC64870A9F93D96C926E57 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AudioVideoSwitcherAVS/Pods-AudioVideoSwitcherAVS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AudioVideoSwitcherAVS/Pods-AudioVideoSwitcherAVS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AudioVideoSwitcherAVS/Pods-AudioVideoSwitcherAVS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		072A55F328C969E10032F59C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				078F191228CD60F200710740 /* CanalButtonView.swift in Sources */,
+				0756AA9C28CD46090052CC48 /* SourceButton.swift in Sources */,
 				072A55FF28C969E10032F59C /* ViewController.swift in Sources */,
 				072A55FB28C969E10032F59C /* AppDelegate.swift in Sources */,
 				072A55FD28C969E10032F59C /* SceneDelegate.swift in Sources */,
+				078F191428CD677500710740 /* PickerImageViewController.swift in Sources */,
+				07359D7628DBA57800CA7C1F /* ConfiguracionViewController.swift in Sources */,
+				0756AA9A28CD33590052CC48 /* PickerDestinyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +380,7 @@
 		};
 		072A560C28C969E40032F59C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4E3BDCB9C6BA00E91F40DD3 /* Pods-AudioVideoSwitcherAVS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -295,7 +392,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -306,12 +404,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
 		072A560D28C969E40032F59C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 163492074C892D8F82A38413 /* Pods-AudioVideoSwitcherAVS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -323,7 +422,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -334,7 +434,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
