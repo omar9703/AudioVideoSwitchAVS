@@ -175,7 +175,7 @@ class ViewController: UIViewController {
             //            }
             //        }
             if let ipUltrix = ipUltrix {
-                debugPrint(sender.tag)
+                debugPrint(sender.tag, ipUltrix)
                 for x in myButtons
                 {
                     if x == sender
@@ -221,6 +221,7 @@ class ViewController: UIViewController {
         if !isModeConfig
         {
             if let ipYamaha = ipYamaha {
+                debugPrint(ipYamaha)
                 var nivel = 0
                 if !selectedChannels[sender.view?.tag ?? 1]
                 {
@@ -268,6 +269,7 @@ class ViewController: UIViewController {
         if !isModeConfig
         {
             if let ipYamaha = ipYamaha {
+                debugPrint(ipYamaha)
                 var nivel = 0
                 
                 if !selectedSolo[sender.tag]
@@ -396,6 +398,7 @@ class ViewController: UIViewController {
             if !isModeConfig
             {
                 if let ipYamaha = ipYamaha {
+                    debugPrint(ipYamaha)
                     DispatchQueue.global(qos: .utility).async {
                         do
                         {
