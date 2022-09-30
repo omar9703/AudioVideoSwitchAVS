@@ -18,6 +18,8 @@
 		0756AA9C28CD46090052CC48 /* SourceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0756AA9B28CD46090052CC48 /* SourceButton.swift */; };
 		078F191228CD60F200710740 /* CanalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F191128CD60F200710740 /* CanalButtonView.swift */; };
 		078F191428CD677500710740 /* PickerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F191328CD677500710740 /* PickerImageViewController.swift */; };
+		10CBA4E528E772B800C0A28A /* AVModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10CBA4E328E772B800C0A28A /* AVModel.xcdatamodeld */; };
+		10CBA4E828E7731E00C0A28A /* ChannelYamaha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CBA4E728E7731E00C0A28A /* ChannelYamaha.swift */; };
 		EDBDE5932997D90B186D807C /* Pods_AudioVideoSwitcherAVS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B8F004F5C69DD9F2036A5A /* Pods_AudioVideoSwitcherAVS.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		0756AA9B28CD46090052CC48 /* SourceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceButton.swift; sourceTree = "<group>"; };
 		078F191128CD60F200710740 /* CanalButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanalButtonView.swift; sourceTree = "<group>"; };
 		078F191328CD677500710740 /* PickerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerImageViewController.swift; sourceTree = "<group>"; };
+		10CBA4E428E772B800C0A28A /* AVModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AVModel.xcdatamodel; sourceTree = "<group>"; };
+		10CBA4E728E7731E00C0A28A /* ChannelYamaha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelYamaha.swift; sourceTree = "<group>"; };
 		163492074C892D8F82A38413 /* Pods-AudioVideoSwitcherAVS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioVideoSwitcherAVS.release.xcconfig"; path = "Target Support Files/Pods-AudioVideoSwitcherAVS/Pods-AudioVideoSwitcherAVS.release.xcconfig"; sourceTree = "<group>"; };
 		89B8F004F5C69DD9F2036A5A /* Pods_AudioVideoSwitcherAVS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioVideoSwitcherAVS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E3BDCB9C6BA00E91F40DD3 /* Pods-AudioVideoSwitcherAVS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioVideoSwitcherAVS.debug.xcconfig"; path = "Target Support Files/Pods-AudioVideoSwitcherAVS/Pods-AudioVideoSwitcherAVS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 		072A55F928C969E10032F59C /* AudioVideoSwitcherAVS */ = {
 			isa = PBXGroup;
 			children = (
+				10CBA4E628E7730000C0A28A /* Representations */,
 				072A560E28C96D340032F59C /* Views */,
 				072A55FA28C969E10032F59C /* AppDelegate.swift */,
 				072A55FC28C969E10032F59C /* SceneDelegate.swift */,
@@ -84,6 +89,7 @@
 				0756AA9928CD33590052CC48 /* PickerDestinyViewController.swift */,
 				078F191328CD677500710740 /* PickerImageViewController.swift */,
 				07359D7528DBA57800CA7C1F /* ConfiguracionViewController.swift */,
+				10CBA4E328E772B800C0A28A /* AVModel.xcdatamodeld */,
 			);
 			path = AudioVideoSwitcherAVS;
 			sourceTree = "<group>";
@@ -95,6 +101,14 @@
 				078F191128CD60F200710740 /* CanalButtonView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		10CBA4E628E7730000C0A28A /* Representations */ = {
+			isa = PBXGroup;
+			children = (
+				10CBA4E728E7731E00C0A28A /* ChannelYamaha.swift */,
+			);
+			path = Representations;
 			sourceTree = "<group>";
 		};
 		B06EFEB886D0B48417358B26 /* Frameworks */ = {
@@ -235,8 +249,10 @@
 				072A55FB28C969E10032F59C /* AppDelegate.swift in Sources */,
 				072A55FD28C969E10032F59C /* SceneDelegate.swift in Sources */,
 				078F191428CD677500710740 /* PickerImageViewController.swift in Sources */,
+				10CBA4E828E7731E00C0A28A /* ChannelYamaha.swift in Sources */,
 				07359D7628DBA57800CA7C1F /* ConfiguracionViewController.swift in Sources */,
 				0756AA9A28CD33590052CC48 /* PickerDestinyViewController.swift in Sources */,
+				10CBA4E528E772B800C0A28A /* AVModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +476,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		10CBA4E328E772B800C0A28A /* AVModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				10CBA4E428E772B800C0A28A /* AVModel.xcdatamodel */,
+			);
+			currentVersion = 10CBA4E428E772B800C0A28A /* AVModel.xcdatamodel */;
+			path = AVModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 072A55EF28C969E10032F59C /* Project object */;
 }

@@ -80,7 +80,7 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
         else
         {
-            for x in Range(1...10)
+            for x in Range(1...32)
             {
                 mixes.append("Mix \(x)")
             }
@@ -108,9 +108,11 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        pickerTV.selectRow(self.row, inComponent: 0, animated: true)
+        pickerTV.selectRow(self.row, inComponent: 0, animated: false)
         if isDestiny == .Mixer
         {
+            
+//            pickerTV.reloadAllComponents()
             DispatchQueue.global(qos: .utility).async {
                 do
                 {
