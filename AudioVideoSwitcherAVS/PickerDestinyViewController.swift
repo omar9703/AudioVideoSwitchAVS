@@ -95,6 +95,14 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
         {
         delegate?.tvSelected(row: row, isDestiny: isDestiny!,nombre: mixes[row] )
         }
+        else if isDestiny == .destiny
+        {
+            delegate?.tvSelected(row: row, isDestiny: isDestiny!,nombre: destinies[row] )
+        }
+        else if isDestiny == .source
+        {
+            delegate?.tvSelected(row: row, isDestiny: isDestiny!,nombre: sources[row] )
+        }
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -43,6 +43,8 @@ class ViewController: UIViewController {
     @IBOutlet var SoloButtons : [UIButton]!
     var tvRow = 0
     var selectedChannels = [false, false, false, false,false,false,false,false,false, false, false, false,false,false,false,false, false, false, false,false]
+    var SelectedChannelsIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+    var selctedSoloIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
     var selectedCamara = [false]
     var selectedSolo = [false, false, false, false,false,false,false,false,false, false, false, false,false,false,false,false, false, false, false,false]
     var buttonsTV = [UIButton]()
@@ -102,7 +104,7 @@ class ViewController: UIViewController {
         {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "pickerController") as! PickerDestinyViewController
             vc.delegate = self
-            vc.row = tvRow
+            vc.row = sliderView.tag - 1
             vc.isDestiny = .Mixer
             self.present(vc, animated: true, completion: nil)
         }
@@ -221,7 +223,7 @@ class ViewController: UIViewController {
         if !isModeConfig
         {
             if let ipYamaha = ipYamaha {
-                debugPrint(ipYamaha)
+                debugPrint(ipYamaha,sender.view?.tag)
                 var nivel = 0
                 if !selectedChannels[sender.view?.tag ?? 1]
                 {
@@ -235,7 +237,8 @@ class ViewController: UIViewController {
                     nivel = -32768
                     sender.view?.backgroundColor = .clear
                 }
-                let t = sender.view?.tag ?? 0
+                let t = SelectedChannelsIds[sender.view?.tag ?? 0]
+                debugPrint(t)
                 DispatchQueue.global(qos: .utility).async {
                     do
                     {
@@ -244,7 +247,7 @@ class ViewController: UIViewController {
                         try client.wait(for: .write, timeout: 2000)
                         let message = ([UInt8])("set MIXER:Current/InCh/Fader/Level \(t) 0 \(nivel) \n".utf8)
                         try client.write(message)
-                        debugPrint("holis")
+                        debugPrint("holis",t)
                         var buffer = [UInt8](repeating: 0, count: 1500)
                         try client.read(&buffer, size: 100)
                         client.close()
@@ -284,7 +287,7 @@ class ViewController: UIViewController {
                     nivel = -32768
                     sender.backgroundColor = .lightGray
                 }
-                
+                debugPrint(self.selctedSoloIds[sender.tag])
                 DispatchQueue.global(qos: .utility).async {
                     do
                     {
@@ -292,7 +295,7 @@ class ViewController: UIViewController {
                         try client.connect(port: 49280, address: ipYamaha)
                         let w = try client.wait(for: .write, timeout: 1, retryOnInterrupt: false)
                         debugPrint(w)
-                        let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(sender.tag) \(self.sliderView.tag - 1) \(nivel) \n".utf8)
+                        let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.selctedSoloIds[sender.tag]) \(self.sliderView.tag - 1) \(nivel) \n".utf8)
                         try client.write(message)
                         
                         debugPrint("holis")
@@ -444,17 +447,18 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
         ipYamaha = UserDefaults.standard.string(forKey: "yamaha")
         ipUltrix = UserDefaults.standard.string(forKey: "ultrix")
     }
-    
+    //este delegado es para setear el canal de audio
     func channelSelected(channelRow: Int, channelName: String) {
         for x in ChannelSetting!.superview!.subviews
         {
             if !x.isKind(of: CanalButtonView.self)
             {
                 debugPrint(x.subviews)
-                x.subviews.first?.tag = channelRow
+                SelectedChannelsIds[x.subviews.first?.tag ?? 0] = channelRow
+                selctedSoloIds[x.subviews.first?.tag ?? 0] = channelRow
             }
         }
-        ChannelSetting?.tag = channelRow
+//        ChannelSetting?.tag = channelRow
         for x in ChannelSetting!.subviews
         {
             if x.isKind(of: UILabel.self)
