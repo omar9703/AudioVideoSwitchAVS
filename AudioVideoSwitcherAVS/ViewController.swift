@@ -7,7 +7,10 @@
 
 import UIKit
 import SocketSwift
+//import SwiftPing
 class ViewController: UIViewController {
+    @IBOutlet weak var ultrixStatus: UIView!
+    @IBOutlet weak var yamahaUltrix: UIView!
     @IBOutlet weak var configIpButton: UIButton!
     @IBOutlet weak var canal14: UIView!
     @IBOutlet weak var canal13: UIView!
@@ -46,6 +49,7 @@ class ViewController: UIViewController {
     var SelectedChannelsIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
     var selctedSoloIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
     var selectedUltrixIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49]
+    var nombresUltrix = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]
     var selectedCamara = [false]
     var selectedSolo = [false, false, false, false,false,false,false,false,false, false, false, false,false,false,false,false, false, false, false,false]
     var buttonsTV = [UIButton]()
@@ -55,6 +59,8 @@ class ViewController: UIViewController {
     var volume = -16
     var ipYamaha : String?
     var ipUltrix :  String?
+    var ultrixstats = false
+    var yamahaStats = false
     override func viewDidLoad() {
         super.viewDidLoad()
         channelsLabel.forEach { x in
@@ -83,6 +89,8 @@ class ViewController: UIViewController {
         canal20.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.canalAction(_:))))
         LabelTV.isUserInteractionEnabled = true
         
+        ultrixStatus.layer.cornerRadius = 12
+        yamahaUltrix.layer.cornerRadius = 12
         
         //        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
         //        self.canal1.addGestureRecognizer(longPressRecognizer)
@@ -97,9 +105,15 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         ipYamaha = UserDefaults.standard.string(forKey: "yamaha")
         ipUltrix = UserDefaults.standard.string(forKey: "ultrix")
+        pingFunction()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let u = UserDefaults.standard.value(forKey: "nombres") as? [String]
+        {
+            debugPrint(u)
+            self.nombresUltrix = u
+        }
         if let canals = channelData.getCanales()
         {
             canals.forEach { s in
@@ -148,6 +162,53 @@ class ViewController: UIViewController {
     
     func pingFunction()
     {
+        let pingInterval:TimeInterval = 2
+        let timeoutInterval:TimeInterval = 1
+        let configuration = PingConfiguration(interval: pingInterval, with: timeoutInterval)
+        if let ipUltrix = ipUltrix {
+        let pinger = try? SwiftyPing(host: ipUltrix, configuration: PingConfiguration(interval: 0.5, with: 5), queue: DispatchQueue.global())
+        pinger?.observer = { (response) in
+            let duration = response.duration
+//            print(duration,response)
+            if let e = response.error
+            {
+                DispatchQueue.main.async {
+                    self.ultrixstats = false
+                    self.ultrixStatus.backgroundColor = .red
+                }
+            }
+            else
+            {
+                DispatchQueue.main.async {
+                    self.ultrixstats = true
+                    self.ultrixStatus.backgroundColor = .green
+                }
+            }
+        }
+        try? pinger?.startPinging()
+        }
+        if let ipYamaha = ipYamaha {
+            let pinger = try? SwiftyPing(host: ipYamaha, configuration: PingConfiguration(interval: 0.5, with: 5), queue: DispatchQueue.global())
+            pinger?.observer = { (response) in
+                let duration = response.duration
+//                print(duration,response)
+                if let e = response.error
+                {
+                    DispatchQueue.main.async {
+                        self.yamahaStats = false
+                        self.yamahaUltrix.backgroundColor = .red
+                    }
+                }
+                else
+                {
+                    DispatchQueue.main.async {
+                        self.yamahaStats = true
+                        self.yamahaUltrix.backgroundColor = .green
+                    }
+                }
+            }
+            try? pinger?.startPinging()
+        }
         
     }
     @IBAction func configSiwtch(_ sender: UISwitch) {
@@ -193,7 +254,7 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func camaraAction(_ sender: UIButton) {
-        if !isModeConfig
+        if !isModeConfig && ultrixstats
         {
             //        selectedCamara[sender.tag - 1] =  true
             //        for (y,x) in selectedCamara.enumerated()
@@ -227,8 +288,10 @@ class ViewController: UIViewController {
                     do
                     {
                         let client = try Socket(.inet, type: .stream, protocol: .tcp)
+                        let y = try client.wait(for: .write, timeout: 1, retryOnInterrupt: true)
+                        debugPrint(y)
                         try client.connect(port: 7788, address: ipUltrix)
-                        //            try client.wait(for: .write, timeout: 2000)
+                        
                         let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[sender.tag]+1) \r\n".utf8)
                         try client.write(message)
                         debugPrint("holis")
@@ -236,6 +299,7 @@ class ViewController: UIViewController {
                         //            try client.read(&buffer, size: 100)
                         client.close()
                         debugPrint("holis")
+                        
                     }
                     catch
                     {
@@ -254,7 +318,7 @@ class ViewController: UIViewController {
     
     @objc func canalAction(_ sender: UITapGestureRecognizer) {
         debugPrint("holis")
-        if !isModeConfig
+        if !isModeConfig && yamahaStats
         {
             if let ipYamaha = ipYamaha {
                 debugPrint(ipYamaha,sender.view?.tag)
@@ -303,7 +367,7 @@ class ViewController: UIViewController {
     }
     @IBAction func SoloAction(_ sender: UIButton) {
         debugPrint(sender.tag)
-        if !isModeConfig
+        if !isModeConfig && yamahaStats
         {
             if let ipYamaha = ipYamaha {
                 debugPrint(ipYamaha)
@@ -432,7 +496,7 @@ class ViewController: UIViewController {
             {
                 level = 1000
             }
-            if !isModeConfig
+            if !isModeConfig && yamahaStats
             {
                 if let ipYamaha = ipYamaha {
                     debugPrint(ipYamaha)
@@ -475,11 +539,21 @@ extension UIViewController
     }
 }
 
-extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDelegate, channelSetDelegate, configPressedDelegate
+extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDelegate, channelSetDelegate, configPressedDelegate, pickerButtonDelegate
 {
+    func buttonSelected(row: Int, nombre: String?) {
+        buttonsetting?.setTitle(nombre ?? "\(row + 1)", for: .normal)
+        nombresUltrix[buttonsetting?.tag ?? 0] = nombre ?? ""
+        UserDefaults.standard.set(nombresUltrix, forKey: "nombres")
+        selectedUltrixIds[buttonsetting?.tag ?? 0] = row
+        UserDefaults.standard.set(selectedUltrixIds, forKey: "ultr")
+        debugPrint(nombresUltrix)
+    }
+    
     func setIpPressed() {
         ipYamaha = UserDefaults.standard.string(forKey: "yamaha")
         ipUltrix = UserDefaults.standard.string(forKey: "ultrix")
+        pingFunction()
     }
     //este delegado es para setear el canal de audio
     func channelSelected(channelRow: Int, channelName: String, imagenURL : String, data : Data?) {
@@ -561,11 +635,11 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
 //        print(tag)
         if isModeConfig
         {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "pickerController") as! PickerDestinyViewController
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "pickerField") as! pickerFieldViewController
             vc.delegate = self
-            vc.isDestiny = .source
             buttonsetting = boton
             vc.row = selectedUltrixIds[boton.tag]
+            vc.titulo = boton.currentTitle ?? ""
 //        vc.row = tvRow
             self.present(vc, animated: true, completion: nil)
         }
