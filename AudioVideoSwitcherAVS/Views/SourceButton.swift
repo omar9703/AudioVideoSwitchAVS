@@ -25,10 +25,17 @@ class SourceButton: UIButton {
          }
 
       private func setup() {
+          
           self.tag = (Int(self.currentTitle ?? "0") ?? 0) - 1
           let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
                   self.addGestureRecognizer(longPressRecognizer)
+          
+          if let u = UserDefaults.standard.value(forKey: "ultr") as? [Int]
+          {
+              self.setTitle("\(u[self.tag] + 1)", for: .normal)
+          }
          }
+    
     
     @objc func longPressed(sender: UILongPressGestureRecognizer) {
         print("longpressed")

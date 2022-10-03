@@ -2725,7 +2725,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nrx-7w-gKW">
-                                        <rect key="frame" x="50" y="80" width="176" height="200"/>
+                                        <rect key="frame" x="40" y="80" width="176" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="Br5-Mz-yGK"/>
                                             <constraint firstAttribute="width" constant="176" id="lob-Da-BzU"/>
@@ -2739,10 +2739,10 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBb-gp-9Gq">
-                                        <rect key="frame" x="62.5" y="20" width="151" height="31"/>
+                                        <rect key="frame" x="48" y="20" width="160" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="ZER-S4-uSf"/>
-                                            <constraint firstAttribute="width" constant="151" id="qqE-4Q-Vmv"/>
+                                            <constraint firstAttribute="width" constant="160" id="qqE-4Q-Vmv"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Seleccionar Imagen"/>
@@ -2759,8 +2759,8 @@
                                     <constraint firstItem="gBb-gp-9Gq" firstAttribute="centerY" secondItem="cl9-FN-71M" secondAttribute="centerY" id="ARB-4N-gY0"/>
                                     <constraint firstAttribute="bottom" secondItem="nrx-7w-gKW" secondAttribute="bottom" constant="20" id="G8m-rY-NeG"/>
                                     <constraint firstItem="gBb-gp-9Gq" firstAttribute="centerX" secondItem="nrx-7w-gKW" secondAttribute="centerX" id="Mjy-hU-WcO"/>
-                                    <constraint firstItem="CH0-Co-wBP" firstAttribute="leading" secondItem="nrx-7w-gKW" secondAttribute="trailing" constant="20" id="Owq-Wb-LX2"/>
-                                    <constraint firstItem="jYb-qU-cRO" firstAttribute="leading" secondItem="nrx-7w-gKW" secondAttribute="trailing" constant="10" id="QF8-Ch-fo4"/>
+                                    <constraint firstItem="CH0-Co-wBP" firstAttribute="leading" secondItem="nrx-7w-gKW" secondAttribute="trailing" constant="30" id="Owq-Wb-LX2"/>
+                                    <constraint firstItem="jYb-qU-cRO" firstAttribute="leading" secondItem="nrx-7w-gKW" secondAttribute="trailing" constant="20" id="QF8-Ch-fo4"/>
                                     <constraint firstItem="kwc-N2-6I7" firstAttribute="leading" secondItem="cl9-FN-71M" secondAttribute="trailing" constant="200" id="WDm-M4-cqS"/>
                                     <constraint firstItem="jYb-qU-cRO" firstAttribute="top" secondItem="S0K-jf-slX" secondAttribute="top" constant="10" id="ZIz-m6-qHn"/>
                                     <constraint firstAttribute="height" constant="300" id="edL-cc-k2d"/>

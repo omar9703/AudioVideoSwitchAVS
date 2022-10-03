@@ -45,6 +45,7 @@ class ViewController: UIViewController {
     var selectedChannels = [false, false, false, false,false,false,false,false,false, false, false, false,false,false,false,false, false, false, false,false]
     var SelectedChannelsIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
     var selctedSoloIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+    var selectedUltrixIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49]
     var selectedCamara = [false]
     var selectedSolo = [false, false, false, false,false,false,false,false,false, false, false, false,false,false,false,false, false, false, false,false]
     var buttonsTV = [UIButton]()
@@ -97,6 +98,32 @@ class ViewController: UIViewController {
         ipYamaha = UserDefaults.standard.string(forKey: "yamaha")
         ipUltrix = UserDefaults.standard.string(forKey: "ultrix")
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let canals = channelData.getCanales()
+        {
+            canals.forEach { s in
+                selctedSoloIds[s.tag ?? 0] = s.canalId ?? 0
+                SelectedChannelsIds[s.tag ?? 0] = s.canalId ?? 0
+            }
+        }
+        if let nombre = UserDefaults.standard.string(forKey: "mixLabel")
+        {
+            mixLabel.text = nombre
+            sliderView.tag = UserDefaults.standard.integer(forKey: "silderTag")
+        }
+        let y = UserDefaults.standard.integer(forKey: "destiny")
+        self.tvRow = y
+        self.LabelTV.text = "Destination \(y + 1)"
+        
+        if let u = UserDefaults.standard.value(forKey: "ultr") as? [Int]
+        {
+            debugPrint(u)
+            selectedUltrixIds = u
+        }
+        
+        
+    }
     
     @objc func sliderGesture(_ sender : UITapGestureRecognizer)
     {
@@ -117,6 +144,11 @@ class ViewController: UIViewController {
         configSwitch.isHidden = false
         mixLabel.isHidden = false
         mixLabel.text = "Mix \(sliderView.tag)"
+    }
+    
+    func pingFunction()
+    {
+        
     }
     @IBAction func configSiwtch(_ sender: UISwitch) {
         isModeConfig = sender.isOn
@@ -189,13 +221,15 @@ class ViewController: UIViewController {
                         x.backgroundColor = .lightGray
                     }
                 }
+                debugPrint(self.selectedUltrixIds[sender.tag]+1)
                 DispatchQueue.global(qos: .utility).async {
+                    
                     do
                     {
                         let client = try Socket(.inet, type: .stream, protocol: .tcp)
                         try client.connect(port: 7788, address: ipUltrix)
                         //            try client.wait(for: .write, timeout: 2000)
-                        let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(sender.tag + 1) \r\n".utf8)
+                        let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[sender.tag]+1) \r\n".utf8)
                         try client.write(message)
                         debugPrint("holis")
                         //            var buffer = [UInt8](repeating: 0, count: 1500)
@@ -448,7 +482,10 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
         ipUltrix = UserDefaults.standard.string(forKey: "ultrix")
     }
     //este delegado es para setear el canal de audio
-    func channelSelected(channelRow: Int, channelName: String) {
+    func channelSelected(channelRow: Int, channelName: String, imagenURL : String, data : Data?) {
+        var id = 0
+        var t = 0
+        var n = channelName
         for x in ChannelSetting!.superview!.subviews
         {
             if !x.isKind(of: CanalButtonView.self)
@@ -456,6 +493,9 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
                 debugPrint(x.subviews)
                 SelectedChannelsIds[x.subviews.first?.tag ?? 0] = channelRow
                 selctedSoloIds[x.subviews.first?.tag ?? 0] = channelRow
+                id = channelRow
+                t = x.subviews.first?.tag ?? 0
+                break
             }
         }
 //        ChannelSetting?.tag = channelRow
@@ -464,11 +504,46 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
             if x.isKind(of: UILabel.self)
             {
                 (x as? UILabel)?.text = channelName
+                break
             }
         }
+        if imagenURL != ""
+        {
+            for x in ChannelSetting!.subviews
+            {
+                if x.isKind(of: UIImageView.self)
+                {
+                    do
+                    {
+                        if let url = URL(string: imagenURL)
+                        {
+                        let imageData = try Data(contentsOf: url)
+                        (x as? UIImageView)?.image = UIImage(data: imageData)
+                        }
+                    }
+                    catch
+                    {
+                        debugPrint(error)
+                    }
+                }
+            }
+        }
+        let s = soundChannel(canalId: id, tag: t, nombre: n,imagen: imagenURL, imagenData: data)
+        if channelData.getClubExistence(channel: s)
+        {
+            debugPrint("esta")
+            channelData.UpdateClubes(channel: s)
+        }
+        else
+        {
+            debugPrint("no esta")
+            channelData.saveChannel(channel: s)
+        }
+
+        
     }
     // este delegado es para abrir el picker del canal de audio
-    func selectedSourceButton(tag: Int, imagen: UIView) {
+    func selectedSourceButton(tag: Int, imagen: UIView, imagendata : Data?) {
         debugPrint()
         
         if isModeConfig
@@ -476,6 +551,8 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MixersController") as! PickerImageViewController
             vc.delegate = self
             ChannelSetting = imagen
+            vc.imagenData = imagendata
+            vc.row = SelectedChannelsIds[tag]
             self.present(vc, animated: true, completion: nil)
         }
     }
@@ -488,7 +565,7 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
             vc.delegate = self
             vc.isDestiny = .source
             buttonsetting = boton
-            vc.row = boton.tag
+            vc.row = selectedUltrixIds[boton.tag]
 //        vc.row = tvRow
             self.present(vc, animated: true, completion: nil)
         }
@@ -499,16 +576,21 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
         {
         LabelTV.text = "Destination \(row + 1)"
         self.tvRow = row
+        UserDefaults.standard.set(row, forKey: "destiny")
         }
         else if isDestiny == .source
         {
-            buttonsetting?.tag = row
+//            buttonsetting?.tag = row
             buttonsetting?.setTitle("\(row + 1)", for: .normal)
+            selectedUltrixIds[buttonsetting?.tag ?? 0] = row
+            UserDefaults.standard.set(selectedUltrixIds, forKey: "ultr")
         }
         else
         {
             sliderView.tag = row + 1
             mixLabel.text = nombre
+            UserDefaults.standard.set(row + 1, forKey: "silderTag")
+            UserDefaults.standard.set(nombre, forKey: "mixLabel")
         }
     }
     
