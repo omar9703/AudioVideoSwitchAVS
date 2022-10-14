@@ -45,6 +45,7 @@ class ViewController: UIViewController {
     @IBOutlet var channelsImages : [UIImageView]!
     @IBOutlet var SoloButtons : [UIButton]!
     var tvRow = 0
+    var pingLoaded = false
     var selectedChannels = [false, false, false, false,false,false,false,false,false, false, false, false,false,false,false,false, false, false, false,false]
     var SelectedChannelsIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
     var selctedSoloIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
@@ -166,6 +167,7 @@ class ViewController: UIViewController {
         let timeoutInterval:TimeInterval = 1
         let configuration = PingConfiguration(interval: pingInterval, with: timeoutInterval)
         if let ipUltrix = ipUltrix {
+            pingLoaded = true
         let pinger = try? SwiftyPing(host: ipUltrix, configuration: PingConfiguration(interval: 0.5, with: 5), queue: DispatchQueue.global())
         pinger?.observer = { (response) in
             let duration = response.duration
@@ -553,7 +555,10 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
     func setIpPressed() {
         ipYamaha = UserDefaults.standard.string(forKey: "yamaha")
         ipUltrix = UserDefaults.standard.string(forKey: "ultrix")
-        pingFunction()
+        if !pingLoaded
+        {
+            pingFunction()
+        }
     }
     //este delegado es para setear el canal de audio
     func channelSelected(channelRow: Int, channelName: String, imagenURL : String, data : Data?) {
