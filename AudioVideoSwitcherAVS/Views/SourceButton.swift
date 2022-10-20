@@ -36,11 +36,11 @@ class SourceButton: UIButton {
 
           if let p = UserDefaults.standard.value(forKey: "nombres") as? [String]
           {
-              debugPrint(p)
+//              debugPrint(p)
               self.setTitle(p[self.tag] != "" ? p[self.tag] : "\(u[self.tag] + 1)", for: .normal)
           }
           }
-          debugPrint(self.tag)
+//          debugPrint(self.tag)
           self.titleLabel?.font = .systemFont(ofSize: 14)
          }
     

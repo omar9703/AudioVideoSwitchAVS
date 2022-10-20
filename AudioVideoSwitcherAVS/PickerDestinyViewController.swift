@@ -114,10 +114,13 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
             
 //            pickerTV.reloadAllComponents()
             DispatchQueue.global(qos: .utility).async {
+                if let ipYamaha = UserDefaults.standard.string(forKey: "yamaha")
+                {
                 do
                 {
+                    
                     let client = try Socket(.inet, type: .stream, protocol: .tcp)
-                    try client.connect(port: 49280, address: "192.168.1.131")
+                    try client.connect(port: 49280, address: ipYamaha)
                     var cont = 0
 //                    try client.wait(for: .write, timeout: 2000)
                     while cont < 16 {
@@ -151,6 +154,7 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
                     debugPrint(error)
                    
                 }
+            }
             }
         }
     }

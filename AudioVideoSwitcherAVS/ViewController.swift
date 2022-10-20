@@ -12,12 +12,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var ultrixStatus: UIView!
     @IBOutlet weak var yamahaUltrix: UIView!
     @IBOutlet weak var configIpButton: UIButton!
-    @IBOutlet weak var canal14: UIView!
-    @IBOutlet weak var canal13: UIView!
-    @IBOutlet weak var canal12: UIView!
-    @IBOutlet weak var canal11: UIView!
-    @IBOutlet weak var canal10: UIView!
-    @IBOutlet weak var canal7: UIView!
+    @IBOutlet weak var canal14: CanalButtonView!
+    @IBOutlet weak var canal13: CanalButtonView!
+    @IBOutlet weak var canal12: CanalButtonView!
+    @IBOutlet weak var canal11: CanalButtonView!
+    @IBOutlet weak var canal10: CanalButtonView!
+    @IBOutlet weak var canal7: CanalButtonView!
     @IBOutlet weak var sliderView: UISlider!
     @IBOutlet weak var canal6: UIView!
     @IBOutlet weak var canal5: UIView!
@@ -27,11 +27,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var camaraAction1: UIButton!
     @IBOutlet weak var camara2: UIButton!
     @IBOutlet weak var camara3: UIButton!
-    @IBOutlet weak var canal1: UIView!
-    @IBOutlet weak var canal2: UIView!
-    @IBOutlet weak var canal9: UIView!
-    @IBOutlet weak var canal15: UIView!
-    @IBOutlet weak var canal16: UIView!
+    @IBOutlet weak var canal1: CanalButtonView!
+    @IBOutlet weak var canal2: CanalButtonView!
+    @IBOutlet weak var canal9: CanalButtonView!
+    @IBOutlet weak var canal15: CanalButtonView!
+    @IBOutlet weak var canal16: CanalButtonView!
     @IBOutlet weak var canal17: UIView!
     @IBOutlet weak var canal18: UIView!
     @IBOutlet weak var canal19: UIView!
@@ -62,6 +62,7 @@ class ViewController: UIViewController {
     var ipUltrix :  String?
     var ultrixstats = false
     var yamahaStats = false
+    var leer = false
     override func viewDidLoad() {
         super.viewDidLoad()
         channelsLabel.forEach { x in
@@ -107,6 +108,187 @@ class ViewController: UIViewController {
         ipYamaha = UserDefaults.standard.string(forKey: "yamaha")
         ipUltrix = UserDefaults.standard.string(forKey: "ultrix")
         pingFunction()
+//        getStatus()
+    }
+    func getStatusSlider()
+    {
+        do
+        {
+            
+            let client = try Socket(.inet, type: .stream, protocol: .tcp)
+            try client.connect(port: 49280, address: ipYamaha)
+            var cont = 0
+            //                    try client.wait(for: .write, timeout: 2000)
+            let message = ([UInt8])("get MIXER:Current/Mix/Fader/Level \(sliderView.tag - 1) 0\n".utf8)
+            try client.write(message)
+//            debugPrint(y)
+            var buffer = [UInt8](repeating: 0, count: 52)
+            let v = try client.read(&buffer, size: 52)
+            if let response = String(bytes: buffer, encoding: .utf8)
+            {
+                debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
+                let str = response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: "")
+                let split = str.split(separator: " ")
+                let last = String(split.suffix(1).joined(separator: [" "]))
+                debugPrint(last)
+                if let valor = Int(last)
+                {
+                    for x in self.view.subviews
+                    {
+                        if let y = x as? UISlider
+                        {
+                            switch valor {
+                            case (-28000)...(-6000):
+                                sliderView.value = -15
+                                break
+                            case (-5999)...(-5500):
+                                sliderView.value = -14
+                                break
+                            case (-5499)...(-5000):
+                                sliderView.value = -13
+                                break
+                            case (-4999)...(-4500):
+                                sliderView.value = -12
+                                break
+                            case (-4499)...(-4000):
+                                sliderView.value = -11
+                                break
+                            case (-3999)...(-3500):
+                                sliderView.value = -10
+                                break
+                            case (-3499)...(-3000):
+                                sliderView.value = -9
+                                break
+                            case (-2999)...(-2500):
+                                sliderView.value = -8
+                                break
+                            case (-2499)...(-2000):
+                                sliderView.value = -7
+                                break
+                            case (-1999)...(-1500):
+                                sliderView.value = -6
+                                break
+                            case (-1499)...(-1000):
+                                sliderView.value = -5
+                                break
+                            case (-999)...(-500):
+                                sliderView.value = -4
+                                break
+                            case (-499)...(0):
+                                sliderView.value = -3
+                                break
+                            case (0)...(300):
+                                sliderView.value = -2
+                                break
+                            case (301)...(500):
+                                sliderView.value = -1
+                                break
+                            case (501)...(700):
+                                sliderView.value = 0
+                                break
+                            case 701...1000:
+                                sliderView.value = 1
+                                break
+                            default:
+                                sliderView.value = -16
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        catch
+        {
+            debugPrint(error)
+        }
+    }
+    @objc func status(_ timer : Timer)
+    {
+        getStatus()
+        getStatusSlider()
+    }
+    func getStatus()
+    {
+        for (x,y) in SelectedChannelsIds.enumerated()
+        {
+            do
+            {
+                
+                let client = try Socket(.inet, type: .stream, protocol: .tcp)
+                try client.connect(port: 49280, address: ipYamaha)
+                var cont = 0
+                //                    try client.wait(for: .write, timeout: 2000)
+                let message = ([UInt8])("get MIXER:Current/InCh/Fader/Level \(y) 0\n".utf8)
+                try client.write(message)
+                debugPrint(y)
+                var buffer = [UInt8](repeating: 0, count: 52)
+                let v = try client.read(&buffer, size: 52)
+                if let response = String(bytes: buffer, encoding: .utf8)
+                {
+                    debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
+                    let str = response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: "")
+                    let split = str.split(separator: " ")
+                    let last = String(split.suffix(1).joined(separator: [" "]))
+                    debugPrint(last)
+                    if let valor = Int(last)
+                    {
+                        for p in self.view.subviews
+                        {
+                            //                                debugPrint(x)
+                            if let s1 = p as? UIStackView
+                            {
+                                for y in s1.subviews
+                                {
+                                    if let s2 = y as? UIStackView
+                                    {
+                                        for z in s2.subviews
+                                        {
+                                            if let f = z as? CanalButtonView
+                                            {
+                                                if f.tag == x
+                                                {
+                                                    if (valor > -7000 && valor < -100) || (valor >= 100)
+                                                    {
+                                                        DispatchQueue.main.async {
+                                                            f.backgroundColor = .red
+                                                        }
+                                                        self.selectedChannels[x] = true
+                                                    }
+                                                    else if valor >= -100 && valor < 100
+                                                    {
+                                                        DispatchQueue.main.async {
+                                                            f.backgroundColor = .blue
+                                                        }
+                                                        self.selectedChannels[x] = true
+                                                    }
+                                                    else
+                                                    {
+                                                        DispatchQueue.main.async {
+                                                            f.backgroundColor = .clear
+                                                        }
+                                                        self.selectedChannels[x] = false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            }
+                        }
+                        
+                    }
+                }
+                client.close()
+                
+            }
+            catch
+            {
+                debugPrint(error)
+                
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -182,6 +364,7 @@ class ViewController: UIViewController {
             else
             {
                 DispatchQueue.main.async {
+                    
                     self.ultrixstats = true
                     self.ultrixStatus.backgroundColor = .green
                 }
@@ -204,6 +387,14 @@ class ViewController: UIViewController {
                 else
                 {
                     DispatchQueue.main.async {
+                        if !self.leer
+                        {
+                            let timer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(self.status(_:)), userInfo: nil, repeats: true)
+                            self.status(timer)
+//                            self.getStatusSlider()
+//                            self.getStatus()
+                            self.leer.toggle()
+                        }
                         self.yamahaStats = true
                         self.yamahaUltrix.backgroundColor = .green
                     }
@@ -319,7 +510,7 @@ class ViewController: UIViewController {
     }
     
     @objc func canalAction(_ sender: UITapGestureRecognizer) {
-        debugPrint("holis")
+        debugPrint("holis", sender.view?.tag)
         if !isModeConfig && yamahaStats
         {
             if let ipYamaha = ipYamaha {
