@@ -25,7 +25,10 @@ class SourceButton: UIButton {
          }
 
       private func setup() {
-          
+          self.layer.cornerRadius = self.frame.width / 2
+          self.layer.borderWidth = 3
+          self.layer.borderColor = UIColor(red: 108/255, green: 127/255, blue: 227/255, alpha: 1).cgColor
+          self.backgroundColor = UIColor(red: 61/255, green: 121/255, blue: 196/255, alpha: 1)
           self.tag = (Int(self.currentTitle ?? "0") ?? 0) - 1
           let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
                   self.addGestureRecognizer(longPressRecognizer)

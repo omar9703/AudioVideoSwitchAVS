@@ -19,11 +19,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var canal10: CanalButtonView!
     @IBOutlet weak var canal7: CanalButtonView!
     @IBOutlet weak var sliderView: UISlider!
-    @IBOutlet weak var canal6: UIView!
-    @IBOutlet weak var canal5: UIView!
-    @IBOutlet weak var canal4: UIView!
-    @IBOutlet weak var canal3: UIView!
-    @IBOutlet weak var canal8: UIView!
+    @IBOutlet weak var canal6: CanalButtonView!
+    @IBOutlet weak var canal5: CanalButtonView!
+    @IBOutlet weak var canal4: CanalButtonView!
+    @IBOutlet weak var canal3: CanalButtonView!
+    @IBOutlet weak var canal8: CanalButtonView!
     @IBOutlet weak var camaraAction1: UIButton!
     @IBOutlet weak var camara2: UIButton!
     @IBOutlet weak var camara3: UIButton!
@@ -32,18 +32,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var canal9: CanalButtonView!
     @IBOutlet weak var canal15: CanalButtonView!
     @IBOutlet weak var canal16: CanalButtonView!
-    @IBOutlet weak var canal17: UIView!
-    @IBOutlet weak var canal18: UIView!
-    @IBOutlet weak var canal19: UIView!
-    @IBOutlet weak var canal20: UIView!
+    @IBOutlet weak var canal17: CanalButtonView!
+    @IBOutlet weak var canal18: CanalButtonView!
+    @IBOutlet weak var canal19: CanalButtonView!
+    @IBOutlet weak var canal20: CanalButtonView!
     @IBOutlet weak var LabelTV: UILabel!
     @IBOutlet weak var mixLabel: UILabel!
     @IBOutlet var myButtons: [UIButton]!
     @IBOutlet weak var configLabel: UILabel!
     @IBOutlet weak var configSwitch: UISwitch!
-    @IBOutlet var channelsLabel : [UILabel]!
-    @IBOutlet var channelsImages : [UIImageView]!
-    @IBOutlet var SoloButtons : [UIButton]!
     var tvRow = 0
     var pingLoaded = false
     var selectedChannels = [false, false, false, false,false,false,false,false,false, false, false, false,false,false,false,false, false, false, false,false]
@@ -65,9 +62,7 @@ class ViewController: UIViewController {
     var leer = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        channelsLabel.forEach { x in
-            x.isHidden = true
-        }
+        
         buttonsTV.append(camaraAction1)
         canal1.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.canalAction(_:))))
         canal2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.canalAction(_:))))
@@ -411,22 +406,12 @@ class ViewController: UIViewController {
             configLabel.isHidden = true
             configSwitch.isHidden = true
             mixLabel.isHidden = true
-            channelsLabel.forEach { x in
-                x.isHidden = true
-            }
-            channelsImages.forEach { x in
-                x.isHidden = false
-            }
             configIpButton.isHidden = true
         }
         else
         {
-            channelsImages.forEach { x in
-                x.isHidden = true
-            }
-            channelsLabel.forEach { x in
-                x.isHidden = false
-            }
+            
+            
             configIpButton.isHidden = false
         }
     }
@@ -449,30 +434,19 @@ class ViewController: UIViewController {
     @IBAction func camaraAction(_ sender: UIButton) {
         if !isModeConfig && ultrixstats
         {
-            //        selectedCamara[sender.tag - 1] =  true
-            //        for (y,x) in selectedCamara.enumerated()
-            //        {
-            //            if y == sender.tag - 1
-            //            {
-            //                buttonsTV[y].backgroundColor = .blue
-            //            }
-            //            else
-            //            {
-            //                selectedCamara[y] = false
-            //                buttonsTV[y].backgroundColor = .clear
-            //            }
-            //        }
             if let ipUltrix = ipUltrix {
                 debugPrint(sender.tag, ipUltrix)
                 for x in myButtons
                 {
                     if x == sender
                     {
-                        sender.backgroundColor = .blue
+                        sender.backgroundColor = UIColor(red: 195/255, green: 24/255, blue: 53/255, alpha: 1)
+                        x.layer.borderColor = UIColor(red: 231/255, green: 25/255, blue: 76/255, alpha: 1).cgColor
                     }
                     else
                     {
-                        x.backgroundColor = .lightGray
+                        x.layer.borderColor = UIColor(red: 108/255, green: 127/255, blue: 227/255, alpha: 1).cgColor
+                        x.backgroundColor = UIColor(red: 61/255, green: 121/255, blue: 196/255, alpha: 1)
                     }
                 }
                 debugPrint(self.selectedUltrixIds[sender.tag]+1)
@@ -520,13 +494,25 @@ class ViewController: UIViewController {
                 {
                     selectedChannels[sender.view?.tag ?? 1] = true
                     nivel = 0
-                    sender.view?.backgroundColor = .blue
+                    for x in sender.view!.subviews
+                    {
+                        if x.isKind(of: UILabel.self)
+                        {
+                            x.backgroundColor = UIColor(red: 195/255, green: 24/255, blue: 53/255, alpha: 1)
+                        }
+                    }
                 }
                 else
                 {
                     selectedChannels[sender.view?.tag ?? 1] = false
                     nivel = -32768
-                    sender.view?.backgroundColor = .clear
+                    for x in sender.view!.subviews
+                    {
+                        if x.isKind(of: UILabel.self)
+                        {
+                            x.backgroundColor = UIColor(red: 25/255, green: 31/255, blue: 49/255, alpha: 1)
+                        }
+                    }
                 }
                 let t = SelectedChannelsIds[sender.view?.tag ?? 0]
                 debugPrint(t)
@@ -734,6 +720,7 @@ extension UIViewController
 
 extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDelegate, channelSetDelegate, configPressedDelegate, pickerButtonDelegate
 {
+    // cambio de id y nombre del ultrix
     func buttonSelected(row: Int, nombre: String?) {
         buttonsetting?.setTitle(nombre ?? "\(row + 1)", for: .normal)
         nombresUltrix[buttonsetting?.tag ?? 0] = nombre ?? ""
@@ -742,7 +729,7 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
         UserDefaults.standard.set(selectedUltrixIds, forKey: "ultr")
         debugPrint(nombresUltrix)
     }
-    
+    // cambio de ip de los dispositivos
     func setIpPressed() {
         ipYamaha = UserDefaults.standard.string(forKey: "yamaha")
         ipUltrix = UserDefaults.standard.string(forKey: "ultrix")
@@ -756,25 +743,28 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
         var id = 0
         var t = 0
         var n = channelName
-        for x in ChannelSetting!.superview!.subviews
-        {
-            if !x.isKind(of: CanalButtonView.self)
-            {
-                debugPrint(x.subviews)
-                SelectedChannelsIds[x.subviews.first?.tag ?? 0] = channelRow
-                selctedSoloIds[x.subviews.first?.tag ?? 0] = channelRow
-                id = channelRow
-                t = x.subviews.first?.tag ?? 0
-                break
-            }
-        }
+        SelectedChannelsIds[(ChannelSetting as? CanalButtonView)?.tag ?? 0] = channelRow
+        selctedSoloIds[(ChannelSetting as? CanalButtonView)?.tag ?? 0] = channelRow
+        id = channelRow
+        t = (ChannelSetting as? CanalButtonView)?.tag ?? 0
+                
 //        ChannelSetting?.tag = channelRow
         for x in ChannelSetting!.subviews
         {
             if x.isKind(of: UILabel.self)
             {
                 (x as? UILabel)?.text = channelName
-                break
+                
+            }
+            else if x.isKind(of: UIView.self)
+            {
+                for y in x.subviews
+                {
+                    if (y as? UILabel)?.tag == 1
+                    {
+                        (y as? UILabel)?.text = String(channelRow + 1)
+                    }
+                }
             }
         }
         if imagenURL != ""

@@ -28,7 +28,7 @@ class CanalButtonView: UIView {
 
       private func setup() {
 //          self.tag = (Int(self.currentTitle ?? "0") ?? 0) - 1
-          
+//          delegate = self.parentContainerViewController as? ViewController
           let ch = channelData.getCanal(tag: self.tag)
           dataBDD = ch
           let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
@@ -36,10 +36,13 @@ class CanalButtonView: UIView {
 //          debugPrint(superview?.isKind(of: UIStackView.self))
           for x in subviews
           {
+              debugPrint(x)
               if x.isKind(of: UILabel.self)
               {
-                  (x as? UILabel)?.text = ch?.nombre ?? ("Canal \(self.tag + 1)")
-                  (x as? UILabel)?.textAlignment = .center
+                  
+                (x as? UILabel)?.text = ch?.nombre ?? ("Canal")
+                (x as? UILabel)?.textAlignment = .center
+    
               }
               else if x.isKind(of: UIImageView.self)
               {
@@ -58,6 +61,17 @@ class CanalButtonView: UIView {
 
                   }
               }
+              else if x.isKind(of: UIView.self)
+              {
+                  for y in x.subviews
+                  {
+                      if (y as? UILabel)?.tag == 1
+                      {
+                          (y as? UILabel)?.text = String((ch?.canalId ?? self.tag) + 1)
+                      }
+                  }
+              }
+              
           }
           
          }
