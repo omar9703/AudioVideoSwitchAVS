@@ -30,8 +30,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "761"
-            endingLineNumber = "761"
+            startingLineNumber = "773"
+            endingLineNumber = "773"
             landmarkName = "channelSelected(channelRow:channelName:imagenURL:data:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "826"
-            endingLineNumber = "826"
+            startingLineNumber = "838"
+            endingLineNumber = "838"
             landmarkName = "selectedSourceButton(tag:imagen:imagendata:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "793"
-            endingLineNumber = "793"
+            startingLineNumber = "805"
+            endingLineNumber = "805"
             landmarkName = "channelSelected(channelRow:channelName:imagenURL:data:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "789"
-            endingLineNumber = "789"
+            startingLineNumber = "801"
+            endingLineNumber = "801"
             landmarkName = "channelSelected(channelRow:channelName:imagenURL:data:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "787"
-            endingLineNumber = "787"
+            startingLineNumber = "799"
+            endingLineNumber = "799"
             landmarkName = "channelSelected(channelRow:channelName:imagenURL:data:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "796"
-            endingLineNumber = "796"
+            startingLineNumber = "808"
+            endingLineNumber = "808"
             landmarkName = "channelSelected(channelRow:channelName:imagenURL:data:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +158,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "464"
-            endingLineNumber = "464"
+            startingLineNumber = "476"
+            endingLineNumber = "476"
             landmarkName = "camaraAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,8 +174,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "460"
-            endingLineNumber = "460"
+            startingLineNumber = "472"
+            endingLineNumber = "472"
             landmarkName = "camaraAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +190,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "463"
-            endingLineNumber = "463"
+            startingLineNumber = "475"
+            endingLineNumber = "475"
             landmarkName = "camaraAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -206,8 +206,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
             landmarkName = "pingFunction()"
             landmarkType = "7">
          </BreakpointContent>
@@ -222,8 +222,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
             landmarkName = "pingFunction()"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,9 +254,9 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "744"
-            endingLineNumber = "744"
-            landmarkName = "buttonSelected(row:nombre:)"
+            startingLineNumber = "756"
+            endingLineNumber = "756"
+            landmarkName = "setIpPressed()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -270,8 +270,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "378"
-            endingLineNumber = "378"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
             landmarkName = "pingFunction()"
             landmarkType = "7">
             <Locations>
@@ -366,8 +366,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "getStatus()"
             landmarkType = "7">
          </BreakpointContent>
@@ -382,9 +382,9 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
-            landmarkName = "getStatus()"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -398,8 +398,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "496"
-            endingLineNumber = "496"
+            startingLineNumber = "508"
+            endingLineNumber = "508"
             landmarkName = "canalAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -414,8 +414,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "498"
-            endingLineNumber = "498"
+            startingLineNumber = "510"
+            endingLineNumber = "510"
             landmarkName = "canalAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -430,8 +430,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "776"
-            endingLineNumber = "776"
+            startingLineNumber = "788"
+            endingLineNumber = "788"
             landmarkName = "channelSelected(channelRow:channelName:imagenURL:data:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -446,8 +446,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "778"
-            endingLineNumber = "778"
+            startingLineNumber = "790"
+            endingLineNumber = "790"
             landmarkName = "channelSelected(channelRow:channelName:imagenURL:data:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -462,8 +462,8 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "774"
-            endingLineNumber = "774"
+            startingLineNumber = "786"
+            endingLineNumber = "786"
             landmarkName = "channelSelected(channelRow:channelName:imagenURL:data:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -478,9 +478,9 @@
             filePath = "AudioVideoSwitcherAVS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "830"
-            endingLineNumber = "830"
-            landmarkName = "selectedSourceButton(tag:imagen:imagendata:)"
+            startingLineNumber = "842"
+            endingLineNumber = "842"
+            landmarkName = "selectedSourceButton(tag:boton:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

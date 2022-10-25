@@ -238,36 +238,48 @@ class ViewController: UIViewController {
                             {
                                 for y in s1.subviews
                                 {
-                                    if let s2 = y as? UIStackView
+                                    if let f = y as? CanalButtonView
                                     {
-                                        for z in s2.subviews
+                                        if f.tag == x
                                         {
-                                            if let f = z as? CanalButtonView
+                                            if (valor > -7000 && valor < -100) || (valor >= 100)
                                             {
-                                                if f.tag == x
-                                                {
-                                                    if (valor > -7000 && valor < -100) || (valor >= 100)
+                                                DispatchQueue.main.async {
+                                                    for h in f.subviews
                                                     {
-                                                        DispatchQueue.main.async {
-                                                            f.backgroundColor = .red
+                                                        if h.isKind(of: UILabel.self)
+                                                        {
+                                                            h.backgroundColor = .blue
                                                         }
-                                                        self.selectedChannels[x] = true
-                                                    }
-                                                    else if valor >= -100 && valor < 100
-                                                    {
-                                                        DispatchQueue.main.async {
-                                                            f.backgroundColor = .blue
-                                                        }
-                                                        self.selectedChannels[x] = true
-                                                    }
-                                                    else
-                                                    {
-                                                        DispatchQueue.main.async {
-                                                            f.backgroundColor = .clear
-                                                        }
-                                                        self.selectedChannels[x] = false
                                                     }
                                                 }
+                                                self.selectedChannels[x] = true
+                                            }
+                                            else if valor >= -100 && valor < 100
+                                            {
+                                                DispatchQueue.main.async {
+                                                    for h in f.subviews
+                                                    {
+                                                        if h.isKind(of: UILabel.self)
+                                                        {
+                                                            h.backgroundColor = UIColor(red: 195/255, green: 24/255, blue: 53/255, alpha: 1)
+                                                        }
+                                                    }
+                                                }
+                                                self.selectedChannels[x] = true
+                                            }
+                                            else
+                                            {
+                                                DispatchQueue.main.async {
+                                                    for h in f.subviews
+                                                    {
+                                                        if h.isKind(of: UILabel.self)
+                                                        {
+                                                            h.backgroundColor = UIColor(red: 61/255, green: 121/255, blue: 196/255, alpha: 1)
+                                                        }
+                                                    }
+                                                }
+                                                self.selectedChannels[x] = false
                                             }
                                         }
                                     }
