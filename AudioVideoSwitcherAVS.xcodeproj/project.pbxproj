@@ -22,6 +22,9 @@
 		1049971528EB3FB4001E9ED6 /* pickerFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049971328EB3FB3001E9ED6 /* pickerFieldViewController.swift */; };
 		10CBA4E528E772B800C0A28A /* AVModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10CBA4E328E772B800C0A28A /* AVModel.xcdatamodeld */; };
 		10CBA4E828E7731E00C0A28A /* ChannelYamaha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CBA4E728E7731E00C0A28A /* ChannelYamaha.swift */; };
+		10CC198D29085D4100672B20 /* Knockout-HTF52-Cruiserweight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10CC198C29085D4100672B20 /* Knockout-HTF52-Cruiserweight.otf */; };
+		10CC198F29085D4B00672B20 /* Knockout HTF49Liteweight Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10CC198E29085D4B00672B20 /* Knockout HTF49Liteweight Regular.otf */; };
+		10CC199129085D5400672B20 /* Knockout HTF47Bantamweight Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10CC199029085D5400672B20 /* Knockout HTF47Bantamweight Regular.otf */; };
 		EDBDE5932997D90B186D807C /* Pods_AudioVideoSwitcherAVS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B8F004F5C69DD9F2036A5A /* Pods_AudioVideoSwitcherAVS.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		1049971328EB3FB3001E9ED6 /* pickerFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerFieldViewController.swift; sourceTree = "<group>"; };
 		10CBA4E428E772B800C0A28A /* AVModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AVModel.xcdatamodel; sourceTree = "<group>"; };
 		10CBA4E728E7731E00C0A28A /* ChannelYamaha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelYamaha.swift; sourceTree = "<group>"; };
+		10CC198C29085D4100672B20 /* Knockout-HTF52-Cruiserweight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knockout-HTF52-Cruiserweight.otf"; sourceTree = "<group>"; };
+		10CC198E29085D4B00672B20 /* Knockout HTF49Liteweight Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knockout HTF49Liteweight Regular.otf"; sourceTree = "<group>"; };
+		10CC199029085D5400672B20 /* Knockout HTF47Bantamweight Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knockout HTF47Bantamweight Regular.otf"; sourceTree = "<group>"; };
 		163492074C892D8F82A38413 /* Pods-AudioVideoSwitcherAVS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioVideoSwitcherAVS.release.xcconfig"; path = "Target Support Files/Pods-AudioVideoSwitcherAVS/Pods-AudioVideoSwitcherAVS.release.xcconfig"; sourceTree = "<group>"; };
 		89B8F004F5C69DD9F2036A5A /* Pods_AudioVideoSwitcherAVS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioVideoSwitcherAVS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E3BDCB9C6BA00E91F40DD3 /* Pods-AudioVideoSwitcherAVS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioVideoSwitcherAVS.debug.xcconfig"; path = "Target Support Files/Pods-AudioVideoSwitcherAVS/Pods-AudioVideoSwitcherAVS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +87,7 @@
 		072A55F928C969E10032F59C /* AudioVideoSwitcherAVS */ = {
 			isa = PBXGroup;
 			children = (
+				10CC198B29085D2C00672B20 /* Fonts */,
 				10CBA4E628E7730000C0A28A /* Representations */,
 				072A560E28C96D340032F59C /* Views */,
 				072A55FA28C969E10032F59C /* AppDelegate.swift */,
@@ -115,6 +122,16 @@
 				10CBA4E728E7731E00C0A28A /* ChannelYamaha.swift */,
 			);
 			path = Representations;
+			sourceTree = "<group>";
+		};
+		10CC198B29085D2C00672B20 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				10CC198C29085D4100672B20 /* Knockout-HTF52-Cruiserweight.otf */,
+				10CC198E29085D4B00672B20 /* Knockout HTF49Liteweight Regular.otf */,
+				10CC199029085D5400672B20 /* Knockout HTF47Bantamweight Regular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		B06EFEB886D0B48417358B26 /* Frameworks */ = {
@@ -195,7 +212,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				072A560728C969E40032F59C /* LaunchScreen.storyboard in Resources */,
+				10CC198F29085D4B00672B20 /* Knockout HTF49Liteweight Regular.otf in Resources */,
 				072A560428C969E40032F59C /* Assets.xcassets in Resources */,
+				10CC199129085D5400672B20 /* Knockout HTF47Bantamweight Regular.otf in Resources */,
+				10CC198D29085D4100672B20 /* Knockout-HTF52-Cruiserweight.otf in Resources */,
 				072A560228C969E10032F59C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +439,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,6 +470,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

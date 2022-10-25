@@ -41,6 +41,7 @@ class ViewController: UIViewController {
     @IBOutlet var myButtons: [UIButton]!
     @IBOutlet weak var configLabel: UILabel!
     @IBOutlet weak var configSwitch: UISwitch!
+    @IBOutlet var soloButtons : [UIView]!
     var tvRow = 0
     var pingLoaded = false
     var selectedChannels = [false, false, false, false,false,false,false,false,false, false, false, false,false,false,false,false, false, false, false,false]
@@ -62,7 +63,9 @@ class ViewController: UIViewController {
     var leer = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        soloButtons.forEach { t in
+            t.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.SoloAction(_:))))
+        }
         buttonsTV.append(camaraAction1)
         canal1.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.canalAction(_:))))
         canal2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.canalAction(_:))))
@@ -544,27 +547,35 @@ class ViewController: UIViewController {
         }
         
     }
-    @IBAction func SoloAction(_ sender: UIButton) {
-        debugPrint(sender.tag)
+    @objc func SoloAction(_ sender: UITapGestureRecognizer) {
+        debugPrint(sender.view!.tag)
         if !isModeConfig && yamahaStats
         {
             if let ipYamaha = ipYamaha {
                 debugPrint(ipYamaha)
                 var nivel = 0
                 
-                if !selectedSolo[sender.tag]
+                if !selectedSolo[sender.view!.tag]
                 {
-                    selectedSolo[sender.tag] = true
+                    selectedSolo[sender.view!.tag] = true
                     nivel = 0
-                    sender.backgroundColor = .blue
+                    sender.view!.backgroundColor = UIColor(red: 255/255, green: 156/255, blue: 0/255, alpha: 1)
+                    for x in sender.view!.subviews
+                    {
+                        (x as? UIImageView)?.image = UIImage(named: "auriculares")
+                    }
                 }
                 else
                 {
-                    selectedSolo[sender.tag] = false
+                    selectedSolo[sender.view!.tag] = false
                     nivel = -32768
-                    sender.backgroundColor = .lightGray
+                    sender.view!.backgroundColor = UIColor(red: 69/255, green: 93/255, blue: 220/255, alpha: 1)
+                    for x in sender.view!.subviews
+                    {
+                        (x as? UIImageView)?.image = UIImage(named: "microfono")
+                    }
                 }
-                debugPrint(self.selctedSoloIds[sender.tag])
+                debugPrint(self.selctedSoloIds[sender.view!.tag])
                 DispatchQueue.global(qos: .utility).async {
                     do
                     {
@@ -572,7 +583,7 @@ class ViewController: UIViewController {
                         try client.connect(port: 49280, address: ipYamaha)
                         let w = try client.wait(for: .write, timeout: 1, retryOnInterrupt: false)
                         debugPrint(w)
-                        let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.selctedSoloIds[sender.tag]) \(self.sliderView.tag - 1) \(nivel) \n".utf8)
+                        let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.selctedSoloIds[sender.view!.tag]) \(self.sliderView.tag - 1) \(nivel) \n".utf8)
                         try client.write(message)
                         
                         debugPrint("holis")
@@ -584,7 +595,11 @@ class ViewController: UIViewController {
                     {
                         debugPrint(error)
                         DispatchQueue.main.async {
-                            sender.backgroundColor = .lightGray
+                            sender.view!.backgroundColor = UIColor(red: 69/255, green: 93/255, blue: 220/255, alpha: 1)
+                            for x in sender.view!.subviews
+                            {
+                                (x as? UIImageView)?.image = UIImage(named: "microfono")
+                            }
                         }
                     }
                 }

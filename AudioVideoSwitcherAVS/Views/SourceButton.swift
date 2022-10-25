@@ -36,6 +36,7 @@ class SourceButton: UIButton {
           if let u = UserDefaults.standard.value(forKey: "ultr") as? [Int]
           {
               self.setTitle("\(u[self.tag] + 1)", for: .normal)
+             
 
           if let p = UserDefaults.standard.value(forKey: "nombres") as? [String]
           {
@@ -43,8 +44,7 @@ class SourceButton: UIButton {
               self.setTitle(p[self.tag] != "" ? p[self.tag] : "\(u[self.tag] + 1)", for: .normal)
           }
           }
-//          debugPrint(self.tag)
-          self.titleLabel?.font = .systemFont(ofSize: 14)
+          self.titleLabel?.font = UIFont(name: "Knockout-HTF52-Cruiserweight", size: 14)
          }
     
     

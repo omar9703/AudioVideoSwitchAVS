@@ -42,6 +42,7 @@ class CanalButtonView: UIView {
                   
                 (x as? UILabel)?.text = ch?.nombre ?? ("Canal")
                 (x as? UILabel)?.textAlignment = .center
+                  (x as? UILabel)?.font = UIFont(name: "Knockout-HTF52-Cruiserweight", size: 14)
     
               }
               else if x.isKind(of: UIImageView.self)
@@ -68,6 +69,11 @@ class CanalButtonView: UIView {
                       if (y as? UILabel)?.tag == 1
                       {
                           (y as? UILabel)?.text = String((ch?.canalId ?? self.tag) + 1)
+                          (y as? UILabel)?.font = UIFont(name: "Knockout-HTF52-Cruiserweight", size: 17)
+                      }
+                      if let _ = y as? UIImageView
+                      {
+                          x.tag = self.tag
                       }
                   }
               }
