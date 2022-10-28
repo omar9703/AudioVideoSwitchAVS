@@ -1171,7 +1171,7 @@
                                                     <constraint firstItem="D1X-GG-jXx" firstAttribute="centerX" secondItem="QN1-Cj-L0f" secondAttribute="centerX" id="w07-eV-s9z"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="Q8S-m1-VsC">
+                                            <imageView clipsSubviews="YES" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="Q8S-m1-VsC">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -1246,7 +1246,7 @@
                                                     <constraint firstItem="ILw-df-3aJ" firstAttribute="centerY" secondItem="hd7-iA-yZW" secondAttribute="centerY" id="Zta-3e-bQP"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="TMP-u6-xWe">
+                                            <imageView clipsSubviews="YES" tag="16" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="TMP-u6-xWe">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -1321,7 +1321,7 @@
                                                     <constraint firstItem="H5l-dP-8pq" firstAttribute="centerX" secondItem="dVV-eZ-2fY" secondAttribute="centerX" id="zkg-mj-Ncb"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="Qsp-RZ-FL0">
+                                            <imageView clipsSubviews="YES" tag="17" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="Qsp-RZ-FL0">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -1396,7 +1396,7 @@
                                                     <constraint firstItem="vMq-VG-5Za" firstAttribute="centerX" secondItem="wgJ-Ok-q7K" secondAttribute="centerX" id="yK6-iV-QuE"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="7RH-Vh-EUf">
+                                            <imageView clipsSubviews="YES" tag="18" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="7RH-Vh-EUf">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -1471,7 +1471,7 @@
                                                     <constraint firstItem="UHq-wz-uGr" firstAttribute="centerY" secondItem="URc-zn-2OU" secondAttribute="centerY" id="rrz-Zj-Kh3"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="L8h-Xe-gzv">
+                                            <imageView clipsSubviews="YES" tag="19" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="L8h-Xe-gzv">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -1554,7 +1554,7 @@
                                                     <constraint firstAttribute="height" constant="25" id="uj1-1q-8uW"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="g8d-tG-cil">
+                                            <imageView clipsSubviews="YES" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="g8d-tG-cil">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -1629,7 +1629,7 @@
                                                     <constraint firstAttribute="width" constant="25" id="t0R-nF-qWd"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="C3J-AE-juJ">
+                                            <imageView clipsSubviews="YES" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="C3J-AE-juJ">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -1704,7 +1704,7 @@
                                                     <constraint firstAttribute="height" constant="25" id="tCB-HX-W9z"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="b7K-ze-d4t">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="b7K-ze-d4t">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -1779,7 +1779,7 @@
                                                     <constraint firstAttribute="height" constant="25" id="zZ7-Uv-MlC"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="3cO-95-EJB">
+                                            <imageView clipsSubviews="YES" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="3cO-95-EJB">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -1854,7 +1854,7 @@
                                                     <constraint firstAttribute="width" constant="25" id="dmv-6o-CFj"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="YJN-G3-zco">
+                                            <imageView clipsSubviews="YES" tag="14" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="YJN-G3-zco">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -1937,7 +1937,7 @@
                                                     <constraint firstAttribute="height" constant="25" id="wnp-H7-1A5"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="ziQ-uV-ypj">
+                                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="ziQ-uV-ypj">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -2012,7 +2012,7 @@
                                                     <constraint firstItem="XwJ-IF-8NJ" firstAttribute="centerX" secondItem="rvt-Qq-073" secondAttribute="centerX" id="ibe-4P-ceO"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="B1F-Rz-Ius">
+                                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="B1F-Rz-Ius">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -2087,7 +2087,7 @@
                                                     <constraint firstItem="ABN-tf-faM" firstAttribute="centerX" secondItem="V4s-58-18T" secondAttribute="centerX" id="pYp-iG-zk3"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="Qmy-nY-njd">
+                                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="Qmy-nY-njd">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -2162,7 +2162,7 @@
                                                     <constraint firstItem="NBW-yG-Vuk" firstAttribute="centerY" secondItem="GIP-rN-Na2" secondAttribute="centerY" id="yWv-yh-A9O"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="aDF-qE-Ae1">
+                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="aDF-qE-Ae1">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -2237,7 +2237,7 @@
                                                     <constraint firstAttribute="height" constant="25" id="wmw-fS-eQ1"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="akL-cD-eal">
+                                            <imageView clipsSubviews="YES" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="akL-cD-eal">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -2327,7 +2327,7 @@
                                                     <constraint firstAttribute="height" constant="25" id="sId-FD-JDS"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="LP4-0S-0o4">
+                                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="LP4-0S-0o4">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -2402,7 +2402,7 @@
                                                     <constraint firstAttribute="height" constant="25" id="p3D-0b-MpK"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="a4R-7q-ZwC">
+                                            <imageView clipsSubviews="YES" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="a4R-7q-ZwC">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -2477,7 +2477,7 @@
                                                     <constraint firstAttribute="width" constant="25" id="u52-6X-akB"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="8Xv-Z4-yAn">
+                                            <imageView clipsSubviews="YES" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="8Xv-Z4-yAn">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -2552,7 +2552,7 @@
                                                     <constraint firstItem="TAv-hp-B7Q" firstAttribute="centerX" secondItem="vpu-0n-wfu" secondAttribute="centerX" id="qGh-CU-79R"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="Pgb-EO-JnU">
+                                            <imageView clipsSubviews="YES" tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="Pgb-EO-JnU">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -2627,7 +2627,7 @@
                                                     <constraint firstAttribute="width" constant="25" id="wj3-ix-tCK"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="Ul5-qC-afQ">
+                                            <imageView clipsSubviews="YES" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SELEC IMG" translatesAutoresizingMaskIntoConstraints="NO" id="Ul5-qC-afQ">
                                                 <rect key="frame" x="25" y="0.0" width="90" height="105"/>
                                             </imageView>
                                         </subviews>
@@ -2737,26 +2737,26 @@
                         <outlet property="camara2" destination="0CE-vo-UYv" id="qU1-gM-rSD"/>
                         <outlet property="camara3" destination="Bjd-8l-I0I" id="5Zh-KU-eGK"/>
                         <outlet property="camaraAction1" destination="PZg-fB-Fao" id="yQU-ef-AJK"/>
-                        <outlet property="canal1" destination="GzA-rr-jnP" id="tG8-ku-tvl"/>
-                        <outlet property="canal10" destination="FME-a0-2im" id="xgq-rs-pxh"/>
-                        <outlet property="canal11" destination="usT-UC-vkR" id="lle-kz-C0N"/>
-                        <outlet property="canal12" destination="qXc-dI-UO7" id="eMt-1w-FCp"/>
-                        <outlet property="canal13" destination="7je-aE-IZT" id="vsK-kA-Uh2"/>
-                        <outlet property="canal14" destination="fYI-AA-9gx" id="mux-Qg-0fm"/>
-                        <outlet property="canal15" destination="tAL-4a-Kua" id="d1B-fF-5m1"/>
-                        <outlet property="canal16" destination="hzq-s6-PRQ" id="NsH-L6-osm"/>
-                        <outlet property="canal17" destination="f91-Wt-ZWj" id="2Ao-G6-GUr"/>
-                        <outlet property="canal18" destination="Kf5-T2-pvp" id="BK3-CU-3xI"/>
-                        <outlet property="canal19" destination="JDl-Tk-1Vc" id="r2G-KE-ZLX"/>
-                        <outlet property="canal2" destination="tHl-ZZ-ZZD" id="P5b-sv-49v"/>
-                        <outlet property="canal20" destination="Va9-nH-4D5" id="hh9-QD-Ko9"/>
-                        <outlet property="canal3" destination="za0-Jk-sgB" id="Dut-QO-imu"/>
-                        <outlet property="canal4" destination="rGG-Uz-20f" id="0M8-U7-FBe"/>
-                        <outlet property="canal5" destination="49e-oF-Bla" id="UjI-tN-tpm"/>
-                        <outlet property="canal6" destination="1KO-hV-mci" id="cuc-Nr-VY3"/>
-                        <outlet property="canal7" destination="LJM-8q-Hv8" id="UKV-bf-frc"/>
-                        <outlet property="canal8" destination="KlR-Kn-jwt" id="W4T-9k-kX3"/>
-                        <outlet property="canal9" destination="SzS-55-ZDc" id="XfI-iN-r2k"/>
+                        <outlet property="canal1" destination="ziQ-uV-ypj" id="2bk-IW-wn1"/>
+                        <outlet property="canal10" destination="Ul5-qC-afQ" id="maH-cx-761"/>
+                        <outlet property="canal11" destination="g8d-tG-cil" id="P2N-T9-YQa"/>
+                        <outlet property="canal12" destination="C3J-AE-juJ" id="UAT-8e-aNF"/>
+                        <outlet property="canal13" destination="b7K-ze-d4t" id="29C-No-zAw"/>
+                        <outlet property="canal14" destination="3cO-95-EJB" id="0Gq-AO-2OB"/>
+                        <outlet property="canal15" destination="YJN-G3-zco" id="MDw-C7-sQ9"/>
+                        <outlet property="canal16" destination="Q8S-m1-VsC" id="GSo-3V-TWf"/>
+                        <outlet property="canal17" destination="TMP-u6-xWe" id="q2w-ZG-2GN"/>
+                        <outlet property="canal18" destination="Qsp-RZ-FL0" id="ARY-dt-Ba7"/>
+                        <outlet property="canal19" destination="7RH-Vh-EUf" id="bf3-Rc-FCr"/>
+                        <outlet property="canal2" destination="B1F-Rz-Ius" id="drp-0n-iJI"/>
+                        <outlet property="canal20" destination="L8h-Xe-gzv" id="kYW-jt-A5x"/>
+                        <outlet property="canal3" destination="Qmy-nY-njd" id="GAn-SY-7Ha"/>
+                        <outlet property="canal4" destination="aDF-qE-Ae1" id="V7l-9J-u0m"/>
+                        <outlet property="canal5" destination="akL-cD-eal" id="WMv-cp-ZNM"/>
+                        <outlet property="canal6" destination="LP4-0S-0o4" id="vOm-BG-PBt"/>
+                        <outlet property="canal7" destination="a4R-7q-ZwC" id="0E3-9y-FcR"/>
+                        <outlet property="canal8" destination="8Xv-Z4-yAn" id="fD3-oi-TZs"/>
+                        <outlet property="canal9" destination="Pgb-EO-JnU" id="mts-qB-SmJ"/>
                         <outlet property="configIpButton" destination="rLm-i0-0mQ" id="tdp-RD-CbR"/>
                         <outlet property="configLabel" destination="oVj-cj-CMm" id="ZXn-oH-jvy"/>
                         <outlet property="configSwitch" destination="cN2-OF-1z6" id="LjD-tI-RBa"/>

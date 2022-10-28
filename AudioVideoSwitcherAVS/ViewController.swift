@@ -12,30 +12,30 @@ class ViewController: UIViewController {
     @IBOutlet weak var ultrixStatus: UIView!
     @IBOutlet weak var yamahaUltrix: UIView!
     @IBOutlet weak var configIpButton: UIButton!
-    @IBOutlet weak var canal14: CanalButtonView!
-    @IBOutlet weak var canal13: CanalButtonView!
-    @IBOutlet weak var canal12: CanalButtonView!
-    @IBOutlet weak var canal11: CanalButtonView!
-    @IBOutlet weak var canal10: CanalButtonView!
-    @IBOutlet weak var canal7: CanalButtonView!
+    @IBOutlet weak var canal14: UIImageView!
+    @IBOutlet weak var canal13: UIImageView!
+    @IBOutlet weak var canal12: UIImageView!
+    @IBOutlet weak var canal11: UIImageView!
+    @IBOutlet weak var canal10: UIImageView!
+    @IBOutlet weak var canal7: UIImageView!
     @IBOutlet weak var sliderView: UISlider!
-    @IBOutlet weak var canal6: CanalButtonView!
-    @IBOutlet weak var canal5: CanalButtonView!
-    @IBOutlet weak var canal4: CanalButtonView!
-    @IBOutlet weak var canal3: CanalButtonView!
-    @IBOutlet weak var canal8: CanalButtonView!
+    @IBOutlet weak var canal6: UIImageView!
+    @IBOutlet weak var canal5: UIImageView!
+    @IBOutlet weak var canal4: UIImageView!
+    @IBOutlet weak var canal3: UIImageView!
+    @IBOutlet weak var canal8: UIImageView!
     @IBOutlet weak var camaraAction1: UIButton!
     @IBOutlet weak var camara2: UIButton!
     @IBOutlet weak var camara3: UIButton!
-    @IBOutlet weak var canal1: CanalButtonView!
-    @IBOutlet weak var canal2: CanalButtonView!
-    @IBOutlet weak var canal9: CanalButtonView!
-    @IBOutlet weak var canal15: CanalButtonView!
-    @IBOutlet weak var canal16: CanalButtonView!
-    @IBOutlet weak var canal17: CanalButtonView!
-    @IBOutlet weak var canal18: CanalButtonView!
-    @IBOutlet weak var canal19: CanalButtonView!
-    @IBOutlet weak var canal20: CanalButtonView!
+    @IBOutlet weak var canal1: UIImageView!
+    @IBOutlet weak var canal2: UIImageView!
+    @IBOutlet weak var canal9: UIImageView!
+    @IBOutlet weak var canal15: UIImageView!
+    @IBOutlet weak var canal16: UIImageView!
+    @IBOutlet weak var canal17: UIImageView!
+    @IBOutlet weak var canal18: UIImageView!
+    @IBOutlet weak var canal19: UIImageView!
+    @IBOutlet weak var canal20: UIImageView!
     @IBOutlet weak var LabelTV: UILabel!
     @IBOutlet weak var mixLabel: UILabel!
     @IBOutlet var myButtons: [UIButton]!
@@ -249,7 +249,7 @@ class ViewController: UIViewController {
                                                     {
                                                         if h.isKind(of: UILabel.self)
                                                         {
-                                                            h.backgroundColor = .blue
+                                                            h.backgroundColor = .yellow
                                                         }
                                                     }
                                                 }
@@ -509,7 +509,7 @@ class ViewController: UIViewController {
                 {
                     selectedChannels[sender.view?.tag ?? 1] = true
                     nivel = 0
-                    for x in sender.view!.subviews
+                    for x in sender.view!.superview!.subviews
                     {
                         if x.isKind(of: UILabel.self)
                         {
@@ -521,7 +521,7 @@ class ViewController: UIViewController {
                 {
                     selectedChannels[sender.view?.tag ?? 1] = false
                     nivel = -32768
-                    for x in sender.view!.subviews
+                    for x in sender.view!.superview!.subviews
                     {
                         if x.isKind(of: UILabel.self)
                         {

@@ -31,6 +31,7 @@ class CanalButtonView: UIView {
 //          delegate = self.parentContainerViewController as? ViewController
           let ch = channelData.getCanal(tag: self.tag)
           dataBDD = ch
+          
           let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
                   self.addGestureRecognizer(longPressRecognizer)
 //          debugPrint(superview?.isKind(of: UIStackView.self))
