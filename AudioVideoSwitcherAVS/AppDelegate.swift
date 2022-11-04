@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         IQKeyboardManager.shared().isEnabled =  true
         IQKeyboardManager.shared().toolbarDoneBarButtonItemText = "Cerrar"
+        UserDefaults.standard.set("192.168.1.131", forKey: "yamaha")
         return true
     }
 

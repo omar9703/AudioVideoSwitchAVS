@@ -44,7 +44,7 @@ class CanalButtonView: UIView {
                 (x as? UILabel)?.text = ch?.nombre ?? ("Canal")
                 (x as? UILabel)?.textAlignment = .center
                   (x as? UILabel)?.font = UIFont(name: "Knockout-HTF52-Cruiserweight", size: 14)
-    
+                  (x as? UILabel)?.backgroundColor = UIColor(red: 61/255, green: 121/255, blue: 196/255, alpha: 1)
               }
               else if x.isKind(of: UIImageView.self)
               {

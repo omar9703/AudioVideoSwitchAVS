@@ -9,6 +9,8 @@ import UIKit
 import SocketSwift
 //import SwiftPing
 class ViewController: UIViewController {
+    var bandera = true
+    @IBOutlet var canales : [UIImageView]!
     @IBOutlet weak var ultrixStatus: UIView!
     @IBOutlet weak var yamahaUltrix: UIView!
     @IBOutlet weak var configIpButton: UIButton!
@@ -58,8 +60,8 @@ class ViewController: UIViewController {
     var volume = -16
     var ipYamaha : String?
     var ipUltrix :  String?
-    var ultrixstats = false
-    var yamahaStats = false
+    var ultrixstats = true
+    var yamahaStats = true
     var leer = false
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,30 +107,39 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         ipYamaha = UserDefaults.standard.string(forKey: "yamaha")
         ipUltrix = UserDefaults.standard.string(forKey: "ultrix")
-        pingFunction()
+        let notificationCenter = NotificationCenter.default
+            notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willTerminateNotification, object: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1)
+        {
+            self.pingFunction()
+        }
 //        getStatus()
+    }
+    @objc func appMovedToBackground() {
+        print("App moved to background!")
     }
     func getStatusSlider()
     {
+        var client : Socket?
         do
         {
             
-            let client = try Socket(.inet, type: .stream, protocol: .tcp)
-            try client.connect(port: 49280, address: ipYamaha)
+             client = try Socket(.inet, type: .stream, protocol: .tcp)
+            try client?.connect(port: 49280, address: ipYamaha)
             var cont = 0
             //                    try client.wait(for: .write, timeout: 2000)
             let message = ([UInt8])("get MIXER:Current/Mix/Fader/Level \(sliderView.tag - 1) 0\n".utf8)
-            try client.write(message)
+            try client?.write(message)
 //            debugPrint(y)
             var buffer = [UInt8](repeating: 0, count: 52)
-            let v = try client.read(&buffer, size: 52)
+            let v = try client?.read(&buffer, size: 52)
             if let response = String(bytes: buffer, encoding: .utf8)
             {
-                debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
+                //debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
                 let str = response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: "")
                 let split = str.split(separator: " ")
                 let last = String(split.suffix(1).joined(separator: [" "]))
-                debugPrint(last)
+                //debugPrint(last)
                 if let valor = Int(last)
                 {
                     for x in self.view.subviews
@@ -195,9 +206,11 @@ class ViewController: UIViewController {
                     }
                 }
             }
+            client?.close()
         }
         catch
         {
+            client?.close()
             debugPrint(error)
         }
     }
@@ -205,100 +218,232 @@ class ViewController: UIViewController {
     {
         getStatus()
         getStatusSlider()
+        getStatusSolo()
     }
-    func getStatus()
+    
+    func getStatusSolo()
     {
-        for (x,y) in SelectedChannelsIds.enumerated()
-        {
-            do
-            {
-                
-                let client = try Socket(.inet, type: .stream, protocol: .tcp)
-                try client.connect(port: 49280, address: ipYamaha)
-                var cont = 0
-                //                    try client.wait(for: .write, timeout: 2000)
-                let message = ([UInt8])("get MIXER:Current/InCh/Fader/Level \(y) 0\n".utf8)
-                try client.write(message)
-                debugPrint(y)
-                var buffer = [UInt8](repeating: 0, count: 52)
-                let v = try client.read(&buffer, size: 52)
-                if let response = String(bytes: buffer, encoding: .utf8)
+            var client : Socket?
+                do
                 {
-                    debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
-                    let str = response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: "")
-                    let split = str.split(separator: " ")
-                    let last = String(split.suffix(1).joined(separator: [" "]))
-                    debugPrint(last)
-                    if let valor = Int(last)
+                    for (x,y) in selctedSoloIds.enumerated()
                     {
-                        for p in self.view.subviews
+                        let vtag = self.sliderView.tag - 1
+                         client = try Socket(.inet, type: .stream, protocol: .tcp)
+                        try client?.connect(port: 49280, address: ipYamaha)
+                        var cont = 0
+                        let message = ([UInt8])("get MIXER:Current/InCh/ToMix/Level \(y) \(vtag)\n".utf8)
+                        try client?.write(message)
+                        debugPrint(y)
+                        var buffer = [UInt8](repeating: 0, count: 52)
+                        let v = try client?.read(&buffer, size: 52)
+                        if let response = String(bytes: buffer, encoding: .utf8)
                         {
-                            //                                debugPrint(x)
-                            if let s1 = p as? UIStackView
+                            //debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
+                            let str = response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: "")
+                            let split = str.split(separator: " ")
+                            let last = String(split.suffix(1).joined(separator: [" "]))
+                        debugPrint(last)
+                            if let valor = Int(last)
                             {
-                                for y in s1.subviews
+                                for p in self.view.subviews
                                 {
-                                    if let f = y as? CanalButtonView
+                                    //                                debugPrint(x)
+                                    if let s1 = p as? UIStackView
                                     {
-                                        if f.tag == x
+                                        for y in s1.subviews
                                         {
-                                            if (valor > -7000 && valor < -100) || (valor >= 100)
+                                            if let f = y as? CanalButtonView
                                             {
-                                                DispatchQueue.main.async {
-                                                    for h in f.subviews
+                                                if f.tag == x
+                                                {
+                                                    //debugPrint(valor)
+                                                    if (valor > -7000 && valor < -200) || (valor >= 100) && (valor < 1001)
                                                     {
-                                                        if h.isKind(of: UILabel.self)
-                                                        {
-                                                            h.backgroundColor = .yellow
+                                                        DispatchQueue.main.async {
+                                                            for h in f.subviews
+                                                            {
+                                                                if h.isKind(of: UIView.self)
+                                                                {
+                                                                    for u in h.subviews
+                                                                    {
+                                                                        if u.isKind(of: UIImageView.self)
+                                                                        {
+                                                                            h.backgroundColor = UIColor(red: 255/255, green: 156/255, blue: 0/255, alpha: 1)
+                                                                            
+                                                                            (u as? UIImageView)?.image = UIImage(named: "auriculares")
+                                                                        }
+                                                                    }
+                                                                    
+                                                                }
+                                                            }
                                                         }
+                                                        self.selectedSolo[x] = true
+                                                    }
+                                                    else if valor >= -200 && valor < 100
+                                                    {
+                                                        DispatchQueue.main.async {
+                                                            for h in f.subviews
+                                                            {
+                                                                if h.isKind(of: UIView.self)
+                                                                {
+                                                                    for u in h.subviews
+                                                                    {
+                                                                        if u.isKind(of: UIImageView.self)
+                                                                        {
+                                                                            h.backgroundColor =  UIColor(red: 255/255, green: 156/255, blue: 0/255, alpha: 1)
+                                                                            
+                                                                                (u as? UIImageView)?.image = UIImage(named: "auriculares")
+                                                                            
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        self.selectedSolo[x] = true
+                                                    }
+                                                    else
+                                                    {
+                                                        DispatchQueue.main.async {
+                                                            for h in f.subviews
+                                                            {
+                                                                if h.isKind(of: UIView.self)
+                                                                {
+                                                                    for u in h.subviews
+                                                                    {
+                                                                        if u.isKind(of: UIImageView.self)
+                                                                        {
+                                                                            h.backgroundColor = UIColor(red: 69/255, green: 93/255, blue: 220/255, alpha: 1)
+                                                                            
+                                                                            (u as? UIImageView)?.image = UIImage(named: "microfono")
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        self.selectedSolo[x] = false
                                                     }
                                                 }
-                                                self.selectedChannels[x] = true
-                                            }
-                                            else if valor >= -100 && valor < 100
-                                            {
-                                                DispatchQueue.main.async {
-                                                    for h in f.subviews
-                                                    {
-                                                        if h.isKind(of: UILabel.self)
-                                                        {
-                                                            h.backgroundColor = UIColor(red: 195/255, green: 24/255, blue: 53/255, alpha: 1)
-                                                        }
-                                                    }
-                                                }
-                                                self.selectedChannels[x] = true
-                                            }
-                                            else
-                                            {
-                                                DispatchQueue.main.async {
-                                                    for h in f.subviews
-                                                    {
-                                                        if h.isKind(of: UILabel.self)
-                                                        {
-                                                            h.backgroundColor = UIColor(red: 61/255, green: 121/255, blue: 196/255, alpha: 1)
-                                                        }
-                                                    }
-                                                }
-                                                self.selectedChannels[x] = false
                                             }
                                         }
+                                        
                                     }
                                 }
                                 
                             }
                         }
-                        
+                        client?.close()
                     }
+                    
                 }
-                client.close()
                 
-            }
-            catch
-            {
-                debugPrint(error)
+                catch
+                {
+                    client?.close()
+                    debugPrint(error)
+                }
+            
+    }
+    func getStatus()
+    {
+        if self.bandera && !UserDefaults.standard.bool(forKey: "maestro")
+        {
+            var client : Socket?
+            self.bandera = false
+                do
+                {
+                    for (x,y) in SelectedChannelsIds.enumerated()
+                    {
+                        client = try Socket(.inet, type: .stream, protocol: .tcp)
+                       try client?.connect(port: 49280, address: ipYamaha)
+                       var cont = 0
+                        let message = ([UInt8])("get MIXER:Current/InCh/Fader/Level \(y) 0\n".utf8)
+                        try client?.write(message)
+                        debugPrint(y)
+                        var buffer = [UInt8](repeating: 0, count: 52)
+                        let v = try client?.read(&buffer, size: 52)
+                        if let response = String(bytes: buffer, encoding: .utf8)
+                        {
+                            //debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
+                            let str = response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: "")
+                            let split = str.split(separator: " ")
+                            let last = String(split.suffix(1).joined(separator: [" "]))
+                        debugPrint(last)
+                            if let valor = Int(last)
+                            {
+                                for p in self.view.subviews
+                                {
+                                    //                                debugPrint(x)
+                                    if let s1 = p as? UIStackView
+                                    {
+                                        for y in s1.subviews
+                                        {
+                                            if let f = y as? CanalButtonView
+                                            {
+                                                if f.tag == x
+                                                {
+                                                    //debugPrint(valor)
+                                                    if (valor > -7000 && valor < -200) || (valor >= 100) && (valor < 1001)
+                                                    {
+                                                        DispatchQueue.main.async {
+                                                            for h in f.subviews
+                                                            {
+                                                                if h.isKind(of: UILabel.self)
+                                                                {
+                                                                    h.backgroundColor = .yellow
+                                                                }
+                                                            }
+                                                        }
+                                                        self.selectedChannels[x] = true
+                                                    }
+                                                    else if valor >= -200 && valor < 100
+                                                    {
+                                                        DispatchQueue.main.async {
+                                                            for h in f.subviews
+                                                            {
+                                                                if h.isKind(of: UILabel.self)
+                                                                {
+                                                                    h.backgroundColor = UIColor(red: 195/255, green: 24/255, blue: 53/255, alpha: 1)
+                                                                }
+                                                            }
+                                                        }
+                                                        self.selectedChannels[x] = true
+                                                    }
+                                                    else
+                                                    {
+                                                        DispatchQueue.main.async {
+                                                            for h in f.subviews
+                                                            {
+                                                                if h.isKind(of: UILabel.self)
+                                                                {
+                                                                    h.backgroundColor = UIColor(red: 61/255, green: 121/255, blue: 196/255, alpha: 1)
+                                                                }
+                                                            }
+                                                        }
+                                                        self.selectedChannels[x] = false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            }
+                        }
+                        client?.close()
+                    }
+                   
+                }
                 
+                catch
+                {
+                    client?.close()
+                    debugPrint(error)
+                    self.bandera = true
+                }
             }
-        }
+            self.bandera = true
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -414,6 +559,122 @@ class ViewController: UIViewController {
         }
         
     }
+    @IBAction func clearChnnels(_ sender: UIButton) {
+        if !isModeConfig && yamahaStats && bandera && !UserDefaults.standard.bool(forKey: "maestro")
+        {
+            bandera = false
+            
+            if let ipYamaha = ipYamaha {
+                var client : Socket?
+                let vTag = self.sliderView.tag
+                do{
+                    client = try Socket(.inet, type: .stream, protocol: .tcp)
+                   try client?.connect(port: 49280, address: ipYamaha)
+                   let w = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: false)
+                   debugPrint(w)
+                    for (x,y) in selectedChannels.enumerated()
+                    {
+                        if y
+                        {
+                            let message = ([UInt8])("set MIXER:Current/InCh/Fader/Level \(self.SelectedChannelsIds[x]) \(0) \(-32000) \n".utf8)
+                            try client?.write(message)
+                            
+                            debugPrint("holis")
+                            var buffer = [UInt8](repeating: 0, count: 1500)
+                            try client?.read(&buffer, size: 100)
+                            selectedChannels[x] = false
+                            for o in canales
+                            {
+                                if o.tag == x
+                                {
+                                    
+                                    for i in o.superview!.subviews
+                                    {
+                                        
+                                            if i.isKind(of: UILabel.self)
+                                            {
+                                                (i as? UILabel)?.backgroundColor = UIColor(red: 61/255, green: 121/255, blue: 196/255, alpha: 1)
+                                            }
+                                        
+                                    }
+                                }
+                            }
+                            
+                                
+                            
+                        }
+                    }
+                   
+                   client?.close()
+                    self.bandera = true
+               }
+               catch
+               {
+                   debugPrint(error)
+                   client?.close()
+                   self.bandera = true
+               }
+            }
+        }
+    }
+    @IBAction func soloButton(_ sender: UIButton) {
+        if !isModeConfig && yamahaStats && bandera
+        {
+            bandera = false
+            
+            if let ipYamaha = ipYamaha {
+                var client : Socket?
+                let vTag = self.sliderView.tag
+                do{
+                    client = try Socket(.inet, type: .stream, protocol: .tcp)
+                   try client?.connect(port: 49280, address: ipYamaha)
+                   let w = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: false)
+                   debugPrint(w)
+                    for (x,y) in selectedSolo.enumerated()
+                    {
+                        if y
+                        {
+                            let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.selctedSoloIds[x]) \(vTag - 1) \(-32000) \n".utf8)
+                            try client?.write(message)
+                            
+                            debugPrint("holis")
+                            var buffer = [UInt8](repeating: 0, count: 1500)
+                            try client?.read(&buffer, size: 100)
+                            selectedSolo[x] = false
+                            for o in soloButtons
+                            {
+                                if o.tag == x
+                                {
+                                    o.backgroundColor = UIColor(red: 69/255, green: 93/255, blue: 220/255, alpha: 1)
+                                    for i in o.subviews
+                                    {
+                                        
+                                            if i.isKind(of: UIImageView.self)
+                                            {
+                                                (i as? UIImageView)?.image = UIImage(named: "microfono")
+                                            }
+                                        
+                                    }
+                                }
+                            }
+                            
+                                
+                            
+                        }
+                    }
+                   
+                   client?.close()
+               }
+               catch
+               {
+                   debugPrint(error)
+                   client?.close()
+                   
+               }
+            }
+            bandera = true
+        }
+    }
     @IBAction func configSiwtch(_ sender: UISwitch) {
         isModeConfig = sender.isOn
         if !sender.isOn
@@ -447,8 +708,9 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func camaraAction(_ sender: UIButton) {
-        if !isModeConfig && ultrixstats
+        if !isModeConfig && ultrixstats && bandera
         {
+            bandera = false
             if let ipUltrix = ipUltrix {
                 debugPrint(sender.tag, ipUltrix)
                 for x in myButtons
@@ -465,27 +727,29 @@ class ViewController: UIViewController {
                     }
                 }
                 debugPrint(self.selectedUltrixIds[sender.tag]+1)
+                var client : Socket?
                 DispatchQueue.global(qos: .utility).async {
                     
                     do
                     {
-                        let client = try Socket(.inet, type: .stream, protocol: .tcp)
-                        let y = try client.wait(for: .write, timeout: 1, retryOnInterrupt: true)
+                         client = try Socket(.inet, type: .stream, protocol: .tcp)
+                        let y = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true)
                         debugPrint(y)
-                        try client.connect(port: 7788, address: ipUltrix)
+                        try client?.connect(port: 7788, address: ipUltrix)
                         
                         let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[sender.tag]+1) \r\n".utf8)
-                        try client.write(message)
+                        try client?.write(message)
                         debugPrint("holis")
                         //            var buffer = [UInt8](repeating: 0, count: 1500)
                         //            try client.read(&buffer, size: 100)
-                        client.close()
+                        client?.close()
                         debugPrint("holis")
                         
                     }
                     catch
                     {
                         debugPrint(error)
+                        client?.close()
                         DispatchQueue.main.async {
                             sender.backgroundColor = .lightGray
                         }
@@ -495,13 +759,15 @@ class ViewController: UIViewController {
             else{
                 self.alerta(message: "Falta la ip del dispositivo destino.", title: "Error")
             }
+            bandera = true
         }
     }
     
     @objc func canalAction(_ sender: UITapGestureRecognizer) {
         debugPrint("holis", sender.view?.tag)
-        if !isModeConfig && yamahaStats
+        if !isModeConfig && yamahaStats && bandera && !UserDefaults.standard.bool(forKey: "maestro")
         {
+            bandera = false
             if let ipYamaha = ipYamaha {
                 debugPrint(ipYamaha,sender.view?.tag)
                 var nivel = 0
@@ -525,28 +791,32 @@ class ViewController: UIViewController {
                     {
                         if x.isKind(of: UILabel.self)
                         {
-                            x.backgroundColor = UIColor(red: 25/255, green: 31/255, blue: 49/255, alpha: 1)
+                            x.backgroundColor = UIColor(red: 61/255, green: 121/255, blue: 196/255, alpha: 1)
                         }
                     }
                 }
                 let t = SelectedChannelsIds[sender.view?.tag ?? 0]
+                var client : Socket?
                 debugPrint(t)
                 DispatchQueue.global(qos: .utility).async {
                     do
                     {
-                        let client = try Socket(.inet, type: .stream, protocol: .tcp)
-                        try client.connect(port: 49280, address: ipYamaha)
-                        try client.wait(for: .write, timeout: 2000)
+                        
+                        client = try Socket(.inet, type: .stream, protocol: .tcp)
+                        try client?.connect(port: 49280, address: ipYamaha)
+                        try client?.wait(for: .write, timeout: 2000)
+                        //client.close()
                         let message = ([UInt8])("set MIXER:Current/InCh/Fader/Level \(t) 0 \(nivel) \n".utf8)
-                        try client.write(message)
+                        try client?.write(message)
                         debugPrint("holis",t)
                         var buffer = [UInt8](repeating: 0, count: 1500)
-                        try client.read(&buffer, size: 100)
-                        client.close()
+                        try client?.read(&buffer, size: 100)
+                        client?.close()
                     }
                     catch
                     {
                         debugPrint(error)
+                        client?.close()
                         DispatchQueue.main.async {
                             sender.view!.backgroundColor = .clear
                         }
@@ -556,13 +826,15 @@ class ViewController: UIViewController {
             else{
                 self.alerta(message: "Falta la ip del dispositivo destino.", title: "Error")
             }
+            bandera = true
         }
         
     }
     @objc func SoloAction(_ sender: UITapGestureRecognizer) {
         debugPrint(sender.view!.tag)
-        if !isModeConfig && yamahaStats
+        if !isModeConfig && yamahaStats && bandera
         {
+            bandera = false
             if let ipYamaha = ipYamaha {
                 debugPrint(ipYamaha)
                 var nivel = 0
@@ -588,24 +860,28 @@ class ViewController: UIViewController {
                     }
                 }
                 debugPrint(self.selctedSoloIds[sender.view!.tag])
+                let tag = sender.view?.tag ?? 0
+                let vtag = self.sliderView.tag
+                var client : Socket?
                 DispatchQueue.global(qos: .utility).async {
                     do
                     {
-                        let client = try Socket(.inet, type: .stream, protocol: .tcp)
-                        try client.connect(port: 49280, address: ipYamaha)
-                        let w = try client.wait(for: .write, timeout: 1, retryOnInterrupt: false)
+                         client = try Socket(.inet, type: .stream, protocol: .tcp)
+                        try client?.connect(port: 49280, address: ipYamaha)
+                        let w = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: false)
                         debugPrint(w)
-                        let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.selctedSoloIds[sender.view!.tag]) \(self.sliderView.tag - 1) \(nivel) \n".utf8)
-                        try client.write(message)
+                        let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.selctedSoloIds[tag]) \(vtag - 1) \(nivel) \n".utf8)
+                        try client?.write(message)
                         
                         debugPrint("holis")
                         var buffer = [UInt8](repeating: 0, count: 1500)
-                        try client.read(&buffer, size: 100)
-                        client.close()
+                        try client?.read(&buffer, size: 100)
+                        client?.close()
                     }
                     catch
                     {
                         debugPrint(error)
+                        client?.close()
                         DispatchQueue.main.async {
                             sender.view!.backgroundColor = UIColor(red: 69/255, green: 93/255, blue: 220/255, alpha: 1)
                             for x in sender.view!.subviews
@@ -619,6 +895,7 @@ class ViewController: UIViewController {
             else{
                 self.alerta(message: "Falta la ip del dispositivo destino.", title: "Error")
             }
+            bandera = true
         }
     }
     @IBAction func VolumeChange(_ sender: UISlider) {
@@ -706,13 +983,14 @@ class ViewController: UIViewController {
             {
                 if let ipYamaha = ipYamaha {
                     debugPrint(ipYamaha)
+                    let vtag = sender.tag
                     DispatchQueue.global(qos: .utility).async {
                         do
                         {
                             let client = try Socket(.inet, type: .stream, protocol: .tcp)
                             try client.connect(port: 49280, address: ipYamaha)
                             try client.wait(for: .write, timeout: 2)
-                            let message = ([UInt8])("set MIXER:Current/Mix/Fader/Level \(sender.tag - 1) 0 \(level) \n".utf8)
+                            let message = ([UInt8])("set MIXER:Current/Mix/Fader/Level \(vtag  - 1) 0 \(level) \n".utf8)
                             try client.write(message)
                             debugPrint("holis")
                             var buffer = [UInt8](repeating: 0, count: 1500)

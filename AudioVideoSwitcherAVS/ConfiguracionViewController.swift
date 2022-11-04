@@ -13,6 +13,7 @@ protocol configPressedDelegate {
 
 class ConfiguracionViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var maestrosw: UISwitch!
     @IBOutlet weak var IPultrix: UITextField!
     @IBOutlet weak var ipYAMAHA: UITextField!
     var delegate : configPressedDelegate?
@@ -20,9 +21,11 @@ class ConfiguracionViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         IPultrix.delegate = self
         ipYAMAHA.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
+        maestrosw.isOn = !UserDefaults.standard.bool(forKey: "maestro")
         super.viewWillAppear(animated)
         if let p = UserDefaults.standard.string(forKey: "yamaha")
         {
@@ -32,6 +35,9 @@ class ConfiguracionViewController: UIViewController, UITextFieldDelegate {
         {
             IPultrix.text = p
         }
+    }
+    @IBAction func maestroChanged(_ sender: UISwitch) {
+        UserDefaults.standard.set(!sender.isOn, forKey: "maestro")
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
