@@ -44,6 +44,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var configLabel: UILabel!
     @IBOutlet weak var configSwitch: UISwitch!
     @IBOutlet var soloButtons : [UIView]!
+    var pinger : SwiftyPing?
+    var pinger2 : SwiftyPing?
     var tvRow = 0
     var pingLoaded = false
     var selectedChannels = [false, false, false, false,false,false,false,false,false, false, false, false,false,false,false,false, false, false, false,false]
@@ -500,12 +502,13 @@ class ViewController: UIViewController {
     
     func pingFunction()
     {
+        
         let pingInterval:TimeInterval = 2
         let timeoutInterval:TimeInterval = 1
         let configuration = PingConfiguration(interval: pingInterval, with: timeoutInterval)
         if let ipUltrix = ipUltrix {
             pingLoaded = true
-        let pinger = try? SwiftyPing(host: ipUltrix, configuration: PingConfiguration(interval: 0.5, with: 5), queue: DispatchQueue.global())
+        pinger = try? SwiftyPing(host: ipUltrix, configuration: PingConfiguration(interval: 0.5, with: 5), queue: DispatchQueue.global())
         pinger?.observer = { (response) in
             let duration = response.duration
 //            print(duration,response)
@@ -528,8 +531,8 @@ class ViewController: UIViewController {
         try? pinger?.startPinging()
         }
         if let ipYamaha = ipYamaha {
-            let pinger = try? SwiftyPing(host: ipYamaha, configuration: PingConfiguration(interval: 0.5, with: 5), queue: DispatchQueue.global())
-            pinger?.observer = { (response) in
+             pinger2 = try? SwiftyPing(host: ipYamaha, configuration: PingConfiguration(interval: 0.5, with: 5), queue: DispatchQueue.global())
+            pinger2?.observer = { (response) in
                 let duration = response.duration
 //                print(duration,response)
                 if let e = response.error
@@ -555,7 +558,7 @@ class ViewController: UIViewController {
                     }
                 }
             }
-            try? pinger?.startPinging()
+            try? pinger2?.startPinging()
         }
         
     }
@@ -1038,6 +1041,9 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
     func setIpPressed() {
         ipYamaha = UserDefaults.standard.string(forKey: "yamaha")
         ipUltrix = UserDefaults.standard.string(forKey: "ultrix")
+        pinger?.stopPinging()
+        pinger2?.stopPinging()
+        pingLoaded = false
         if !pingLoaded
         {
             pingFunction()
