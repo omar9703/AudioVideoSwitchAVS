@@ -62,8 +62,8 @@ class ViewController: UIViewController {
     var volume = -16
     var ipYamaha : String?
     var ipUltrix :  String?
-    var ultrixstats = true
-    var yamahaStats = true
+    var ultrixstats = false
+    var yamahaStats = false
     var leer = false
     override func viewDidLoad() {
         super.viewDidLoad()
