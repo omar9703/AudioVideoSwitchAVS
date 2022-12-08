@@ -228,11 +228,12 @@ class ViewController: UIViewController {
             var client : Socket?
                 do
                 {
+                    client = try Socket(.inet, type: .stream, protocol: .tcp)
+                   try client?.connect(port: 49280, address: ipYamaha)
                     for (x,y) in selctedSoloIds.enumerated()
                     {
                         let vtag = self.sliderView.tag - 1
-                         client = try Socket(.inet, type: .stream, protocol: .tcp)
-                        try client?.connect(port: 49280, address: ipYamaha)
+                        
                         var cont = 0
                         let message = ([UInt8])("get MIXER:Current/InCh/ToMix/Level \(y) \(vtag)\n".utf8)
                         try client?.write(message)
@@ -334,9 +335,9 @@ class ViewController: UIViewController {
                                 
                             }
                         }
-                        client?.close()
+                        
                     }
-                    
+                    client?.close()
                 }
                 
                 catch
@@ -354,10 +355,11 @@ class ViewController: UIViewController {
             self.bandera = false
                 do
                 {
+                    client = try Socket(.inet, type: .stream, protocol: .tcp)
+                   try client?.connect(port: 49280, address: ipYamaha)
                     for (x,y) in SelectedChannelsIds.enumerated()
                     {
-                        client = try Socket(.inet, type: .stream, protocol: .tcp)
-                       try client?.connect(port: 49280, address: ipYamaha)
+                        
                        var cont = 0
                         let message = ([UInt8])("get MIXER:Current/InCh/Fader/Level \(y) 0\n".utf8)
                         try client?.write(message)
@@ -433,8 +435,9 @@ class ViewController: UIViewController {
                                 
                             }
                         }
-                        client?.close()
-                    }
+                                            }
+                    client?.close()
+
                    
                 }
                 
@@ -508,14 +511,14 @@ class ViewController: UIViewController {
         let configuration = PingConfiguration(interval: pingInterval, with: timeoutInterval)
         if let ipUltrix = ipUltrix {
             pingLoaded = true
-        pinger = try? SwiftyPing(host: ipUltrix, configuration: PingConfiguration(interval: 0.5, with: 5), queue: DispatchQueue.global())
+        pinger = try? SwiftyPing(host: ipUltrix, configuration: PingConfiguration(interval: 1.5, with: 6), queue: DispatchQueue.global())
         pinger?.observer = { (response) in
             let duration = response.duration
 //            print(duration,response)
             if let e = response.error
             {
                 DispatchQueue.main.async {
-                    self.ultrixstats = false
+                    self.ultrixstats = true
                     self.ultrixStatus.backgroundColor = .red
                 }
             }
@@ -531,14 +534,14 @@ class ViewController: UIViewController {
         try? pinger?.startPinging()
         }
         if let ipYamaha = ipYamaha {
-             pinger2 = try? SwiftyPing(host: ipYamaha, configuration: PingConfiguration(interval: 0.5, with: 5), queue: DispatchQueue.global())
+             pinger2 = try? SwiftyPing(host: ipYamaha, configuration: PingConfiguration(interval: 1.5, with: 6), queue: DispatchQueue.global())
             pinger2?.observer = { (response) in
                 let duration = response.duration
 //                print(duration,response)
                 if let e = response.error
                 {
                     DispatchQueue.main.async {
-                        self.yamahaStats = false
+                        self.yamahaStats = true
                         self.yamahaUltrix.backgroundColor = .red
                     }
                 }
@@ -731,6 +734,7 @@ class ViewController: UIViewController {
                 }
                 debugPrint(self.selectedUltrixIds[sender.tag]+1)
                 var client : Socket?
+                var tagi = sender.tag
                 DispatchQueue.global(qos: .utility).async {
                     
                     do
@@ -740,7 +744,7 @@ class ViewController: UIViewController {
                         debugPrint(y)
                         try client?.connect(port: 7788, address: ipUltrix)
                         
-                        let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[sender.tag]+1) \r\n".utf8)
+                        let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[tagi]+1) \r\n".utf8)
                         try client?.write(message)
                         debugPrint("holis")
                         //            var buffer = [UInt8](repeating: 0, count: 1500)
