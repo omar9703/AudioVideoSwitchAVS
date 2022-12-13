@@ -511,14 +511,14 @@ class ViewController: UIViewController {
         let configuration = PingConfiguration(interval: pingInterval, with: timeoutInterval)
         if let ipUltrix = ipUltrix {
             pingLoaded = true
-        pinger = try? SwiftyPing(host: ipUltrix, configuration: PingConfiguration(interval: 1.5, with: 6), queue: DispatchQueue.global())
+        pinger = try? SwiftyPing(host: ipUltrix, configuration: PingConfiguration(interval: 5, with: 6), queue: DispatchQueue.global())
         pinger?.observer = { (response) in
             let duration = response.duration
 //            print(duration,response)
             if let e = response.error
             {
                 DispatchQueue.main.async {
-                    self.ultrixstats = true
+                    self.ultrixstats = false
                     self.ultrixStatus.backgroundColor = .red
                 }
             }
@@ -534,14 +534,14 @@ class ViewController: UIViewController {
         try? pinger?.startPinging()
         }
         if let ipYamaha = ipYamaha {
-             pinger2 = try? SwiftyPing(host: ipYamaha, configuration: PingConfiguration(interval: 1.5, with: 6), queue: DispatchQueue.global())
+             pinger2 = try? SwiftyPing(host: ipYamaha, configuration: PingConfiguration(interval: 5, with: 6), queue: DispatchQueue.global())
             pinger2?.observer = { (response) in
                 let duration = response.duration
 //                print(duration,response)
                 if let e = response.error
                 {
                     DispatchQueue.main.async {
-                        self.yamahaStats = true
+                        self.yamahaStats = false
                         self.yamahaUltrix.backgroundColor = .red
                     }
                 }
