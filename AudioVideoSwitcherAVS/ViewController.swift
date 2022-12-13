@@ -69,6 +69,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         soloButtons.forEach { t in
             t.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.SoloAction(_:))))
+            let path = UIBezierPath(roundedRect:t.bounds,
+                                    byRoundingCorners:[.topLeft],
+                                    cornerRadii: CGSize(width: 20, height:  20))
+            let maskLayer = CAShapeLayer()
+
+            maskLayer.path = path.cgPath
+            t.layer.mask = maskLayer
         }
         buttonsTV.append(camaraAction1)
         canal1.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.canalAction(_:))))
