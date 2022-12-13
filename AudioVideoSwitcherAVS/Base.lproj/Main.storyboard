@@ -35,28 +35,10 @@
                                 </connections>
                             </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-PP-tWm">
-                                <rect key="frame" x="138" y="279" width="292" height="44"/>
+                                <rect key="frame" x="138" y="279" width="354" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksf-yG-aGF" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                        <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="nDO-PQ-59W"/>
-                                            <constraint firstAttribute="width" constant="44" id="wBd-Ap-WaA"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="6">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s0C-zV-tdh"/>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="nyu-51-2n0"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xt-xT-PqA" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="LCE-Pp-7hT"/>
@@ -74,7 +56,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRt-pp-hBo" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="3wj-6l-Psu"/>
@@ -92,7 +74,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8p4-F8-Lhd" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="n8M-e5-03y"/>
@@ -110,7 +92,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9N-7f-aFE" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="InL-oL-S7b"/>
@@ -127,13 +109,8 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="Ja6-VQ-Wma"/>
                                         </connections>
                                     </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="qWd-Ha-hHI">
-                                <rect key="frame" x="138" y="338" width="292" height="44"/>
-                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5g-Ie-OfY" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="VTQ-Kx-qXp"/>
@@ -151,7 +128,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixh-jo-TMz" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="310" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="YJo-Rm-FOR"/>
@@ -168,8 +145,13 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="kLy-8u-LTa"/>
                                         </connections>
                                     </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="qWd-Ha-hHI">
+                                <rect key="frame" x="138" y="338" width="354" height="44"/>
+                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgT-RR-QeW" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="gvu-Ym-N1g"/>
@@ -187,7 +169,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Oo-MD-Trd" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="KFp-TG-tkz"/>
@@ -205,7 +187,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLl-tL-6j8" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="S7W-Vj-nlq"/>
@@ -222,13 +204,8 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="Ypj-2L-LKd"/>
                                         </connections>
                                     </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="3rp-eL-drp">
-                                <rect key="frame" x="138" y="397" width="292" height="44"/>
-                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiQ-gY-AdX" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="aqK-u9-uMs"/>
@@ -246,7 +223,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chj-FJ-fTo" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="04D-59-R15"/>
@@ -264,7 +241,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6b9-Vu-QJM" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="310" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Ab4-m6-Yr2"/>
@@ -281,8 +258,13 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="9dZ-Bu-VBy"/>
                                         </connections>
                                     </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="3rp-eL-drp">
+                                <rect key="frame" x="138" y="397" width="354" height="44"/>
+                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhE-P2-bBG" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="9az-rT-7kb"/>
@@ -300,7 +282,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPf-5p-jPa" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="7NB-FU-AnY"/>
@@ -317,13 +299,8 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="mIi-PL-uGd"/>
                                         </connections>
                                     </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-B8-vf3">
-                                <rect key="frame" x="138" y="456" width="292" height="44"/>
-                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMa-1w-7MK" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="DOZ-MD-0Bg"/>
@@ -341,7 +318,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MP-s8-FYS" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="44F-Fo-h2R"/>
@@ -359,7 +336,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnL-4K-hUC" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="odh-pL-Sfj"/>
@@ -377,7 +354,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfi-bb-w6m" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="310" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="gHb-gY-SDd"/>
@@ -394,8 +371,13 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="NXx-lv-DoU"/>
                                         </connections>
                                     </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-B8-vf3">
+                                <rect key="frame" x="138" y="456" width="354" height="44"/>
+                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbL-2K-vEG" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="tWJ-yp-Kvz"/>
@@ -412,13 +394,8 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="WBl-Zy-4X3"/>
                                         </connections>
                                     </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Cz1-9r-I3H">
-                                <rect key="frame" x="138" y="515" width="292" height="44"/>
-                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZd-86-ReJ" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="H8C-dE-rNC"/>
@@ -436,7 +413,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amp-8e-OT6" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="13F-Bq-fYy"/>
@@ -454,7 +431,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10Y-VB-ZSK" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Pj9-NC-gzV"/>
@@ -472,7 +449,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1G-Ef-XSZ" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="cFE-RR-fz0"/>
@@ -490,7 +467,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vg4-Yu-1Lt" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="310" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Ji8-Xw-8vI"/>
@@ -509,8 +486,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="We7-O3-wa6">
-                                <rect key="frame" x="138" y="574" width="292" height="44"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Cz1-9r-I3H">
+                                <rect key="frame" x="138" y="515" width="354" height="44"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vek-FG-awg" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -602,13 +579,8 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="GZn-b7-ZR2"/>
                                         </connections>
                                     </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="vnW-vG-jYe">
-                                <rect key="frame" x="138" y="633" width="292" height="44"/>
-                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTv-3Z-Unk" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="310" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Iff-MR-yfN"/>
@@ -625,8 +597,13 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="5iz-Te-ydb"/>
                                         </connections>
                                     </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="We7-O3-wa6">
+                                <rect key="frame" x="138" y="574" width="354" height="44"/>
+                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4f-4s-feW" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="dGo-vy-y4a"/>
@@ -644,7 +621,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qt-nn-rdm" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="hVs-rC-DZh"/>
@@ -662,7 +639,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDm-fk-kMH" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="GzK-gm-9tc"/>
@@ -680,7 +657,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXF-oQ-bBW" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="KrB-i8-R1O"/>
@@ -697,13 +674,8 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="r1O-Ru-SFe"/>
                                         </connections>
                                     </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="fPc-Pj-vDu">
-                                <rect key="frame" x="138" y="692" width="292" height="44"/>
-                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KH6-33-mDU" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="Mn0-Gh-483"/>
@@ -721,7 +693,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4h-a7-njF" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="310" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="KHV-1g-spI"/>
@@ -738,8 +710,13 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="Ce7-Pg-Fw0"/>
                                         </connections>
                                     </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="vnW-vG-jYe">
+                                <rect key="frame" x="138" y="633" width="354" height="44"/>
+                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9f-od-dXn" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="KyH-pI-0gU"/>
@@ -757,7 +734,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggd-Ea-yNN" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="nII-47-s6y"/>
@@ -775,7 +752,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1W-wB-mtp" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="AUj-tK-Kce"/>
@@ -792,13 +769,8 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="gWA-oN-SGr"/>
                                         </connections>
                                     </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="54f-U4-Mjl">
-                                <rect key="frame" x="138" y="751" width="292" height="44"/>
-                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ow6-fp-teu" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Nwd-ju-hgB"/>
@@ -816,7 +788,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIA-ea-RH7" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="u1j-nh-nBH"/>
@@ -834,7 +806,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrw-96-LQx" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="310" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="Us9-xL-YIL"/>
@@ -851,8 +823,13 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="ROH-fP-oWG"/>
                                         </connections>
                                     </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="fPc-Pj-vDu">
+                                <rect key="frame" x="138" y="692" width="354" height="44"/>
+                                <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqZ-Zf-ne3" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="qDB-xf-aGu"/>
@@ -870,7 +847,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZQ-Ud-TfC" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
-                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="0Y3-3P-cjd"/>
@@ -887,10 +864,195 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="6h5-F9-UYo"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOn-ma-18z" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="6tY-3t-BvR"/>
+                                            <constraint firstAttribute="width" constant="44" id="Amv-27-4Bd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="51">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6nc-yj-7bi"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Jf2-xc-ikK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WC2-Gb-mrS" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="PRh-EY-iqF"/>
+                                            <constraint firstAttribute="width" constant="44" id="VkL-dm-GJE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="52">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P9o-W6-E2r"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="aqI-bJ-ecv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAa-e6-zwc" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="Viy-lI-nkx"/>
+                                            <constraint firstAttribute="height" constant="44" id="fzl-3L-1dB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="53">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iQB-OO-MGz"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="OwL-MJ-zvM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Op-dg-kLX" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="310" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="EvQ-2g-TBD"/>
+                                            <constraint firstAttribute="width" constant="44" id="hE1-h1-SqI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="54">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7iA-Vl-yeH"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="pfr-yh-2dQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="54f-U4-Mjl">
+                                <rect key="frame" x="138" y="751" width="354" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7T-Ru-0XP" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="EuR-UX-0j8"/>
+                                            <constraint firstAttribute="height" constant="44" id="zOY-gn-uxD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="55">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Prn-49-kmj"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="E0s-Ul-5km"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6Q-Zi-HX0" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="62" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="q4s-uA-EZH"/>
+                                            <constraint firstAttribute="height" constant="44" id="ydm-Lg-92X"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="56">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9z1-6D-xMv"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="QvI-tG-4nm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9i-fM-3hi" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="124" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="LSo-i1-5mZ"/>
+                                            <constraint firstAttribute="width" constant="44" id="fT0-o7-Zac"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="57">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TQO-bw-DhF"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="13u-a4-S1E"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEe-4Y-Sn9" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="186" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="ToO-RQ-zR2"/>
+                                            <constraint firstAttribute="height" constant="44" id="kLZ-jZ-mVq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="58">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oL1-c1-aCD"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="a5R-0R-RUB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T34-fZ-HMN" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="248" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="VcJ-3a-Wul"/>
+                                            <constraint firstAttribute="width" constant="44" id="rwq-om-b5t"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="59">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LHj-bs-osI"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Ocu-79-EhS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCd-zv-cKx" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="310" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="3eT-d6-xuo"/>
+                                            <constraint firstAttribute="height" constant="44" id="fUM-Xr-sEX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="60">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5eq-BO-0eV"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="mVv-OA-sPi"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="LRd-BX-OON">
-                                <rect key="frame" x="138" y="220" width="292" height="44"/>
+                                <rect key="frame" x="138" y="220" width="354" height="44"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZg-fB-Fao" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -980,6 +1142,24 @@
                                         <connections>
                                             <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uu8-wy-pEq"/>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="M3D-qb-BYw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksf-yG-aGF" customClass="SourceButton" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="310" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.3921568627" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="nDO-PQ-59W"/>
+                                            <constraint firstAttribute="width" constant="44" id="wBd-Ap-WaA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="6">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="camaraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s0C-zV-tdh"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="nyu-51-2n0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2806,51 +2986,16 @@
                         <outletCollection property="myButtons" destination="Bjd-8l-I0I" collectionClass="NSMutableArray" id="aAb-L5-Wxf"/>
                         <outletCollection property="myButtons" destination="141-OJ-DWw" collectionClass="NSMutableArray" id="RLF-qW-hz4"/>
                         <outletCollection property="myButtons" destination="5z2-yJ-wlq" collectionClass="NSMutableArray" id="wDZ-wZ-3Vu"/>
-                        <outletCollection property="myButtons" destination="Ksf-yG-aGF" collectionClass="NSMutableArray" id="Hud-s2-OrT"/>
                         <outletCollection property="myButtons" destination="9xt-xT-PqA" collectionClass="NSMutableArray" id="lDf-x2-phS"/>
                         <outletCollection property="myButtons" destination="aRt-pp-hBo" collectionClass="NSMutableArray" id="yNa-CO-RI1"/>
                         <outletCollection property="myButtons" destination="8p4-F8-Lhd" collectionClass="NSMutableArray" id="DMS-HU-VKd"/>
                         <outletCollection property="myButtons" destination="K9N-7f-aFE" collectionClass="NSMutableArray" id="2me-hf-oAO"/>
-                        <outletCollection property="myButtons" destination="j5g-Ie-OfY" collectionClass="NSMutableArray" id="wFB-gR-vuh"/>
-                        <outletCollection property="myButtons" destination="ixh-jo-TMz" collectionClass="NSMutableArray" id="JsG-eZ-2Mp"/>
                         <outletCollection property="myButtons" destination="OgT-RR-QeW" collectionClass="NSMutableArray" id="83B-Xl-hvK"/>
                         <outletCollection property="myButtons" destination="1Oo-MD-Trd" collectionClass="NSMutableArray" id="QfA-bd-rZl"/>
                         <outletCollection property="myButtons" destination="gLl-tL-6j8" collectionClass="NSMutableArray" id="VFS-kS-yo2"/>
-                        <outletCollection property="myButtons" destination="LiQ-gY-AdX" collectionClass="NSMutableArray" id="oUY-tY-YF9"/>
-                        <outletCollection property="myButtons" destination="chj-FJ-fTo" collectionClass="NSMutableArray" id="Htt-k6-9Ow"/>
-                        <outletCollection property="myButtons" destination="6b9-Vu-QJM" collectionClass="NSMutableArray" id="1oH-OF-f4n"/>
                         <outletCollection property="myButtons" destination="UhE-P2-bBG" collectionClass="NSMutableArray" id="Emh-Kp-gDY"/>
                         <outletCollection property="myButtons" destination="nPf-5p-jPa" collectionClass="NSMutableArray" id="mRo-8h-1Bs"/>
-                        <outletCollection property="myButtons" destination="PMa-1w-7MK" collectionClass="NSMutableArray" id="vC7-5A-WyJ"/>
-                        <outletCollection property="myButtons" destination="3MP-s8-FYS" collectionClass="NSMutableArray" id="xPp-aK-2Kp"/>
-                        <outletCollection property="myButtons" destination="jnL-4K-hUC" collectionClass="NSMutableArray" id="mHp-YQ-IXI"/>
-                        <outletCollection property="myButtons" destination="Xfi-bb-w6m" collectionClass="NSMutableArray" id="6om-1v-AqQ"/>
                         <outletCollection property="myButtons" destination="bbL-2K-vEG" collectionClass="NSMutableArray" id="sDR-TK-rAA"/>
-                        <outletCollection property="myButtons" destination="AZd-86-ReJ" collectionClass="NSMutableArray" id="8E6-99-FMh"/>
-                        <outletCollection property="myButtons" destination="amp-8e-OT6" collectionClass="NSMutableArray" id="f50-Wt-Ihh"/>
-                        <outletCollection property="myButtons" destination="10Y-VB-ZSK" collectionClass="NSMutableArray" id="fIb-LY-7JI"/>
-                        <outletCollection property="myButtons" destination="X1G-Ef-XSZ" collectionClass="NSMutableArray" id="pib-22-cH9"/>
-                        <outletCollection property="myButtons" destination="Vg4-Yu-1Lt" collectionClass="NSMutableArray" id="c01-bT-5X9"/>
-                        <outletCollection property="myButtons" destination="vek-FG-awg" collectionClass="NSMutableArray" id="Biz-23-htG"/>
-                        <outletCollection property="myButtons" destination="MEI-gu-ydk" collectionClass="NSMutableArray" id="ZcG-zy-aYN"/>
-                        <outletCollection property="myButtons" destination="QDr-yA-Oj8" collectionClass="NSMutableArray" id="aK6-2r-shk"/>
-                        <outletCollection property="myButtons" destination="u4n-ct-vk9" collectionClass="NSMutableArray" id="Rhm-6d-QKq"/>
-                        <outletCollection property="myButtons" destination="xBV-tJ-mff" collectionClass="NSMutableArray" id="3Zw-S3-5aa"/>
-                        <outletCollection property="myButtons" destination="yTv-3Z-Unk" collectionClass="NSMutableArray" id="qu6-Xa-gvx"/>
-                        <outletCollection property="myButtons" destination="o4f-4s-feW" collectionClass="NSMutableArray" id="Whr-Aa-XUX"/>
-                        <outletCollection property="myButtons" destination="7qt-nn-rdm" collectionClass="NSMutableArray" id="ZP0-jN-TGv"/>
-                        <outletCollection property="myButtons" destination="mDm-fk-kMH" collectionClass="NSMutableArray" id="PNs-h9-B6t"/>
-                        <outletCollection property="myButtons" destination="UXF-oQ-bBW" collectionClass="NSMutableArray" id="ZZ8-hb-8eF"/>
-                        <outletCollection property="myButtons" destination="KH6-33-mDU" collectionClass="NSMutableArray" id="6fe-6i-pNW"/>
-                        <outletCollection property="myButtons" destination="K4h-a7-njF" collectionClass="NSMutableArray" id="6Al-7F-KGo"/>
-                        <outletCollection property="myButtons" destination="w9f-od-dXn" collectionClass="NSMutableArray" id="e4P-FX-ePH"/>
-                        <outletCollection property="myButtons" destination="ggd-Ea-yNN" collectionClass="NSMutableArray" id="qEE-Ff-eMx"/>
-                        <outletCollection property="myButtons" destination="R1W-wB-mtp" collectionClass="NSMutableArray" id="HL9-vh-wBZ"/>
-                        <outletCollection property="myButtons" destination="ow6-fp-teu" collectionClass="NSMutableArray" id="H1k-LW-IJH"/>
-                        <outletCollection property="myButtons" destination="sIA-ea-RH7" collectionClass="NSMutableArray" id="bK4-KP-jIl"/>
-                        <outletCollection property="myButtons" destination="xrw-96-LQx" collectionClass="NSMutableArray" id="qff-QN-5eq"/>
-                        <outletCollection property="myButtons" destination="hqZ-Zf-ne3" collectionClass="NSMutableArray" id="OgR-if-E6S"/>
-                        <outletCollection property="myButtons" destination="wZQ-Ud-TfC" collectionClass="NSMutableArray" id="0EB-xI-h6Q"/>
                         <outletCollection property="soloButtons" destination="MOd-kr-yTY" collectionClass="NSMutableArray" id="v4T-wF-o7l"/>
                         <outletCollection property="soloButtons" destination="rvt-Qq-073" collectionClass="NSMutableArray" id="gYA-JG-nEf"/>
                         <outletCollection property="soloButtons" destination="V4s-58-18T" collectionClass="NSMutableArray" id="ay3-I6-VxG"/>
@@ -2891,6 +3036,51 @@
                         <outletCollection property="canales" destination="Qsp-RZ-FL0" collectionClass="NSMutableArray" id="evZ-nb-BpU"/>
                         <outletCollection property="canales" destination="7RH-Vh-EUf" collectionClass="NSMutableArray" id="G5E-Nw-zg7"/>
                         <outletCollection property="canales" destination="L8h-Xe-gzv" collectionClass="NSMutableArray" id="9Yd-N7-BXw"/>
+                        <outletCollection property="myButtons" destination="Ksf-yG-aGF" collectionClass="NSMutableArray" id="Hud-s2-OrT"/>
+                        <outletCollection property="myButtons" destination="j5g-Ie-OfY" collectionClass="NSMutableArray" id="wFB-gR-vuh"/>
+                        <outletCollection property="myButtons" destination="ixh-jo-TMz" collectionClass="NSMutableArray" id="JsG-eZ-2Mp"/>
+                        <outletCollection property="myButtons" destination="LiQ-gY-AdX" collectionClass="NSMutableArray" id="oUY-tY-YF9"/>
+                        <outletCollection property="myButtons" destination="chj-FJ-fTo" collectionClass="NSMutableArray" id="Htt-k6-9Ow"/>
+                        <outletCollection property="myButtons" destination="6b9-Vu-QJM" collectionClass="NSMutableArray" id="1oH-OF-f4n"/>
+                        <outletCollection property="myButtons" destination="PMa-1w-7MK" collectionClass="NSMutableArray" id="vC7-5A-WyJ"/>
+                        <outletCollection property="myButtons" destination="3MP-s8-FYS" collectionClass="NSMutableArray" id="xPp-aK-2Kp"/>
+                        <outletCollection property="myButtons" destination="jnL-4K-hUC" collectionClass="NSMutableArray" id="mHp-YQ-IXI"/>
+                        <outletCollection property="myButtons" destination="Xfi-bb-w6m" collectionClass="NSMutableArray" id="6om-1v-AqQ"/>
+                        <outletCollection property="myButtons" destination="AZd-86-ReJ" collectionClass="NSMutableArray" id="8E6-99-FMh"/>
+                        <outletCollection property="myButtons" destination="amp-8e-OT6" collectionClass="NSMutableArray" id="f50-Wt-Ihh"/>
+                        <outletCollection property="myButtons" destination="10Y-VB-ZSK" collectionClass="NSMutableArray" id="fIb-LY-7JI"/>
+                        <outletCollection property="myButtons" destination="X1G-Ef-XSZ" collectionClass="NSMutableArray" id="pib-22-cH9"/>
+                        <outletCollection property="myButtons" destination="vek-FG-awg" collectionClass="NSMutableArray" id="Biz-23-htG"/>
+                        <outletCollection property="myButtons" destination="MEI-gu-ydk" collectionClass="NSMutableArray" id="ZcG-zy-aYN"/>
+                        <outletCollection property="myButtons" destination="QDr-yA-Oj8" collectionClass="NSMutableArray" id="aK6-2r-shk"/>
+                        <outletCollection property="myButtons" destination="u4n-ct-vk9" collectionClass="NSMutableArray" id="Rhm-6d-QKq"/>
+                        <outletCollection property="myButtons" destination="Vg4-Yu-1Lt" collectionClass="NSMutableArray" id="c01-bT-5X9"/>
+                        <outletCollection property="myButtons" destination="o4f-4s-feW" collectionClass="NSMutableArray" id="Whr-Aa-XUX"/>
+                        <outletCollection property="myButtons" destination="xBV-tJ-mff" collectionClass="NSMutableArray" id="3Zw-S3-5aa"/>
+                        <outletCollection property="myButtons" destination="yTv-3Z-Unk" collectionClass="NSMutableArray" id="qu6-Xa-gvx"/>
+                        <outletCollection property="myButtons" destination="w9f-od-dXn" collectionClass="NSMutableArray" id="e4P-FX-ePH"/>
+                        <outletCollection property="myButtons" destination="ggd-Ea-yNN" collectionClass="NSMutableArray" id="qEE-Ff-eMx"/>
+                        <outletCollection property="myButtons" destination="7qt-nn-rdm" collectionClass="NSMutableArray" id="ZP0-jN-TGv"/>
+                        <outletCollection property="myButtons" destination="mDm-fk-kMH" collectionClass="NSMutableArray" id="PNs-h9-B6t"/>
+                        <outletCollection property="myButtons" destination="UXF-oQ-bBW" collectionClass="NSMutableArray" id="ZZ8-hb-8eF"/>
+                        <outletCollection property="myButtons" destination="KH6-33-mDU" collectionClass="NSMutableArray" id="6fe-6i-pNW"/>
+                        <outletCollection property="myButtons" destination="K4h-a7-njF" collectionClass="NSMutableArray" id="6Al-7F-KGo"/>
+                        <outletCollection property="myButtons" destination="hqZ-Zf-ne3" collectionClass="NSMutableArray" id="OgR-if-E6S"/>
+                        <outletCollection property="myButtons" destination="R1W-wB-mtp" collectionClass="NSMutableArray" id="HL9-vh-wBZ"/>
+                        <outletCollection property="myButtons" destination="ow6-fp-teu" collectionClass="NSMutableArray" id="H1k-LW-IJH"/>
+                        <outletCollection property="myButtons" destination="sIA-ea-RH7" collectionClass="NSMutableArray" id="bK4-KP-jIl"/>
+                        <outletCollection property="myButtons" destination="xrw-96-LQx" collectionClass="NSMutableArray" id="qff-QN-5eq"/>
+                        <outletCollection property="myButtons" destination="wZQ-Ud-TfC" collectionClass="NSMutableArray" id="0EB-xI-h6Q"/>
+                        <outletCollection property="myButtons" destination="OOn-ma-18z" collectionClass="NSMutableArray" id="gLP-oT-CPo"/>
+                        <outletCollection property="myButtons" destination="WC2-Gb-mrS" collectionClass="NSMutableArray" id="o1j-vB-yeO"/>
+                        <outletCollection property="myButtons" destination="zAa-e6-zwc" collectionClass="NSMutableArray" id="eVc-IK-2ie"/>
+                        <outletCollection property="myButtons" destination="2Op-dg-kLX" collectionClass="NSMutableArray" id="ngz-cW-Uug"/>
+                        <outletCollection property="myButtons" destination="nCd-zv-cKx" collectionClass="NSMutableArray" id="v6l-zK-suY"/>
+                        <outletCollection property="myButtons" destination="T34-fZ-HMN" collectionClass="NSMutableArray" id="dSM-ED-rCb"/>
+                        <outletCollection property="myButtons" destination="nEe-4Y-Sn9" collectionClass="NSMutableArray" id="sfC-Ei-5hN"/>
+                        <outletCollection property="myButtons" destination="Z9i-fM-3hi" collectionClass="NSMutableArray" id="uUH-fy-8q2"/>
+                        <outletCollection property="myButtons" destination="X6Q-Zi-HX0" collectionClass="NSMutableArray" id="YeU-NB-9er"/>
+                        <outletCollection property="myButtons" destination="l7T-Ru-0XP" collectionClass="NSMutableArray" id="f5M-BG-dve"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
