@@ -26,6 +26,7 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
         {
             channels.append("Canal \(x)")
         }
+        pickerCanal.selectRow(row, inComponent: 0, animated: true)
         // Do any additional setup after loading the view.
     }
     
@@ -40,7 +41,7 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pickerCanal.selectRow(row, inComponent: 0, animated: true)
+       
         if let ip = UserDefaults.standard.string(forKey: "yamaha")
         {
             DispatchQueue.global(qos: .utility).async {
