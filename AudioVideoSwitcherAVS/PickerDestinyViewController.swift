@@ -85,6 +85,7 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
                 mixes.append("Mix \(x)")
             }
         }
+        pickerTV.selectRow(self.row, inComponent: 0, animated: false)
     }
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -108,7 +109,7 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        pickerTV.selectRow(self.row, inComponent: 0, animated: false)
+        
         if isDestiny == .Mixer
         {
             
@@ -134,11 +135,11 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
                             debugPrint(response, response.slice(from: "\"", to: "\n"))
                             if self.mixes.count > cont
                             {
-                                self.mixes[cont] = response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? ""
+                                self.mixes[cont] = response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? "Mix \(cont + 1)"
                             }
                             else
                             {
-                                self.mixes.append(response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? "")
+                                self.mixes.append(response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? "Mix \(cont + 1)")
                             }
                                 
                         }
