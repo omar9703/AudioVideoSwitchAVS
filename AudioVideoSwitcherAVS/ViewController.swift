@@ -135,7 +135,7 @@ class ViewController: UIViewController {
             
              client = try Socket(.inet, type: .stream, protocol: .tcp)
             try client?.connect(port: 49280, address: ipYamaha)
-            var cont = 0
+            _ = 0
             if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
             {
                 let message = ([UInt8])("get MIXER:Current/Mix/Fader/Level \(sliderView.tag - 1) 0\n".utf8)
@@ -246,12 +246,12 @@ class ViewController: UIViewController {
                         {
                             let vtag = self.sliderView.tag - 1
                             
-                            var cont = 0
+                            
                             let message = ([UInt8])("get MIXER:Current/InCh/ToMix/Level \(y) \(vtag)\n".utf8)
                             try client?.write(message)
                             debugPrint(y)
                             var buffer = [UInt8](repeating: 0, count: 52)
-                            let v = try client?.read(&buffer, size: 52)
+                            _ = try client?.read(&buffer, size: 52)
                             if let response = String(bytes: buffer, encoding: .utf8)
                             {
                                 //debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
@@ -375,12 +375,12 @@ class ViewController: UIViewController {
                         for (x,y) in SelectedChannelsIds.enumerated()
                         {
                             
-                            var cont = 0
+                          
                             let message = ([UInt8])("get MIXER:Current/InCh/Fader/Level \(y) 0\n".utf8)
                             try client?.write(message)
                             debugPrint(y)
                             var buffer = [UInt8](repeating: 0, count: 52)
-                            let v = try client?.read(&buffer, size: 52)
+                            _ = try client?.read(&buffer, size: 52)
                             if let response = String(bytes: buffer, encoding: .utf8)
                             {
                                 //debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
@@ -551,7 +551,7 @@ class ViewController: UIViewController {
             pinger2?.observer = { (response) in
                 let duration = response.duration
 //                print(duration,response)
-                if let e = response.error
+                if let _ = response.error
                 {
                     DispatchQueue.main.async {
                         self.yamahaStats = false
@@ -892,7 +892,7 @@ class ViewController: UIViewController {
                     {
                          client = try Socket(.inet, type: .stream, protocol: .tcp)
                         try client?.connect(port: 49280, address: ipYamaha)
-                        if try client?.wait(for: .write, timeout: 2, retryOnInterrupt: false)
+                        if let u = try client?.wait(for: .write, timeout: 2, retryOnInterrupt: false), u
                         {
                             let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.selctedSoloIds[tag]) \(vtag - 1) \(nivel) \n".utf8)
                             try client?.write(message)
@@ -1077,7 +1077,7 @@ extension ViewController: pickerTvDelegate, SourceActionDelegate, ImageActionDel
     func channelSelected(channelRow: Int, channelName: String, imagenURL : String, data : Data?) {
         var id = 0
         var t = 0
-        var n = channelName
+        let  n = channelName
         SelectedChannelsIds[(ChannelSetting as? CanalButtonView)?.tag ?? 0] = channelRow
         selctedSoloIds[(ChannelSetting as? CanalButtonView)?.tag ?? 0] = channelRow
         id = channelRow

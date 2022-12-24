@@ -65,7 +65,7 @@
             startingLineNumber = "124"
             endingLineNumber = "124"
             landmarkName = "imagePickerController(picker:didFinishPickingImage:editingInfo:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -81,7 +81,7 @@
             startingLineNumber = "133"
             endingLineNumber = "133"
             landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -161,7 +161,7 @@
             startingLineNumber = "530"
             endingLineNumber = "530"
             landmarkName = "pingFunction()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -177,7 +177,7 @@
             startingLineNumber = "553"
             endingLineNumber = "553"
             landmarkName = "pingFunction()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -225,7 +225,7 @@
             startingLineNumber = "557"
             endingLineNumber = "557"
             landmarkName = "pingFunction()"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "77C59D92-161D-4E92-8E52-46BFB2003ED4 - 773a9192934b6aa8"
@@ -273,7 +273,7 @@
             startingLineNumber = "385"
             endingLineNumber = "385"
             landmarkName = "getStatus()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -289,7 +289,7 @@
             startingLineNumber = "395"
             endingLineNumber = "395"
             landmarkName = "getStatus()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -305,7 +305,7 @@
             startingLineNumber = "410"
             endingLineNumber = "410"
             landmarkName = "getStatus()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -717,7 +717,7 @@
             startingLineNumber = "407"
             endingLineNumber = "407"
             landmarkName = "getStatus()"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "186681BD-083F-40AA-90A4-BAB4CA4D3F03 - 689354e991a9e4f1"
@@ -765,7 +765,7 @@
             startingLineNumber = "408"
             endingLineNumber = "408"
             landmarkName = "getStatus()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -781,7 +781,7 @@
             startingLineNumber = "329"
             endingLineNumber = "329"
             landmarkName = "getStatusSolo()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -797,7 +797,7 @@
             startingLineNumber = "307"
             endingLineNumber = "307"
             landmarkName = "getStatusSolo()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -813,7 +813,7 @@
             startingLineNumber = "285"
             endingLineNumber = "285"
             landmarkName = "getStatusSolo()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -829,7 +829,7 @@
             startingLineNumber = "233"
             endingLineNumber = "233"
             landmarkName = "status(_:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -845,7 +845,7 @@
             startingLineNumber = "231"
             endingLineNumber = "231"
             landmarkName = "status(_:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -861,7 +861,7 @@
             startingLineNumber = "331"
             endingLineNumber = "331"
             landmarkName = "getStatusSolo()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
