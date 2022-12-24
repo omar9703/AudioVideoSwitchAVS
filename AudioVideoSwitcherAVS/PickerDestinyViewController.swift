@@ -123,31 +123,33 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
                     let client = try Socket(.inet, type: .stream, protocol: .tcp)
                     try client.connect(port: 49280, address: ipYamaha)
                     var cont = 0
-//                    try client.wait(for: .write, timeout: 2000)
-                    while cont < 16 {
-                        let message = ([UInt8])("get MIXER:Current/Mix/Label/Name \(cont) 0  \n".utf8)
-                        try client.write(message)
-//                        debugPrint(message)
-                        var buffer = [UInt8](repeating: 0, count: 48)
-                        let v = try client.read(&buffer, size: 50)
-                        if let response = String(bytes: buffer, encoding: .utf8)
-                        {
-                            debugPrint(response, response.slice(from: "\"", to: "\n"))
-                            if self.mixes.count > cont
-                            {
-                                self.mixes[cont] = response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? "Mix \(cont + 1)"
-                            }
-                            else
-                            {
-                                self.mixes.append(response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? "Mix \(cont + 1)")
-                            }
-                                
-                        }
-                        cont = cont + 1
-                    }
-                    DispatchQueue.main.async {
-                        self.pickerTV.reloadAllComponents()
-                    }
+                   if try client.wait(for: .write, timeout: 1, retryOnInterrupt: true)
+                    {
+                       while cont < 16 {
+                           let message = ([UInt8])("get MIXER:Current/Mix/Label/Name \(cont) 0  \n".utf8)
+                           try client.write(message)
+                           //                        debugPrint(message)
+                           var buffer = [UInt8](repeating: 0, count: 48)
+                           let v = try client.read(&buffer, size: 50)
+                           if let response = String(bytes: buffer, encoding: .utf8)
+                           {
+                               debugPrint(response, response.slice(from: "\"", to: "\n"))
+                               if self.mixes.count > cont
+                               {
+                                   self.mixes[cont] = response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? "Mix \(cont + 1)"
+                               }
+                               else
+                               {
+                                   self.mixes.append(response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? "Mix \(cont + 1)")
+                               }
+                               
+                           }
+                           cont = cont + 1
+                       }
+                       DispatchQueue.main.async {
+                           self.pickerTV.reloadAllComponents()
+                       }
+                   }
                     client.close()
                 }
                 catch

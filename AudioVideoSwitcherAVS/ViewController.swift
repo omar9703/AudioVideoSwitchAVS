@@ -136,86 +136,89 @@ class ViewController: UIViewController {
              client = try Socket(.inet, type: .stream, protocol: .tcp)
             try client?.connect(port: 49280, address: ipYamaha)
             var cont = 0
-            //                    try client.wait(for: .write, timeout: 2000)
-            let message = ([UInt8])("get MIXER:Current/Mix/Fader/Level \(sliderView.tag - 1) 0\n".utf8)
-            try client?.write(message)
-//            debugPrint(y)
-            var buffer = [UInt8](repeating: 0, count: 52)
-            let v = try client?.read(&buffer, size: 52)
-            if let response = String(bytes: buffer, encoding: .utf8)
+            if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
             {
-                //debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
-                let str = response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: "")
-                let split = str.split(separator: " ")
-                let last = String(split.suffix(1).joined(separator: [" "]))
-                //debugPrint(last)
-                if let valor = Int(last)
+                let message = ([UInt8])("get MIXER:Current/Mix/Fader/Level \(sliderView.tag - 1) 0\n".utf8)
+                try client?.write(message)
+                //            debugPrint(y)
+                var buffer = [UInt8](repeating: 0, count: 52)
+                _ = try client?.read(&buffer, size: 52)
+                if let response = String(bytes: buffer, encoding: .utf8)
                 {
-                    for x in self.view.subviews
+                    //debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
+                    let str = response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: "")
+                    let split = str.split(separator: " ")
+                    let last = String(split.suffix(1).joined(separator: [" "]))
+                    //debugPrint(last)
+                    if let valor = Int(last)
                     {
-                        if let y = x as? UISlider
+                        for x in self.view.subviews
                         {
-                            switch valor {
-                            case (-28000)...(-6000):
-                                sliderView.value = -15
-                                break
-                            case (-5999)...(-5500):
-                                sliderView.value = -14
-                                break
-                            case (-5499)...(-5000):
-                                sliderView.value = -13
-                                break
-                            case (-4999)...(-4500):
-                                sliderView.value = -12
-                                break
-                            case (-4499)...(-4000):
-                                sliderView.value = -11
-                                break
-                            case (-3999)...(-3500):
-                                sliderView.value = -10
-                                break
-                            case (-3499)...(-3000):
-                                sliderView.value = -9
-                                break
-                            case (-2999)...(-2500):
-                                sliderView.value = -8
-                                break
-                            case (-2499)...(-2000):
-                                sliderView.value = -7
-                                break
-                            case (-1999)...(-1500):
-                                sliderView.value = -6
-                                break
-                            case (-1499)...(-1000):
-                                sliderView.value = -5
-                                break
-                            case (-999)...(-500):
-                                sliderView.value = -4
-                                break
-                            case (-499)...(0):
-                                sliderView.value = -3
-                                break
-                            case (0)...(300):
-                                sliderView.value = -2
-                                break
-                            case (301)...(500):
-                                sliderView.value = -1
-                                break
-                            case (501)...(700):
-                                sliderView.value = 0
-                                break
-                            case 701...1000:
-                                sliderView.value = 1
-                                break
-                            default:
-                                sliderView.value = -16
-                                break
+                            if let y = x as? UISlider
+                            {
+                                switch valor {
+                                case (-28000)...(-6000):
+                                    sliderView.value = -15
+                                    break
+                                case (-5999)...(-5500):
+                                    sliderView.value = -14
+                                    break
+                                case (-5499)...(-5000):
+                                    sliderView.value = -13
+                                    break
+                                case (-4999)...(-4500):
+                                    sliderView.value = -12
+                                    break
+                                case (-4499)...(-4000):
+                                    sliderView.value = -11
+                                    break
+                                case (-3999)...(-3500):
+                                    sliderView.value = -10
+                                    break
+                                case (-3499)...(-3000):
+                                    sliderView.value = -9
+                                    break
+                                case (-2999)...(-2500):
+                                    sliderView.value = -8
+                                    break
+                                case (-2499)...(-2000):
+                                    sliderView.value = -7
+                                    break
+                                case (-1999)...(-1500):
+                                    sliderView.value = -6
+                                    break
+                                case (-1499)...(-1000):
+                                    sliderView.value = -5
+                                    break
+                                case (-999)...(-500):
+                                    sliderView.value = -4
+                                    break
+                                case (-499)...(0):
+                                    sliderView.value = -3
+                                    break
+                                case (0)...(300):
+                                    sliderView.value = -2
+                                    break
+                                case (301)...(500):
+                                    sliderView.value = -1
+                                    break
+                                case (501)...(700):
+                                    sliderView.value = 0
+                                    break
+                                case 701...1000:
+                                    sliderView.value = 1
+                                    break
+                                default:
+                                    sliderView.value = -16
+                                    break
+                                }
                             }
                         }
                     }
                 }
             }
-            client?.close()
+                client?.close()
+            
         }
         catch
         {
@@ -236,117 +239,120 @@ class ViewController: UIViewController {
                 do
                 {
                     client = try Socket(.inet, type: .stream, protocol: .tcp)
-                   try client?.connect(port: 49280, address: ipYamaha)
-                    for (x,y) in selctedSoloIds.enumerated()
+                    try client?.connect(port: 49280, address: ipYamaha)
+                    if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
                     {
-                        let vtag = self.sliderView.tag - 1
-                        
-                        var cont = 0
-                        let message = ([UInt8])("get MIXER:Current/InCh/ToMix/Level \(y) \(vtag)\n".utf8)
-                        try client?.write(message)
-                        debugPrint(y)
-                        var buffer = [UInt8](repeating: 0, count: 52)
-                        let v = try client?.read(&buffer, size: 52)
-                        if let response = String(bytes: buffer, encoding: .utf8)
+                        for (x,y) in selctedSoloIds.enumerated()
                         {
-                            //debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
-                            let str = response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: "")
-                            let split = str.split(separator: " ")
-                            let last = String(split.suffix(1).joined(separator: [" "]))
-                        debugPrint(last)
-                            if let valor = Int(last)
+                            let vtag = self.sliderView.tag - 1
+                            
+                            var cont = 0
+                            let message = ([UInt8])("get MIXER:Current/InCh/ToMix/Level \(y) \(vtag)\n".utf8)
+                            try client?.write(message)
+                            debugPrint(y)
+                            var buffer = [UInt8](repeating: 0, count: 52)
+                            let v = try client?.read(&buffer, size: 52)
+                            if let response = String(bytes: buffer, encoding: .utf8)
                             {
-                                for p in self.view.subviews
+                                //debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
+                                let str = response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: "")
+                                let split = str.split(separator: " ")
+                                let last = String(split.suffix(1).joined(separator: [" "]))
+                                debugPrint(last)
+                                if let valor = Int(last)
                                 {
-                                    //                                debugPrint(x)
-                                    if let s1 = p as? UIStackView
+                                    for p in self.view.subviews
                                     {
-                                        for y in s1.subviews
+                                        //                                debugPrint(x)
+                                        if let s1 = p as? UIStackView
                                         {
-                                            if let f = y as? CanalButtonView
+                                            for y in s1.subviews
                                             {
-                                                if f.tag == x
+                                                if let f = y as? CanalButtonView
                                                 {
-                                                    //debugPrint(valor)
-                                                    if (valor > -7000 && valor < -200) || (valor >= 100) && (valor < 1001)
+                                                    if f.tag == x
                                                     {
-                                                        DispatchQueue.main.async {
-                                                            for h in f.subviews
-                                                            {
-                                                                if h.isKind(of: UIView.self)
+                                                        //debugPrint(valor)
+                                                        if (valor > -7000 && valor < -200) || (valor >= 100) && (valor < 1001)
+                                                        {
+                                                            DispatchQueue.main.async {
+                                                                for h in f.subviews
                                                                 {
-                                                                    for u in h.subviews
+                                                                    if h.isKind(of: UIView.self)
                                                                     {
-                                                                        if u.isKind(of: UIImageView.self)
+                                                                        for u in h.subviews
                                                                         {
-                                                                            h.backgroundColor = UIColor(red: 255/255, green: 156/255, blue: 0/255, alpha: 1)
-                                                                            
-                                                                            (u as? UIImageView)?.image = UIImage(named: "auriculares")
-                                                                        }
-                                                                    }
-                                                                    
-                                                                }
-                                                            }
-                                                        }
-                                                        self.selectedSolo[x] = true
-                                                    }
-                                                    else if valor >= -200 && valor < 100
-                                                    {
-                                                        DispatchQueue.main.async {
-                                                            for h in f.subviews
-                                                            {
-                                                                if h.isKind(of: UIView.self)
-                                                                {
-                                                                    for u in h.subviews
-                                                                    {
-                                                                        if u.isKind(of: UIImageView.self)
-                                                                        {
-                                                                            h.backgroundColor =  UIColor(red: 255/255, green: 156/255, blue: 0/255, alpha: 1)
-                                                                            
+                                                                            if u.isKind(of: UIImageView.self)
+                                                                            {
+                                                                                h.backgroundColor = UIColor(red: 255/255, green: 156/255, blue: 0/255, alpha: 1)
+                                                                                
                                                                                 (u as? UIImageView)?.image = UIImage(named: "auriculares")
-                                                                            
+                                                                            }
                                                                         }
+                                                                        
                                                                     }
                                                                 }
                                                             }
+                                                            self.selectedSolo[x] = true
                                                         }
-                                                        self.selectedSolo[x] = true
-                                                    }
-                                                    else
-                                                    {
-                                                        DispatchQueue.main.async {
-                                                            for h in f.subviews
-                                                            {
-                                                                if h.isKind(of: UIView.self)
+                                                        else if valor >= -200 && valor < 100
+                                                        {
+                                                            DispatchQueue.main.async {
+                                                                for h in f.subviews
                                                                 {
-                                                                    for u in h.subviews
+                                                                    if h.isKind(of: UIView.self)
                                                                     {
-                                                                        if u.isKind(of: UIImageView.self)
+                                                                        for u in h.subviews
                                                                         {
-                                                                            h.backgroundColor = UIColor(red: 69/255, green: 93/255, blue: 220/255, alpha: 1)
-                                                                            
-                                                                            (u as? UIImageView)?.image = UIImage(named: "microfono")
+                                                                            if u.isKind(of: UIImageView.self)
+                                                                            {
+                                                                                h.backgroundColor =  UIColor(red: 255/255, green: 156/255, blue: 0/255, alpha: 1)
+                                                                                
+                                                                                (u as? UIImageView)?.image = UIImage(named: "auriculares")
+                                                                                
+                                                                            }
                                                                         }
                                                                     }
                                                                 }
                                                             }
+                                                            self.selectedSolo[x] = true
                                                         }
-                                                        self.selectedSolo[x] = false
+                                                        else
+                                                        {
+                                                            DispatchQueue.main.async {
+                                                                for h in f.subviews
+                                                                {
+                                                                    if h.isKind(of: UIView.self)
+                                                                    {
+                                                                        for u in h.subviews
+                                                                        {
+                                                                            if u.isKind(of: UIImageView.self)
+                                                                            {
+                                                                                h.backgroundColor = UIColor(red: 69/255, green: 93/255, blue: 220/255, alpha: 1)
+                                                                                
+                                                                                (u as? UIImageView)?.image = UIImage(named: "microfono")
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                            self.selectedSolo[x] = false
+                                                        }
                                                     }
                                                 }
                                             }
+                                            
                                         }
-                                        
                                     }
+                                    
                                 }
-                                
                             }
+                            
                         }
-                        
                     }
-                    client?.close()
+                        client?.close()
+                    
                 }
-                
                 catch
                 {
                     client?.close()
@@ -363,91 +369,91 @@ class ViewController: UIViewController {
                 do
                 {
                     client = try Socket(.inet, type: .stream, protocol: .tcp)
-                   try client?.connect(port: 49280, address: ipYamaha)
-                    for (x,y) in SelectedChannelsIds.enumerated()
+                    try client?.connect(port: 49280, address: ipYamaha)
+                    if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
                     {
-                        
-                       var cont = 0
-                        let message = ([UInt8])("get MIXER:Current/InCh/Fader/Level \(y) 0\n".utf8)
-                        try client?.write(message)
-                        debugPrint(y)
-                        var buffer = [UInt8](repeating: 0, count: 52)
-                        let v = try client?.read(&buffer, size: 52)
-                        if let response = String(bytes: buffer, encoding: .utf8)
+                        for (x,y) in SelectedChannelsIds.enumerated()
                         {
-                            //debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
-                            let str = response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: "")
-                            let split = str.split(separator: " ")
-                            let last = String(split.suffix(1).joined(separator: [" "]))
-                        debugPrint(last)
-                            if let valor = Int(last)
+                            
+                            var cont = 0
+                            let message = ([UInt8])("get MIXER:Current/InCh/Fader/Level \(y) 0\n".utf8)
+                            try client?.write(message)
+                            debugPrint(y)
+                            var buffer = [UInt8](repeating: 0, count: 52)
+                            let v = try client?.read(&buffer, size: 52)
+                            if let response = String(bytes: buffer, encoding: .utf8)
                             {
-                                for p in self.view.subviews
+                                //debugPrint(response, response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: ""))
+                                let str = response.replacingOccurrences(of: "\0", with: "").replacingOccurrences(of: "\n", with: "")
+                                let split = str.split(separator: " ")
+                                let last = String(split.suffix(1).joined(separator: [" "]))
+                                debugPrint(last)
+                                if let valor = Int(last)
                                 {
-                                    //                                debugPrint(x)
-                                    if let s1 = p as? UIStackView
+                                    for p in self.view.subviews
                                     {
-                                        for y in s1.subviews
+                                        //                                debugPrint(x)
+                                        if let s1 = p as? UIStackView
                                         {
-                                            if let f = y as? CanalButtonView
+                                            for y in s1.subviews
                                             {
-                                                if f.tag == x
+                                                if let f = y as? CanalButtonView
                                                 {
-                                                    //debugPrint(valor)
-                                                    if (valor > -7000 && valor < -200) || (valor >= 100) && (valor < 1001)
+                                                    if f.tag == x
                                                     {
-                                                        DispatchQueue.main.async {
-                                                            for h in f.subviews
-                                                            {
-                                                                if h.isKind(of: UILabel.self)
+                                                        //debugPrint(valor)
+                                                        if (valor > -7000 && valor < -200) || (valor >= 100) && (valor < 1001)
+                                                        {
+                                                            DispatchQueue.main.async {
+                                                                for h in f.subviews
                                                                 {
-                                                                    h.backgroundColor = .yellow
+                                                                    if h.isKind(of: UILabel.self)
+                                                                    {
+                                                                        h.backgroundColor = .yellow
+                                                                    }
                                                                 }
                                                             }
+                                                            self.selectedChannels[x] = true
                                                         }
-                                                        self.selectedChannels[x] = true
-                                                    }
-                                                    else if valor >= -200 && valor < 100
-                                                    {
-                                                        DispatchQueue.main.async {
-                                                            for h in f.subviews
-                                                            {
-                                                                if h.isKind(of: UILabel.self)
+                                                        else if valor >= -200 && valor < 100
+                                                        {
+                                                            DispatchQueue.main.async {
+                                                                for h in f.subviews
                                                                 {
-                                                                    h.backgroundColor = UIColor(red: 195/255, green: 24/255, blue: 53/255, alpha: 1)
+                                                                    if h.isKind(of: UILabel.self)
+                                                                    {
+                                                                        h.backgroundColor = UIColor(red: 195/255, green: 24/255, blue: 53/255, alpha: 1)
+                                                                    }
                                                                 }
                                                             }
+                                                            self.selectedChannels[x] = true
                                                         }
-                                                        self.selectedChannels[x] = true
-                                                    }
-                                                    else
-                                                    {
-                                                        DispatchQueue.main.async {
-                                                            for h in f.subviews
-                                                            {
-                                                                if h.isKind(of: UILabel.self)
+                                                        else
+                                                        {
+                                                            DispatchQueue.main.async {
+                                                                for h in f.subviews
                                                                 {
-                                                                    h.backgroundColor = UIColor(red: 61/255, green: 121/255, blue: 196/255, alpha: 1)
+                                                                    if h.isKind(of: UILabel.self)
+                                                                    {
+                                                                        h.backgroundColor = UIColor(red: 61/255, green: 121/255, blue: 196/255, alpha: 1)
+                                                                    }
                                                                 }
                                                             }
+                                                            self.selectedChannels[x] = false
                                                         }
-                                                        self.selectedChannels[x] = false
                                                     }
                                                 }
                                             }
+                                            
                                         }
-                                        
                                     }
+                                    
                                 }
-                                
                             }
                         }
-                                            }
-                    client?.close()
-
-                   
+                    }
+                        client?.close()
                 }
-                
                 catch
                 {
                     client?.close()
@@ -583,41 +589,41 @@ class ViewController: UIViewController {
                 do{
                     client = try Socket(.inet, type: .stream, protocol: .tcp)
                    try client?.connect(port: 49280, address: ipYamaha)
-                   let w = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: false)
-                   debugPrint(w)
-                    for (x,y) in selectedChannels.enumerated()
+                    if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
                     {
-                        if y
+                        for (x,y) in selectedChannels.enumerated()
                         {
-                            let message = ([UInt8])("set MIXER:Current/InCh/Fader/Level \(self.SelectedChannelsIds[x]) \(0) \(-32000) \n".utf8)
-                            try client?.write(message)
-                            
-                            debugPrint("holis")
-                            var buffer = [UInt8](repeating: 0, count: 1500)
-                            try client?.read(&buffer, size: 100)
-                            selectedChannels[x] = false
-                            for o in canales
+                            if y
                             {
-                                if o.tag == x
+                                let message = ([UInt8])("set MIXER:Current/InCh/Fader/Level \(self.SelectedChannelsIds[x]) \(0) \(-32000) \n".utf8)
+                                try client?.write(message)
+                                
+                                debugPrint("holis")
+                                var buffer = [UInt8](repeating: 0, count: 1500)
+                                try client?.read(&buffer, size: 100)
+                                selectedChannels[x] = false
+                                for o in canales
                                 {
-                                    
-                                    for i in o.superview!.subviews
+                                    if o.tag == x
                                     {
                                         
+                                        for i in o.superview!.subviews
+                                        {
+                                            
                                             if i.isKind(of: UILabel.self)
                                             {
                                                 (i as? UILabel)?.backgroundColor = UIColor(red: 61/255, green: 121/255, blue: 196/255, alpha: 1)
                                             }
-                                        
+                                            
+                                        }
                                     }
                                 }
-                            }
-                            
                                 
-                            
+                                
+                                
+                            }
                         }
                     }
-                   
                    client?.close()
                     self.bandera = true
                }
@@ -640,42 +646,44 @@ class ViewController: UIViewController {
                 let vTag = self.sliderView.tag
                 do{
                     client = try Socket(.inet, type: .stream, protocol: .tcp)
+                    
                    try client?.connect(port: 49280, address: ipYamaha)
-                   let w = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: false)
-                   debugPrint(w)
-                    for (x,y) in selectedSolo.enumerated()
+                    if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
                     {
-                        if y
+                        debugPrint()
+                        for (x,y) in selectedSolo.enumerated()
                         {
-                            let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.selctedSoloIds[x]) \(vTag - 1) \(-32000) \n".utf8)
-                            try client?.write(message)
-                            
-                            debugPrint("holis")
-                            var buffer = [UInt8](repeating: 0, count: 1500)
-                            try client?.read(&buffer, size: 100)
-                            selectedSolo[x] = false
-                            for o in soloButtons
+                            if y
                             {
-                                if o.tag == x
+                                let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.selctedSoloIds[x]) \(vTag - 1) \(-32000) \n".utf8)
+                                try client?.write(message)
+                                
+                                debugPrint("holis")
+                                var buffer = [UInt8](repeating: 0, count: 1500)
+                                try client?.read(&buffer, size: 100)
+                                selectedSolo[x] = false
+                                for o in soloButtons
                                 {
-                                    o.backgroundColor = UIColor(red: 69/255, green: 93/255, blue: 220/255, alpha: 1)
-                                    for i in o.subviews
+                                    if o.tag == x
                                     {
-                                        
+                                        o.backgroundColor = UIColor(red: 69/255, green: 93/255, blue: 220/255, alpha: 1)
+                                        for i in o.subviews
+                                        {
+                                            
                                             if i.isKind(of: UIImageView.self)
                                             {
                                                 (i as? UIImageView)?.image = UIImage(named: "microfono")
                                             }
-                                        
+                                            
+                                        }
                                     }
                                 }
-                            }
-                            
                                 
-                            
+                                
+                                
+                            }
                         }
                     }
-                   
                    client?.close()
                }
                catch
@@ -747,18 +755,18 @@ class ViewController: UIViewController {
                     do
                     {
                          client = try Socket(.inet, type: .stream, protocol: .tcp)
-                        let y = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true)
-                        debugPrint(y)
-                        try client?.connect(port: 7788, address: ipUltrix)
-                        
-                        let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[tagi]+1) \r\n".utf8)
-                        try client?.write(message)
-                        debugPrint("holis")
-                        //            var buffer = [UInt8](repeating: 0, count: 1500)
-                        //            try client.read(&buffer, size: 100)
-                        client?.close()
-                        debugPrint("holis")
-                        
+                        if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
+                        {
+                            try client?.connect(port: 7788, address: ipUltrix)
+                            
+                            let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[tagi]+1) \r\n".utf8)
+                            try client?.write(message)
+                            debugPrint("holis")
+                            //            var buffer = [UInt8](repeating: 0, count: 1500)
+                            //            try client.read(&buffer, size: 100)
+                            client?.close()
+                            debugPrint("holis")
+                        }
                     }
                     catch
                     {
@@ -818,14 +826,16 @@ class ViewController: UIViewController {
                         
                         client = try Socket(.inet, type: .stream, protocol: .tcp)
                         try client?.connect(port: 49280, address: ipYamaha)
-                        try client?.wait(for: .write, timeout: 2000)
-                        //client.close()
-                        let message = ([UInt8])("set MIXER:Current/InCh/Fader/Level \(t) 0 \(nivel) \n".utf8)
-                        try client?.write(message)
-                        debugPrint("holis",t)
-                        var buffer = [UInt8](repeating: 0, count: 1500)
-                        try client?.read(&buffer, size: 100)
-                        client?.close()
+                        if let u = try client?.wait(for: .write, timeout: 2), u
+                        {
+                            //client.close()
+                            let message = ([UInt8])("set MIXER:Current/InCh/Fader/Level \(t) 0 \(nivel) \n".utf8)
+                            try client?.write(message)
+                            debugPrint("holis",t)
+                            var buffer = [UInt8](repeating: 0, count: 1500)
+                            try client?.read(&buffer, size: 100)
+                            client?.close()
+                        }
                     }
                     catch
                     {
@@ -882,15 +892,16 @@ class ViewController: UIViewController {
                     {
                          client = try Socket(.inet, type: .stream, protocol: .tcp)
                         try client?.connect(port: 49280, address: ipYamaha)
-                        let w = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: false)
-                        debugPrint(w)
-                        let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.selctedSoloIds[tag]) \(vtag - 1) \(nivel) \n".utf8)
-                        try client?.write(message)
-                        
-                        debugPrint("holis")
-                        var buffer = [UInt8](repeating: 0, count: 1500)
-                        try client?.read(&buffer, size: 100)
-                        client?.close()
+                        if try client?.wait(for: .write, timeout: 2, retryOnInterrupt: false)
+                        {
+                            let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.selctedSoloIds[tag]) \(vtag - 1) \(nivel) \n".utf8)
+                            try client?.write(message)
+                            
+                            debugPrint("holis")
+                            var buffer = [UInt8](repeating: 0, count: 1500)
+                            try client?.read(&buffer, size: 100)
+                            client?.close()
+                        }
                     }
                     catch
                     {
@@ -1003,13 +1014,15 @@ class ViewController: UIViewController {
                         {
                             let client = try Socket(.inet, type: .stream, protocol: .tcp)
                             try client.connect(port: 49280, address: ipYamaha)
-                            try client.wait(for: .write, timeout: 2)
-                            let message = ([UInt8])("set MIXER:Current/Mix/Fader/Level \(vtag  - 1) 0 \(level) \n".utf8)
-                            try client.write(message)
-                            debugPrint("holis")
-                            var buffer = [UInt8](repeating: 0, count: 1500)
-                            try client.read(&buffer, size: 100)
-                            client.close()
+                            if try client.wait(for: .write, timeout: 2)
+                            {
+                                let message = ([UInt8])("set MIXER:Current/Mix/Fader/Level \(vtag  - 1) 0 \(level) \n".utf8)
+                                try client.write(message)
+                                debugPrint("holis")
+                                var buffer = [UInt8](repeating: 0, count: 1500)
+                                try client.read(&buffer, size: 100)
+                                client.close()
+                            }
                         }
                         catch
                         {

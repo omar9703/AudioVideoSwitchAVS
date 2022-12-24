@@ -50,30 +50,32 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     let client = try Socket(.inet, type: .stream, protocol: .tcp)
                     try client.connect(port: 49280, address: ip)
                     var cont = 0
-                    //                    try client.wait(for: .write, timeout: 2000)
-                    while cont < 64 {
-                        var message = ([UInt8])("get MIXER:Current/InCh/Label/Name \(cont) 0  \n".utf8)
-                        try client.write(message)
-                        //                        debugPrint(message)
-                        var buffer = [UInt8](repeating: 0, count: 50)
-                        let v = try client.read(&buffer, size: 50)
-                        if let response = String(bytes: buffer, encoding: .utf8)
-                        {
-                            debugPrint(response, response.slice(from: "\"", to: "\n"))
-                            if self.channels.count > cont
+                    if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
+                    {
+                        while cont < 64 {
+                            var message = ([UInt8])("get MIXER:Current/InCh/Label/Name \(cont) 0  \n".utf8)
+                            try client.write(message)
+                            //                        debugPrint(message)
+                            var buffer = [UInt8](repeating: 0, count: 50)
+                            let v = try client.read(&buffer, size: 50)
+                            if let response = String(bytes: buffer, encoding: .utf8)
                             {
-                                self.channels[cont] = response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? ""
+                                debugPrint(response, response.slice(from: "\"", to: "\n"))
+                                if self.channels.count > cont
+                                {
+                                    self.channels[cont] = response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? ""
+                                }
+                                else
+                                {
+                                    self.channels.append(response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? "")
+                                }
+                                
                             }
-                            else
-                            {
-                                self.channels.append(response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? "")
-                            }
-                            
+                            cont = cont + 1
                         }
-                        cont = cont + 1
-                    }
-                    DispatchQueue.main.async {
-                        self.pickerCanal.reloadAllComponents()
+                        DispatchQueue.main.async {
+                            self.pickerCanal.reloadAllComponents()
+                        }
                     }
                     client.close()
                 }
