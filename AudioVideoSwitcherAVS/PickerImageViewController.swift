@@ -50,7 +50,7 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     let client = try Socket(.inet, type: .stream, protocol: .tcp)
                     try client.connect(port: 49280, address: ip)
                     var cont = 0
-                    if try client.wait(for: .write, timeout: 1, retryOnInterrupt: true)
+                    if try client.wait(for: .write, timeout: 2, retryOnInterrupt: true)
                     {
                         while cont < 64 {
                             var message = ([UInt8])("get MIXER:Current/InCh/Label/Name \(cont) 0  \n".utf8)

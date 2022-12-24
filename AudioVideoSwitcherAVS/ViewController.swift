@@ -136,7 +136,7 @@ class ViewController: UIViewController {
              client = try Socket(.inet, type: .stream, protocol: .tcp)
             try client?.connect(port: 49280, address: ipYamaha)
             _ = 0
-            if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
+            if let u = try client?.wait(for: .write, timeout: 2, retryOnInterrupt: true), u
             {
                 let message = ([UInt8])("get MIXER:Current/Mix/Fader/Level \(sliderView.tag - 1) 0\n".utf8)
                 try client?.write(message)
@@ -240,7 +240,7 @@ class ViewController: UIViewController {
                 {
                     client = try Socket(.inet, type: .stream, protocol: .tcp)
                     try client?.connect(port: 49280, address: ipYamaha)
-                    if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
+                    if let u = try client?.wait(for: .write, timeout: 2, retryOnInterrupt: true), u
                     {
                         for (x,y) in selctedSoloIds.enumerated()
                         {
@@ -370,7 +370,7 @@ class ViewController: UIViewController {
                 {
                     client = try Socket(.inet, type: .stream, protocol: .tcp)
                     try client?.connect(port: 49280, address: ipYamaha)
-                    if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
+                    if let u = try client?.wait(for: .write, timeout: 2, retryOnInterrupt: true), u
                     {
                         for (x,y) in SelectedChannelsIds.enumerated()
                         {
@@ -589,7 +589,7 @@ class ViewController: UIViewController {
                 do{
                     client = try Socket(.inet, type: .stream, protocol: .tcp)
                    try client?.connect(port: 49280, address: ipYamaha)
-                    if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
+                    if let u = try client?.wait(for: .write, timeout: 2, retryOnInterrupt: true), u
                     {
                         for (x,y) in selectedChannels.enumerated()
                         {
@@ -648,7 +648,7 @@ class ViewController: UIViewController {
                     client = try Socket(.inet, type: .stream, protocol: .tcp)
                     
                    try client?.connect(port: 49280, address: ipYamaha)
-                    if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
+                    if let u = try client?.wait(for: .write, timeout: 2, retryOnInterrupt: true), u
                     {
                         debugPrint()
                         for (x,y) in selectedSolo.enumerated()
@@ -755,7 +755,7 @@ class ViewController: UIViewController {
                     do
                     {
                          client = try Socket(.inet, type: .stream, protocol: .tcp)
-                        if let u = try client?.wait(for: .write, timeout: 1, retryOnInterrupt: true), u
+                        if let u = try client?.wait(for: .write, timeout: 2, retryOnInterrupt: true), u
                         {
                             try client?.connect(port: 7788, address: ipUltrix)
                             

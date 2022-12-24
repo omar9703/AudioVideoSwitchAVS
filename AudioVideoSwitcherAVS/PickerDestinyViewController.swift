@@ -123,7 +123,7 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
                     let client = try Socket(.inet, type: .stream, protocol: .tcp)
                     try client.connect(port: 49280, address: ipYamaha)
                     var cont = 0
-                   if try client.wait(for: .write, timeout: 1, retryOnInterrupt: true)
+                   if try client.wait(for: .write, timeout: 2, retryOnInterrupt: true)
                     {
                        while cont < 16 {
                            let message = ([UInt8])("get MIXER:Current/Mix/Label/Name \(cont) 0  \n".utf8)
