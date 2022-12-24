@@ -222,7 +222,7 @@ class ViewController: UIViewController {
         }
         catch
         {
-            client?.close()
+            //client?.close()
             debugPrint(error)
         }
     }
@@ -355,7 +355,7 @@ class ViewController: UIViewController {
                 }
                 catch
                 {
-                    client?.close()
+                    //client?.close()
                     debugPrint(error)
                 }
             
@@ -456,7 +456,7 @@ class ViewController: UIViewController {
                 }
                 catch
                 {
-                    client?.close()
+                    //client?.close()
                     debugPrint(error)
                     self.bandera = true
                 }
@@ -630,7 +630,7 @@ class ViewController: UIViewController {
                catch
                {
                    debugPrint(error)
-                   client?.close()
+                   //client?.close()
                    self.bandera = true
                }
             }
@@ -689,7 +689,7 @@ class ViewController: UIViewController {
                catch
                {
                    debugPrint(error)
-                   client?.close()
+                  // client?.close()
                    
                }
             }
@@ -771,7 +771,7 @@ class ViewController: UIViewController {
                     catch
                     {
                         debugPrint(error)
-                        client?.close()
+                       // client?.close()
                         DispatchQueue.main.async {
                             sender.backgroundColor = .lightGray
                         }
@@ -840,7 +840,7 @@ class ViewController: UIViewController {
                     catch
                     {
                         debugPrint(error)
-                        client?.close()
+                        //client?.close()
                         DispatchQueue.main.async {
                             sender.view!.backgroundColor = .clear
                         }
@@ -906,7 +906,7 @@ class ViewController: UIViewController {
                     catch
                     {
                         debugPrint(error)
-                        client?.close()
+                        //client?.close()
                         DispatchQueue.main.async {
                             sender.view!.backgroundColor = UIColor(red: 69/255, green: 93/255, blue: 220/255, alpha: 1)
                             for x in sender.view!.subviews
