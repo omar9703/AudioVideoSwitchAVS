@@ -755,8 +755,8 @@ class ViewController: UIViewController {
                     do
                     {
                          client = try Socket(.inet, type: .stream, protocol: .tcp)
-                        if let u = try client?.wait(for: .write, timeout: 2, retryOnInterrupt: true), u
-                        {
+//                        if let u = try client?.wait(for: .write, timeout: 2, retryOnInterrupt: true), u
+//                        {
                             try client?.connect(port: 7788, address: ipUltrix)
                             
                             let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[tagi]+1) \r\n".utf8)
@@ -764,9 +764,10 @@ class ViewController: UIViewController {
                             debugPrint("holis")
                             //            var buffer = [UInt8](repeating: 0, count: 1500)
                             //            try client.read(&buffer, size: 100)
-                            client?.close()
+                            
                             debugPrint("holis")
-                        }
+//                        }
+                        client?.close()
                     }
                     catch
                     {
