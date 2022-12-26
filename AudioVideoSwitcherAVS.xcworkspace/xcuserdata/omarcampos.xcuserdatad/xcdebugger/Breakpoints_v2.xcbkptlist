@@ -572,7 +572,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "926"
             endingLineNumber = "926"
-            landmarkName = "VolumeChange(_:)"
+            landmarkName = "SoloAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

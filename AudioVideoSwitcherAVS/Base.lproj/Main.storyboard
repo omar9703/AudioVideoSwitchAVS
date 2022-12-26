@@ -2832,30 +2832,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y53-eY-NZW">
-                                        <rect key="frame" x="6.5" y="267" width="100" height="40"/>
-                                        <color key="backgroundColor" red="0.90588235289999997" green="0.098039215690000001" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="Ik2-Dz-2jF"/>
-                                            <constraint firstAttribute="height" constant="40" id="Kth-oE-icR"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Knockout-HTF52-Cruiserweight" family="Knockout" pointSize="17"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Clear solo">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="soloButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXn-aB-7up"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDW-9V-gYF">
-                                        <rect key="frame" x="6.5" y="328" width="100" height="40"/>
+                                        <rect key="frame" x="6.5" y="294" width="100" height="80"/>
                                         <color key="backgroundColor" red="0.90588235289999997" green="0.098039215690000001" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="fdl-iE-sS1"/>
+                                            <constraint firstAttribute="height" constant="80" id="fdl-iE-sS1"/>
                                             <constraint firstAttribute="width" constant="100" id="h2G-XE-Gjg"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Knockout-HTF52-Cruiserweight" family="Knockout" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Knockout-HTF52-Cruiserweight" family="Knockout" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Clear CH">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2864,18 +2848,35 @@
                                             <action selector="clearChnnels:" destination="BYZ-38-t0r" eventType="touchUpInside" id="McR-k9-WTC"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y53-eY-NZW">
+                                        <rect key="frame" x="6.5" y="474" width="100" height="80"/>
+                                        <color key="backgroundColor" red="1" green="0.61176470588235299" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Ik2-Dz-2jF"/>
+                                            <constraint firstAttribute="height" constant="80" id="Kth-oE-icR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Knockout-HTF52-Cruiserweight" family="Knockout" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Clear solo">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="soloButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXn-aB-7up"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.13725490196078433" green="0.14901960784313725" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Y53-eY-NZW" firstAttribute="top" secondItem="FDW-9V-gYF" secondAttribute="bottom" constant="100" id="1tK-Ip-C50"/>
                                     <constraint firstItem="xmF-pr-UMy" firstAttribute="centerY" secondItem="2My-QK-bNc" secondAttribute="centerY" id="3ub-7X-Hqc"/>
                                     <constraint firstAttribute="width" constant="113" id="4ru-t3-nla"/>
                                     <constraint firstItem="2My-QK-bNc" firstAttribute="top" secondItem="jyw-FW-hFY" secondAttribute="bottom" constant="22" id="9hU-43-cQn"/>
                                     <constraint firstAttribute="trailing" secondItem="Aod-wL-gtM" secondAttribute="trailing" constant="10" id="AM0-IN-n90"/>
                                     <constraint firstItem="pau-fI-Ym2" firstAttribute="centerY" secondItem="jyw-FW-hFY" secondAttribute="centerY" id="Has-fy-WVs"/>
                                     <constraint firstItem="Y53-eY-NZW" firstAttribute="centerX" secondItem="gZH-s2-nAU" secondAttribute="centerX" id="IiS-iS-SXp"/>
-                                    <constraint firstItem="FDW-9V-gYF" firstAttribute="top" secondItem="Y53-eY-NZW" secondAttribute="bottom" constant="21" id="Paw-sj-7I4"/>
                                     <constraint firstItem="Vnl-wd-a40" firstAttribute="top" secondItem="gZH-s2-nAU" secondAttribute="top" constant="20" id="PwZ-WU-cyb"/>
                                     <constraint firstItem="pau-fI-Ym2" firstAttribute="leading" secondItem="jyw-FW-hFY" secondAttribute="trailing" constant="10" id="Sjs-o1-kfn"/>
+                                    <constraint firstItem="FDW-9V-gYF" firstAttribute="top" secondItem="2My-QK-bNc" secondAttribute="bottom" constant="50" id="TTl-VJ-Nhv"/>
                                     <constraint firstItem="2My-QK-bNc" firstAttribute="leading" secondItem="gZH-s2-nAU" secondAttribute="leading" constant="15" id="Tmn-ya-h1C"/>
                                     <constraint firstItem="jyw-FW-hFY" firstAttribute="leading" secondItem="gZH-s2-nAU" secondAttribute="leading" constant="15" id="UZy-4F-s8A"/>
                                     <constraint firstItem="Aod-wL-gtM" firstAttribute="leading" secondItem="gZH-s2-nAU" secondAttribute="leading" constant="10" id="Wfl-y3-xSB"/>
@@ -2885,7 +2886,6 @@
                                     <constraint firstItem="Aod-wL-gtM" firstAttribute="top" secondItem="Vnl-wd-a40" secondAttribute="bottom" constant="2" id="i7J-sp-LJV"/>
                                     <constraint firstItem="Vnl-wd-a40" firstAttribute="leading" secondItem="gZH-s2-nAU" secondAttribute="leading" constant="10" id="jCL-q1-xlK"/>
                                     <constraint firstItem="jyw-FW-hFY" firstAttribute="top" secondItem="Aod-wL-gtM" secondAttribute="bottom" constant="50" id="k7W-8c-4Fv"/>
-                                    <constraint firstItem="Y53-eY-NZW" firstAttribute="top" secondItem="2My-QK-bNc" secondAttribute="bottom" constant="23" id="sQa-MC-Y2j"/>
                                 </constraints>
                             </view>
                         </subviews>
