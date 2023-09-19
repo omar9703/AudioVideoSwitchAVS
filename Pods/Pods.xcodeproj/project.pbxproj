@@ -120,12 +120,12 @@
 		85B32A065D3FF025515872B3D1A4CC69 /* IQUIView+Hierarchy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIView+Hierarchy.m"; path = "IQKeyboardManager/Categories/IQUIView+Hierarchy.m"; sourceTree = "<group>"; };
 		89EA67973C6CF3C698E744D891E248AA /* IQKeyboardReturnKeyHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardReturnKeyHandler.h; path = IQKeyboardManager/IQKeyboardReturnKeyHandler.h; sourceTree = "<group>"; };
 		95109F8C372631EF5D404EC5E5A7640C /* Pods-AudioVideoSwitcherAVS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AudioVideoSwitcherAVS-acknowledgements.markdown"; sourceTree = "<group>"; };
-		98527D7196957AAB07B79E2E2AFDE23E /* IQKeyboardManager */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IQKeyboardManager; path = IQKeyboardManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98527D7196957AAB07B79E2E2AFDE23E /* IQKeyboardManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IQKeyboardManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		989D46D3CD64A405F501DE53CD4A2589 /* IQKeyboardReturnKeyHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQKeyboardReturnKeyHandler.m; path = IQKeyboardManager/IQKeyboardReturnKeyHandler.m; sourceTree = "<group>"; };
 		9A1F8EE63DC618A6D947D7B5369DE50B /* Pods-AudioVideoSwitcherAVS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AudioVideoSwitcherAVS-frameworks.sh"; sourceTree = "<group>"; };
 		9CD896E67772C86EBCDD748F16A7368B /* Pods-AudioVideoSwitcherAVS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AudioVideoSwitcherAVS-umbrella.h"; sourceTree = "<group>"; };
 		9D1737CC6F75630C6F39367558A73156 /* IQBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQBarButtonItem.m; path = IQKeyboardManager/IQToolbar/IQBarButtonItem.m; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A35042CC39D25EE0F02F49B9B73831AF /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIView+IQKeyboardToolbar.h"; path = "IQKeyboardManager/IQToolbar/IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
 		A42DBD2F42D55606EEBA514009498B87 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		ABCD96A222A98EEF2F28BA229ECA87ED /* Socket.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Socket.swift.modulemap; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 		D8103C5CEBDE0733566A27C4280F7493 /* Socket.swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Socket.swift.release.xcconfig; sourceTree = "<group>"; };
 		F19F7E0723ED99F71D0DF8A98BD1FAB2 /* IQTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQTextView.m; path = IQKeyboardManager/IQTextView/IQTextView.m; sourceTree = "<group>"; };
 		F615122DA2FACE64752BA22A6FDD1860 /* Pods-AudioVideoSwitcherAVS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AudioVideoSwitcherAVS.release.xcconfig"; sourceTree = "<group>"; };
-		FB9EC26EDF9F26682728AA76EBF87614 /* Socket.swift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Socket.swift; path = SocketSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB9EC26EDF9F26682728AA76EBF87614 /* SocketSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SocketSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD74B4C5A092ECEE79424AB80FDCD1C7 /* Pods-AudioVideoSwitcherAVS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-AudioVideoSwitcherAVS"; path = Pods_AudioVideoSwitcherAVS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -197,7 +197,6 @@
 				2FD492BA85D5801CD3CC63ACC711E158 /* Type.swift */,
 				D88CF1E1EFDB9AE072D8A53470D98001 /* Support Files */,
 			);
-			name = Socket.swift;
 			path = Socket.swift;
 			sourceTree = "<group>";
 		};
@@ -234,7 +233,6 @@
 				0461CBC32ADE471C83DE620A76774AE4 /* IQUIViewController+Additions.m */,
 				5DCF35FE150D9A3305593011B8D18606 /* Support Files */,
 			);
-			name = IQKeyboardManager;
 			path = IQKeyboardManager;
 			sourceTree = "<group>";
 		};
@@ -281,9 +279,9 @@
 		C8211479A3D104675C274E2B792AC00E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				98527D7196957AAB07B79E2E2AFDE23E /* IQKeyboardManager */,
+				98527D7196957AAB07B79E2E2AFDE23E /* IQKeyboardManager.framework */,
 				FD74B4C5A092ECEE79424AB80FDCD1C7 /* Pods-AudioVideoSwitcherAVS */,
-				FB9EC26EDF9F26682728AA76EBF87614 /* Socket.swift */,
+				FB9EC26EDF9F26682728AA76EBF87614 /* SocketSwift.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -393,7 +391,7 @@
 			);
 			name = Socket.swift;
 			productName = SocketSwift;
-			productReference = FB9EC26EDF9F26682728AA76EBF87614 /* Socket.swift */;
+			productReference = FB9EC26EDF9F26682728AA76EBF87614 /* SocketSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		6A3EB426E0B29A1941FC8A9BAB94B74E /* Pods-AudioVideoSwitcherAVS */ = {
@@ -431,7 +429,7 @@
 			);
 			name = IQKeyboardManager;
 			productName = IQKeyboardManager;
-			productReference = 98527D7196957AAB07B79E2E2AFDE23E /* IQKeyboardManager */;
+			productReference = 98527D7196957AAB07B79E2E2AFDE23E /* IQKeyboardManager.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -603,7 +601,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Socket.swift/Socket.swift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Socket.swift/Socket.swift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -637,7 +635,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManager/IQKeyboardManager-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/IQKeyboardManager/IQKeyboardManager-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -737,7 +735,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Socket.swift/Socket.swift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Socket.swift/Socket.swift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -810,7 +808,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManager/IQKeyboardManager-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/IQKeyboardManager/IQKeyboardManager-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
