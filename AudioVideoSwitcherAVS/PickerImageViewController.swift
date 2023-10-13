@@ -69,6 +69,10 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
                                 {
                                     self.channels.append(response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? "")
                                 }
+                                if self.channels[cont] == ""
+                                {
+                                    self.channels[cont] = "Canal \(cont + 1)"
+                                }
                                 
                             }
                             cont = cont + 1

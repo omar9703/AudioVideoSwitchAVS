@@ -759,7 +759,7 @@ class ViewController: UIViewController {
 //                        {
                             try client?.connect(port: 7788, address: ipUltrix)
                             
-                            let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[tagi]+1) \r\n".utf8)
+                            let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[tagi]+1)L:1 \r\n".utf8)
                             try client?.write(message)
                             debugPrint("holis")
                             //            var buffer = [UInt8](repeating: 0, count: 1500)
