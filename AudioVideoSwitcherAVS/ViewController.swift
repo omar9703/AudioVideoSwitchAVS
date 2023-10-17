@@ -49,8 +49,8 @@ class ViewController: UIViewController {
     var tvRow = 0
     var pingLoaded = false
     var selectedChannels = [false, false, false, false,false,false,false,false,false, false, false, false,false,false,false,false, false, false, false,false]
-    var SelectedChannelsIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
-    var selctedSoloIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+    var SelectedChannelsIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]
+    var selctedSoloIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]
     var selectedUltrixIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59]
     var nombresUltrix = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]
     var selectedCamara = [false]
@@ -715,6 +715,7 @@ class ViewController: UIViewController {
     @IBAction func ConfigButtonAction(_ sender: UIButton) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "config") as! ConfiguracionViewController
         vc.delegate = self
+        vc.origen = "20"
         self.present(vc, animated: true, completion: nil)
     }
     @objc func tvActionSelected(_ sender : UITapGestureRecognizer)
@@ -759,9 +760,9 @@ class ViewController: UIViewController {
 //                        {
                             try client?.connect(port: 7788, address: ipUltrix)
                             
-                            let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[tagi]+1)L:1 \r\n".utf8)
+                            let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[tagi]+1) \r\n".utf8)
                             try client?.write(message)
-                            debugPrint("holis")
+                            debugPrint(message)
                             //            var buffer = [UInt8](repeating: 0, count: 1500)
                             //            try client.read(&buffer, size: 100)
                             

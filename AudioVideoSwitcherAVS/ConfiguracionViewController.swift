@@ -12,7 +12,8 @@ protocol configPressedDelegate {
 }
 
 class ConfiguracionViewController: UIViewController, UITextFieldDelegate {
-
+    @IBOutlet weak var buttonchnage: UIButton!
+    var origen = ""
     @IBOutlet weak var maestrosw: UISwitch!
     @IBOutlet weak var IPultrix: UITextField!
     @IBOutlet weak var ipYAMAHA: UITextField!
@@ -34,6 +35,13 @@ class ConfiguracionViewController: UIViewController, UITextFieldDelegate {
         if let p = UserDefaults.standard.string(forKey: "ultrix")
         {
             IPultrix.text = p
+        }
+        if origen == "20"
+        {
+            buttonchnage.setTitle("Cambiar a YAMAHA ONLY", for: .normal)
+        }
+        else {
+            buttonchnage.setTitle("Cambiar a YAMAHA & ULTRIX", for: .normal)
         }
     }
     @IBAction func maestroChanged(_ sender: UISwitch) {
@@ -80,5 +88,21 @@ class ConfiguracionViewController: UIViewController, UITextFieldDelegate {
 
         return false;
     }
-
+    @IBAction func CHANGEROOT(_ sender: UIButton) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        if origen == "20"
+        {
+            
+            let viewController = mainStoryboard.instantiateViewController(withIdentifier: "segundo") as! Channels32ViewController
+            UIApplication.shared.windows.first?.rootViewController = viewController
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        }
+        else
+        {
+            let viewController = mainStoryboard.instantiateViewController(withIdentifier: "primero") as! ViewController
+            UIApplication.shared.windows.first?.rootViewController = viewController
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        }
+    }
+    
 }

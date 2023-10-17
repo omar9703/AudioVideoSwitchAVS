@@ -12,6 +12,7 @@ protocol channelSetDelegate {
 }
 
 class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,  UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    @IBOutlet weak var nombreField: UITextField!
     var imagePicker = UIImagePickerController()
     var channels = [String]()
     var delegate : channelSetDelegate?
@@ -55,7 +56,6 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
                         while cont < 64 {
                             var message = ([UInt8])("get MIXER:Current/InCh/Label/Name \(cont) 0  \n".utf8)
                             try client.write(message)
-                            //                        debugPrint(message)
                             var buffer = [UInt8](repeating: 0, count: 50)
                             let v = try client.read(&buffer, size: 50)
                             if let response = String(bytes: buffer, encoding: .utf8)
@@ -69,11 +69,12 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
                                 {
                                     self.channels.append(response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? "")
                                 }
+                                debugPrint(self.channels[cont])
                                 if self.channels[cont] == ""
                                 {
                                     self.channels[cont] = "Canal \(cont + 1)"
                                 }
-                                
+                                debugPrint(self.channels[cont])
                             }
                             cont = cont + 1
                         }
@@ -96,7 +97,14 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     @IBAction func aceptAction(_ sender: UIButton) {
-        delegate?.channelSelected(channelRow: row, channelName: channels[row], imagenURL: imagen, data: imagenData)
+        if nombreField.text == ""
+        {
+            delegate?.channelSelected(channelRow: row, channelName: channels[row], imagenURL: imagen, data: imagenData)
+        }
+        else
+        {
+            delegate?.channelSelected(channelRow: row, channelName: nombreField.text ?? "channel \(row + 1)", imagenURL: imagen, data: imagenData)
+        }
         self.dismiss(animated: true, completion: nil)
     }
     

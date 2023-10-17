@@ -8,8 +8,37 @@
 import UIKit
 import SocketSwift
 
-class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetDelegate {
+class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetDelegate,pickerTvDelegate,configPressedDelegate {
+    func setIpPressed() {
+        ipYamaha = UserDefaults.standard.string(forKey: "yamaha")
+        
+        pinger2?.stopPinging()
+        pingLoaded = false
+        if !pingLoaded
+        {
+            pingFunction()
+        }
+    }
     
+    func tvSelected(row: Int, isDestiny: pickerType, nombre: String) {
+        if isDestiny == .destiny
+        {
+        UserDefaults.standard.set(row, forKey: "destiny")
+        }
+        else if isDestiny == .source
+        {
+//
+        }
+        else
+        {
+            sliderView.tag = row + 1
+            mixLabel.text = nombre
+            UserDefaults.standard.set(row + 1, forKey: "silderTag")
+            UserDefaults.standard.set(nombre, forKey: "mixLabel")
+        }
+    }
+    
+    var pingLoaded = false
     var ChannelSetting : UIView?
     var bandera = true
     var selectedChannels = [false, false, false, false,false,false,false,false,false, false, false, false,false,false,false,false, false, false, false,false, false,false,false,false,false,false,false,false,false,false,false,false]
@@ -105,6 +134,10 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
             maskLayer.path = path.cgPath
             t.layer.mask = maskLayer
         }
+        
+        self.view.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(self.panGestureSettings(_:))))
+        
+        sliderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.sliderGesture(_:))))
         // Do any additional setup after loading the view.
     }
     
@@ -137,6 +170,48 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
         
         
         
+    }
+    @IBAction func configSiwtch(_ sender: UISwitch) {
+        isModeConfig = sender.isOn
+        if !sender.isOn
+        {
+            configLabel.isHidden = true
+            configSwitch.isHidden = true
+            mixLabel.isHidden = true
+            configIpButton.isHidden = true
+        }
+        else
+        {
+            
+            
+            configIpButton.isHidden = false
+        }
+    }
+    @IBAction func ConfigButtonAction(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "config") as! ConfiguracionViewController
+        vc.delegate = self
+        vc.origen = "32"
+        self.present(vc, animated: true, completion: nil)
+    }
+    @objc func sliderGesture(_ sender : UITapGestureRecognizer)
+    {
+        if isModeConfig
+        {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "pickerController") as! PickerDestinyViewController
+            vc.delegate = self
+            vc.row = sliderView.tag - 1
+            vc.isDestiny = .Mixer
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func panGestureSettings(_ sender : UIPinchGestureRecognizer)
+    {
+        debugPrint("gesture")
+        configLabel.isHidden = false
+        configSwitch.isHidden = false
+        mixLabel.isHidden = false
+        mixLabel.text = "Mix \(sliderView.tag)"
     }
     func pingFunction()
     {
@@ -284,6 +359,64 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
             }
             self.bandera = true
     }
+    @IBAction func clearChnnels(_ sender: UIButton) {
+        if !isModeConfig && yamahaStats && bandera && !UserDefaults.standard.bool(forKey: "maestro")
+        {
+            bandera = false
+            
+            if let ipYamaha = ipYamaha {
+                var client : Socket?
+                let vTag = self.sliderView.tag
+                do{
+                    client = try Socket(.inet, type: .stream, protocol: .tcp)
+                   try client?.connect(port: 49280, address: ipYamaha)
+                    if let u = try client?.wait(for: .write, timeout: 2, retryOnInterrupt: true), u
+                    {
+                        for (x,y) in selectedChannels.enumerated()
+                        {
+                            if y
+                            {
+                                let message = ([UInt8])("set MIXER:Current/InCh/Fader/Level \(self.SelectedChannelsIds[x]) \(0) \(-32000) \n".utf8)
+                                try client?.write(message)
+                                
+                                debugPrint("holis")
+                                var buffer = [UInt8](repeating: 0, count: 1500)
+                                try client?.read(&buffer, size: 100)
+                                selectedChannels[x] = false
+                                for o in canales
+                                {
+                                    if o.tag == x
+                                    {
+                                        
+                                        for i in o.superview!.subviews
+                                        {
+                                            
+                                            if i.isKind(of: UILabel.self)
+                                            {
+                                                (i as? UILabel)?.backgroundColor = UIColor(red: 61/255, green: 121/255, blue: 196/255, alpha: 1)
+                                            }
+                                            
+                                        }
+                                    }
+                                }
+                                
+                                
+                                
+                            }
+                        }
+                    }
+                   client?.close()
+                    self.bandera = true
+               }
+               catch
+               {
+                   debugPrint(error)
+                   //client?.close()
+                   self.bandera = true
+               }
+            }
+        }
+    }
     func getStatusSlider()
     {
         var client : Socket?
@@ -430,7 +563,7 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
                         if let u = try client?.wait(for: .write, timeout: 2), u
                         {
                             //client.close()
-                            let message = ([UInt8])("set MIXER:Current/InCh/Fader/Level \(t) 0 \(nivel) \n".utf8)
+                            let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(t) 0 \(nivel) \n".utf8)
                             try client?.write(message)
                             debugPrint("holis",t)
                             var buffer = [UInt8](repeating: 0, count: 1500)
