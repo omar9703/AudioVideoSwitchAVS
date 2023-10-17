@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LQm-1N-a0a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -3096,12 +3096,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adX-Wf-A1v">
-                                <rect key="frame" x="390" y="260" width="400" height="300"/>
+                                <rect key="frame" x="390" y="160" width="400" height="500"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlK-uG-coz">
-                                        <rect key="frame" x="0.0" y="84" width="400" height="216"/>
+                                        <rect key="frame" x="0.0" y="71" width="400" height="170"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="216" id="t5R-NZ-BJv"/>
+                                            <constraint firstAttribute="height" constant="170" id="t5R-NZ-BJv"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dataSource" destination="yIV-5e-Scm" id="rrR-Ft-fZS"/>
@@ -3134,17 +3134,377 @@
                                             <action selector="closeAction:" destination="yIV-5e-Scm" eventType="touchUpInside" id="eRc-lC-IEH"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3f-oL-7mI" customClass="Gradient" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="180" y="251" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="8g2-z1-9n5"/>
+                                            <constraint firstAttribute="height" constant="40" id="v2A-vJ-2Ez"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="2">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.99607843139999996" green="0.054901960780000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" systemColor="systemBlueColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                                <real key="value" value="0.23999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                                <real key="value" value="0.98999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="setArray:" destination="yIV-5e-Scm" eventType="touchUpInside" id="Oar-WP-Pyf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPQ-l6-cgc" customClass="Gradient" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="270" y="251" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="WWf-p7-zgf"/>
+                                            <constraint firstAttribute="width" constant="40" id="ku3-SB-cmw"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="3">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.99607843139999996" green="0.054901960780000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" systemColor="systemBlueColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                                <real key="value" value="0.23999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                                <real key="value" value="0.98999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="setArray:" destination="yIV-5e-Scm" eventType="touchUpInside" id="BkE-35-4Ie"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7s-AE-n8P" customClass="Gradient" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="90" y="251" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="hrL-Mv-dv3"/>
+                                            <constraint firstAttribute="width" constant="40" id="rd2-Qa-PSK"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="1">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.99607843139999996" green="0.054901960780000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" systemColor="systemBlueColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                                <real key="value" value="0.23999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                                <real key="value" value="0.98999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="setArray:" destination="yIV-5e-Scm" eventType="touchUpInside" id="4lm-bN-daR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDB-YS-JRY" customClass="Gradient" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="90" y="341" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="0u5-je-WOW"/>
+                                            <constraint firstAttribute="width" constant="40" id="ZG1-4g-KKY"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="4">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.99607843139999996" green="0.054901960780000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" systemColor="systemBlueColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                                <real key="value" value="0.23999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                                <real key="value" value="0.98999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="setArray:" destination="yIV-5e-Scm" eventType="touchUpInside" id="MYr-kV-nGf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8T-Ig-nwl" customClass="Gradient" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="90" y="431" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="B2s-2R-1qt"/>
+                                            <constraint firstAttribute="width" constant="40" id="r1p-pg-Nor"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="7">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.99607843139999996" green="0.054901960780000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" systemColor="systemBlueColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                                <real key="value" value="0.23999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                                <real key="value" value="0.98999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="setArray:" destination="yIV-5e-Scm" eventType="touchUpInside" id="Ju9-3V-xil"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLs-Jh-OH9" customClass="Gradient" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="180" y="341" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="15i-yf-8Ua"/>
+                                            <constraint firstAttribute="height" constant="40" id="pvu-fB-ivX"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="5">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.99607843139999996" green="0.054901960780000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" systemColor="systemBlueColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                                <real key="value" value="0.23999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                                <real key="value" value="0.98999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="setArray:" destination="yIV-5e-Scm" eventType="touchUpInside" id="fLt-Fv-Sqz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="171-iR-aqY" customClass="Gradient" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="270" y="341" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="3Va-p6-7Oo"/>
+                                            <constraint firstAttribute="height" constant="40" id="bVX-c6-J3C"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="6">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.99607843139999996" green="0.054901960780000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" systemColor="systemBlueColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                                <real key="value" value="0.23999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                                <real key="value" value="0.98999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="setArray:" destination="yIV-5e-Scm" eventType="touchUpInside" id="R0S-Rc-QwI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfX-36-v0T" customClass="Gradient" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="180" y="431" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="M1t-je-FaK"/>
+                                            <constraint firstAttribute="width" constant="40" id="yUw-VK-fDT"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="8">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.99607843139999996" green="0.054901960780000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" systemColor="systemBlueColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                                <real key="value" value="0.23999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                                <real key="value" value="0.98999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="setArray:" destination="yIV-5e-Scm" eventType="touchUpInside" id="sa5-Ai-m2Q"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1g-cy-PON" customClass="Gradient" customModule="AudioVideoSwitcherAVS" customModuleProvider="target">
+                                        <rect key="frame" x="270" y="431" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="abf-rQ-gwq"/>
+                                            <constraint firstAttribute="width" constant="40" id="dZZ-8W-KSR"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="9">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.99607843139999996" green="0.054901960780000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" systemColor="systemBlueColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                                <real key="value" value="0.23999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                                <real key="value" value="0.98999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="setArray:" destination="yIV-5e-Scm" eventType="touchUpInside" id="Fo5-Lk-OSt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="imG-mu-m2d" firstAttribute="leading" secondItem="adX-Wf-A1v" secondAttribute="leading" constant="20" id="0rf-J6-2Xd"/>
+                                    <constraint firstItem="nfX-36-v0T" firstAttribute="centerY" secondItem="M8T-Ig-nwl" secondAttribute="centerY" id="7cn-LU-Kz0"/>
+                                    <constraint firstItem="M8T-Ig-nwl" firstAttribute="top" secondItem="rDB-YS-JRY" secondAttribute="bottom" constant="50" id="7j2-wT-meo"/>
+                                    <constraint firstItem="G1g-cy-PON" firstAttribute="centerX" secondItem="171-iR-aqY" secondAttribute="centerX" id="COi-dA-xUz"/>
+                                    <constraint firstItem="u7s-AE-n8P" firstAttribute="centerY" secondItem="Q3f-oL-7mI" secondAttribute="centerY" id="IYF-5p-Bnq"/>
+                                    <constraint firstItem="M8T-Ig-nwl" firstAttribute="centerX" secondItem="rDB-YS-JRY" secondAttribute="centerX" id="K9N-Gj-HP0"/>
+                                    <constraint firstItem="rDB-YS-JRY" firstAttribute="top" secondItem="u7s-AE-n8P" secondAttribute="bottom" constant="50" id="OV1-Zy-tAZ"/>
+                                    <constraint firstItem="rDB-YS-JRY" firstAttribute="centerX" secondItem="u7s-AE-n8P" secondAttribute="centerX" id="TVm-I0-SKp"/>
+                                    <constraint firstItem="171-iR-aqY" firstAttribute="centerX" secondItem="wPQ-l6-cgc" secondAttribute="centerX" id="Tbz-SW-c0A"/>
+                                    <constraint firstItem="171-iR-aqY" firstAttribute="centerY" secondItem="gLs-Jh-OH9" secondAttribute="centerY" id="V8R-7i-Zk5"/>
+                                    <constraint firstItem="Q3f-oL-7mI" firstAttribute="leading" secondItem="u7s-AE-n8P" secondAttribute="trailing" constant="50" id="VOJ-Ia-LtS"/>
                                     <constraint firstItem="rlK-uG-coz" firstAttribute="leading" secondItem="adX-Wf-A1v" secondAttribute="leading" id="ZSS-C9-8r7"/>
                                     <constraint firstAttribute="width" constant="400" id="abr-Ce-LNs"/>
-                                    <constraint firstAttribute="bottom" secondItem="rlK-uG-coz" secondAttribute="bottom" id="aeH-FM-JUH"/>
                                     <constraint firstAttribute="trailing" secondItem="rlK-uG-coz" secondAttribute="trailing" id="bon-qp-Jtw"/>
-                                    <constraint firstAttribute="height" constant="300" id="nMf-b4-ckW"/>
+                                    <constraint firstItem="rlK-uG-coz" firstAttribute="top" secondItem="imG-mu-m2d" secondAttribute="bottom" constant="20" id="cPO-s6-sO4"/>
+                                    <constraint firstItem="Q3f-oL-7mI" firstAttribute="top" secondItem="rlK-uG-coz" secondAttribute="bottom" constant="10" id="fPg-n2-jxs"/>
+                                    <constraint firstItem="wPQ-l6-cgc" firstAttribute="leading" secondItem="Q3f-oL-7mI" secondAttribute="trailing" constant="50" id="fTy-7A-EEJ"/>
+                                    <constraint firstItem="gLs-Jh-OH9" firstAttribute="centerY" secondItem="rDB-YS-JRY" secondAttribute="centerY" id="iGs-XT-R6j"/>
+                                    <constraint firstItem="nfX-36-v0T" firstAttribute="centerX" secondItem="gLs-Jh-OH9" secondAttribute="centerX" id="n8T-Zu-aPf"/>
+                                    <constraint firstAttribute="height" constant="500" id="nMf-b4-ckW"/>
+                                    <constraint firstItem="G1g-cy-PON" firstAttribute="centerY" secondItem="nfX-36-v0T" secondAttribute="centerY" id="t5Z-gK-OGZ"/>
+                                    <constraint firstItem="Q3f-oL-7mI" firstAttribute="centerX" secondItem="adX-Wf-A1v" secondAttribute="centerX" id="v6j-dG-DXg"/>
                                     <constraint firstItem="imG-mu-m2d" firstAttribute="top" secondItem="adX-Wf-A1v" secondAttribute="top" constant="20" id="vzr-f8-jc8"/>
+                                    <constraint firstItem="gLs-Jh-OH9" firstAttribute="centerX" secondItem="Q3f-oL-7mI" secondAttribute="centerX" id="wDI-eG-mLf"/>
                                     <constraint firstItem="OiQ-tG-1pi" firstAttribute="top" secondItem="adX-Wf-A1v" secondAttribute="top" constant="20" id="wSr-xp-kMM"/>
+                                    <constraint firstItem="wPQ-l6-cgc" firstAttribute="centerY" secondItem="Q3f-oL-7mI" secondAttribute="centerY" id="yBU-qj-BUd"/>
                                     <constraint firstAttribute="trailing" secondItem="OiQ-tG-1pi" secondAttribute="trailing" constant="20" id="z06-Sz-B8A"/>
                                 </constraints>
                             </view>
@@ -3157,12 +3517,32 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="b1" destination="u7s-AE-n8P" id="pSL-nq-ccs"/>
+                        <outlet property="b2" destination="Q3f-oL-7mI" id="7zC-r4-Dab"/>
+                        <outlet property="b3" destination="wPQ-l6-cgc" id="gJH-0h-btY"/>
+                        <outlet property="b4" destination="rDB-YS-JRY" id="27o-mN-boM"/>
+                        <outlet property="b5" destination="gLs-Jh-OH9" id="mSd-mj-xKt"/>
+                        <outlet property="b6" destination="171-iR-aqY" id="bLE-av-9kB"/>
+                        <outlet property="b7" destination="M8T-Ig-nwl" id="9xB-5N-onX"/>
+                        <outlet property="b8" destination="nfX-36-v0T" id="quq-c6-Zxy"/>
+                        <outlet property="b9" destination="G1g-cy-PON" id="etT-fi-g11"/>
+                        <outlet property="heightPicker" destination="t5R-NZ-BJv" id="kPx-Ct-IPU"/>
+                        <outlet property="heightPrincipal" destination="nMf-b4-ckW" id="UTo-kD-dWh"/>
                         <outlet property="pickerTV" destination="rlK-uG-coz" id="ake-Ot-hwK"/>
+                        <outletCollection property="buttons" destination="u7s-AE-n8P" collectionClass="NSMutableArray" id="ehF-BP-xfy"/>
+                        <outletCollection property="buttons" destination="Q3f-oL-7mI" collectionClass="NSMutableArray" id="zVq-H7-8Un"/>
+                        <outletCollection property="buttons" destination="wPQ-l6-cgc" collectionClass="NSMutableArray" id="5qN-Wi-gUL"/>
+                        <outletCollection property="buttons" destination="rDB-YS-JRY" collectionClass="NSMutableArray" id="fyO-SP-x3r"/>
+                        <outletCollection property="buttons" destination="gLs-Jh-OH9" collectionClass="NSMutableArray" id="CkV-QA-o11"/>
+                        <outletCollection property="buttons" destination="171-iR-aqY" collectionClass="NSMutableArray" id="8vq-kw-HeX"/>
+                        <outletCollection property="buttons" destination="M8T-Ig-nwl" collectionClass="NSMutableArray" id="7OC-N1-9qY"/>
+                        <outletCollection property="buttons" destination="nfX-36-v0T" collectionClass="NSMutableArray" id="j6p-aa-mbr"/>
+                        <outletCollection property="buttons" destination="G1g-cy-PON" collectionClass="NSMutableArray" id="ZKM-qB-Gb3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2By-TU-hAn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862" y="130"/>
+            <point key="canvasLocation" x="861.86440677966107" y="129.51219512195121"/>
         </scene>
         <!--Picker Image View Controller-->
         <scene sceneID="mfe-fH-2yI">
@@ -6113,22 +6493,6 @@
                                             <action selector="clearChnnels:" destination="LQm-1N-a0a" eventType="touchUpInside" id="2w5-Up-aKb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09Q-5p-kig">
-                                        <rect key="frame" x="6.5" y="417" width="100" height="80"/>
-                                        <color key="backgroundColor" red="1" green="0.61176470589999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="6aH-Ey-YlL"/>
-                                            <constraint firstAttribute="width" constant="100" id="Tmd-gG-LXO"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Knockout-HTF52-Cruiserweight" family="Knockout" pointSize="20"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Clear solo">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="soloButton:" destination="LQm-1N-a0a" eventType="touchUpInside" id="ZDi-g2-57k"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.14901960780000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -6141,11 +6505,9 @@
                                     <constraint firstItem="FWE-Jz-vyi" firstAttribute="centerY" secondItem="mYD-6c-Uqd" secondAttribute="centerY" id="UZP-v3-kaj"/>
                                     <constraint firstAttribute="trailing" secondItem="0gD-ra-e36" secondAttribute="trailing" constant="10" id="ZlT-Kl-UOZ"/>
                                     <constraint firstItem="FWE-Jz-vyi" firstAttribute="leading" secondItem="mYD-6c-Uqd" secondAttribute="trailing" constant="10" id="bwv-NH-RfF"/>
-                                    <constraint firstItem="09Q-5p-kig" firstAttribute="centerX" secondItem="Tbo-U2-OJe" secondAttribute="centerX" id="gUK-Yd-lry"/>
                                     <constraint firstAttribute="trailing" secondItem="foK-an-7lJ" secondAttribute="trailing" constant="10" id="gUz-P6-8Uc"/>
                                     <constraint firstItem="N64-rK-Fql" firstAttribute="centerX" secondItem="Tbo-U2-OJe" secondAttribute="centerX" id="rTY-sZ-dhC"/>
                                     <constraint firstItem="N64-rK-Fql" firstAttribute="top" secondItem="mYD-6c-Uqd" secondAttribute="bottom" constant="50" id="sv2-p4-cWq"/>
-                                    <constraint firstItem="09Q-5p-kig" firstAttribute="top" secondItem="N64-rK-Fql" secondAttribute="bottom" constant="100" id="wmT-c5-vYP"/>
                                     <constraint firstItem="mYD-6c-Uqd" firstAttribute="top" secondItem="0gD-ra-e36" secondAttribute="bottom" constant="40" id="z73-AJ-Hz7"/>
                                 </constraints>
                             </view>
@@ -6298,6 +6660,32 @@
             <point key="canvasLocation" x="138" y="861"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="171-iR-aqY">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="G1g-cy-PON">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="M8T-Ig-nwl">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="gLs-Jh-OH9">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="nfX-36-v0T">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="rDB-YS-JRY">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="u7s-AE-n8P">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="wPQ-l6-cgc">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <image name="AVS LOGO" width="165" height="153"/>
         <image name="SELEC IMG" width="89" height="91"/>

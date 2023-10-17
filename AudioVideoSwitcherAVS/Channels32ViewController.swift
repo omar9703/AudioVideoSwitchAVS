@@ -272,7 +272,7 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
                         {
                             
                           
-                            let message = ([UInt8])("get MIXER:Current/InCh/Fader/Level \(y) 0\n".utf8)
+                            let message = ([UInt8])("get MIXER:Current/InCh/ToMix/Level  \(y) 0\n".utf8)
                             try client?.write(message)
                             debugPrint(y)
                             var buffer = [UInt8](repeating: 0, count: 52)
@@ -376,7 +376,7 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
                         {
                             if y
                             {
-                                let message = ([UInt8])("set MIXER:Current/InCh/Fader/Level \(self.SelectedChannelsIds[x]) \(0) \(-32000) \n".utf8)
+                                let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.SelectedChannelsIds[x]) \(0) \(-32000) \n".utf8)
                                 try client?.write(message)
                                 
                                 debugPrint("holis")
@@ -519,6 +519,121 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
     @objc func appMovedToBackground() {
         print("App moved to background!")
     }
+    @IBAction func VolumeChange(_ sender: UISlider) {
+        let step: Float = 1
+        let roundedValue = round(sender.value / step) * step
+        sender.value = roundedValue
+        var level = 0
+        if Float(volume) != roundedValue
+        {
+            volume = Int(roundedValue)
+            debugPrint(volume)
+            if volume == -16
+            {
+                level = -32000
+            }
+            else if volume == -15
+            {
+                level = -6000
+            }
+            else if volume == -14
+            {
+                level = -5500
+            }
+            else if volume == -13
+            {
+                level = -5000
+            }
+            else if volume == -12
+            {
+                level = -4500
+            }
+            else if volume == -11
+            {
+                level = -4000
+            }
+            else if volume == -10
+            {
+                level = -3500
+            }
+            else if volume == -9
+            {
+                level = -3000
+            }
+            else if volume == -8
+            {
+                level = -2500
+            }
+            else if volume == -7
+            {
+                level = -2000
+            }
+            else if volume == -6
+            {
+                level = -1500
+            }
+            else if volume == -5
+            {
+                level = -1000
+            }
+            else if volume == -4
+            {
+                level = -500
+            }
+            else if volume == -3
+            {
+                level = 0
+            }
+            else if volume == -2
+            {
+                level = 300
+            }
+            else if volume == -1
+            {
+                level = 500
+            }
+            else if volume == 0
+            {
+                level = 700
+            }
+            else if volume == 1
+            {
+                level = 1000
+            }
+            if !isModeConfig && yamahaStats
+            {
+                if let ipYamaha = ipYamaha {
+                    debugPrint(ipYamaha)
+                    let vtag = sender.tag
+                    DispatchQueue.global(qos: .utility).async {
+                        do
+                        {
+                            let client = try Socket(.inet, type: .stream, protocol: .tcp)
+                            try client.connect(port: 49280, address: ipYamaha)
+                            if try client.wait(for: .write, timeout: 2)
+                            {
+                                let message = ([UInt8])("set MIXER:Current/Mix/Fader/Level \(vtag  - 1) 0 \(level) \n".utf8)
+                                try client.write(message)
+                                debugPrint("holis")
+                                var buffer = [UInt8](repeating: 0, count: 1500)
+                                try client.read(&buffer, size: 100)
+                                client.close()
+                            }
+                        }
+                        catch
+                        {
+                            debugPrint(error)
+                        }
+                    }
+                }
+                else{
+                    self.alerta(message: "Falta la ip del dispositivo destino.", title: "Error")
+                }
+                
+            }
+        }
+    }
+    
     @objc func canalAction(_ sender: UITapGestureRecognizer) {
         debugPrint("holis", sender.view?.tag)
         if !isModeConfig && yamahaStats && bandera && !UserDefaults.standard.bool(forKey: "maestro")

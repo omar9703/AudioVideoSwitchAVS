@@ -21,6 +21,7 @@
 		1049971228EB2E24001E9ED6 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049971128EB2E24001E9ED6 /* SwiftyPing.swift */; };
 		1049971528EB3FB4001E9ED6 /* pickerFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049971328EB3FB3001E9ED6 /* pickerFieldViewController.swift */; };
 		10CA89EB2AD9CC54002C6A38 /* Channels32ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89EA2AD9CC54002C6A38 /* Channels32ViewController.swift */; };
+		10CA89ED2ADEEF55002C6A38 /* Xtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89EC2ADEEF55002C6A38 /* Xtensions.swift */; };
 		10CBA4E528E772B800C0A28A /* AVModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10CBA4E328E772B800C0A28A /* AVModel.xcdatamodeld */; };
 		10CBA4E828E7731E00C0A28A /* ChannelYamaha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CBA4E728E7731E00C0A28A /* ChannelYamaha.swift */; };
 		10CC198D29085D4100672B20 /* Knockout-HTF52-Cruiserweight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10CC198C29085D4100672B20 /* Knockout-HTF52-Cruiserweight.otf */; };
@@ -46,6 +47,7 @@
 		1049971128EB2E24001E9ED6 /* SwiftyPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyPing.swift; sourceTree = "<group>"; };
 		1049971328EB3FB3001E9ED6 /* pickerFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerFieldViewController.swift; sourceTree = "<group>"; };
 		10CA89EA2AD9CC54002C6A38 /* Channels32ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channels32ViewController.swift; sourceTree = "<group>"; };
+		10CA89EC2ADEEF55002C6A38 /* Xtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xtensions.swift; sourceTree = "<group>"; };
 		10CBA4E428E772B800C0A28A /* AVModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AVModel.xcdatamodel; sourceTree = "<group>"; };
 		10CBA4E728E7731E00C0A28A /* ChannelYamaha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelYamaha.swift; sourceTree = "<group>"; };
 		10CC198C29085D4100672B20 /* Knockout-HTF52-Cruiserweight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knockout-HTF52-Cruiserweight.otf"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				10CBA4E328E772B800C0A28A /* AVModel.xcdatamodeld */,
 				1049971328EB3FB3001E9ED6 /* pickerFieldViewController.swift */,
 				10CA89EA2AD9CC54002C6A38 /* Channels32ViewController.swift */,
+				10CA89EC2ADEEF55002C6A38 /* Xtensions.swift */,
 			);
 			path = AudioVideoSwitcherAVS;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				072A55FF28C969E10032F59C /* ViewController.swift in Sources */,
 				1049971528EB3FB4001E9ED6 /* pickerFieldViewController.swift in Sources */,
 				072A55FB28C969E10032F59C /* AppDelegate.swift in Sources */,
+				10CA89ED2ADEEF55002C6A38 /* Xtensions.swift in Sources */,
 				072A55FD28C969E10032F59C /* SceneDelegate.swift in Sources */,
 				1049971228EB2E24001E9ED6 /* SwiftyPing.swift in Sources */,
 				078F191428CD677500710740 /* PickerImageViewController.swift in Sources */,

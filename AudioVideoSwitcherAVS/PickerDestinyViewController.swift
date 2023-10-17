@@ -54,8 +54,20 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.row = row
     }
-    
+    @IBOutlet var buttons : [Gradient]!
+    @IBOutlet weak var b9: Gradient!
+    @IBOutlet weak var b8: Gradient!
+    @IBOutlet weak var b7: Gradient!
+    @IBOutlet weak var b6: Gradient!
+    @IBOutlet weak var b5: Gradient!
+    @IBOutlet weak var b4: Gradient!
+    @IBOutlet weak var b3: Gradient!
+    @IBOutlet weak var b2: Gradient!
+    @IBOutlet weak var b1: Gradient!
     var destinies = [String]()
+    var niveles = [String]()
+    @IBOutlet weak var heightPrincipal: NSLayoutConstraint!
+    @IBOutlet weak var heightPicker: NSLayoutConstraint!
     var sources = [String]()
     var mixes = [String]()
     var row = 0
@@ -70,6 +82,7 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
             {
                 destinies.append("Destination \(x)")
             }
+            
         }
         else if isDestiny == .source
         {
@@ -77,6 +90,11 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
             {
                 sources.append("SRC \(x)")
             }
+            buttons.forEach { g in
+                g.isHidden =  true
+            }
+            heightPrincipal.constant = 300
+            heightPicker.constant = 200
         }
         else
         {
@@ -84,13 +102,73 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
             {
                 mixes.append("Mix \(x)")
             }
+            buttons.forEach { g in
+                g.isHidden =  true
+            }
+            heightPrincipal.constant = 300
+            heightPicker.constant = 200
         }
         pickerTV.selectRow(self.row, inComponent: 0, animated: false)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let v = UserDefaults.standard.string(forKey: "niveles")
+        {
+            buttons.forEach { g in
+                g.startColor = .gray
+                g.endColor = .gray
+            }
+            var arr = v.components(separatedBy: ",")
+            niveles = arr
+            for n in niveles
+            {
+                for b in buttons
+                {
+                    if String(b.tag) == n
+                    {
+                        b.startColor = .red
+                        b.endColor = .blue
+                    }
+                }
+            }
+            debugPrint(niveles)
+        }
+        else
+        {
+            buttons.forEach { g in
+                if g.tag != 1
+                {
+                    g.startColor = .gray
+                    g.endColor = .gray
+                }
+                else
+                {
+                    g.startColor = .red
+                    g.endColor = .blue
+                }
+            }
+            niveles.append("1")
+        }
     }
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func setArray(_ sender: Gradient) {
+        if niveles.contains(where: {$0 == String(sender.tag)})
+        {
+            niveles.removeAll(where: {$0 == String(sender.tag)})
+            sender.startColor = .gray
+            sender.endColor = .gray
+        }
+        else
+        {
+            niveles.append(String(sender.tag))
+            sender.startColor = .red
+            sender.endColor = .blue
+        }
+    }
     @IBAction func AceptAction(_ sender: UIButton) {
         if isDestiny == .Mixer
         {
@@ -103,6 +181,22 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
         else if isDestiny == .source
         {
             delegate?.tvSelected(row: row, isDestiny: isDestiny!,nombre: sources[row] )
+        }
+        if niveles.count == 0
+        {
+            UserDefaults.standard.setValue("1", forKey: "niveles")
+        }
+        else
+        {
+            if niveles.count == 1
+            {
+                UserDefaults.standard.setValue(niveles[0], forKey: "niveles")
+            }
+            else
+            {
+                let formattedArray = niveles.map{$0}.joined(separator: ",")
+                UserDefaults.standard.setValue(formattedArray, forKey: "niveles")
+            }
         }
         self.dismiss(animated: true, completion: nil)
     }

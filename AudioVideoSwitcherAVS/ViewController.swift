@@ -759,10 +759,19 @@ class ViewController: UIViewController {
 //                        if let u = try client?.wait(for: .write, timeout: 2, retryOnInterrupt: true), u
 //                        {
                             try client?.connect(port: 7788, address: ipUltrix)
-                            
-                            let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[tagi]+1) \r\n".utf8)
+                        if let v = UserDefaults.standard.string(forKey: "niveles")
+                        {
+                            let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[tagi]+1) L:\(v) \r\n".utf8)
+                            try client?.write(message)
+                            debugPrint(message,v)
+                        }
+                        else
+                        {
+                            let message = ([UInt8])("XPT I:1 D:\(self.tvRow + 1) S:\(self.selectedUltrixIds[tagi]+1) L:1 \r\n".utf8)
                             try client?.write(message)
                             debugPrint(message)
+                        }
+                            
                             //            var buffer = [UInt8](repeating: 0, count: 1500)
                             //            try client.read(&buffer, size: 100)
                             
