@@ -60,25 +60,70 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
                             let v = try client.read(&buffer, size: 50)
                             if let response = String(bytes: buffer, encoding: .utf8)
                             {
-                                debugPrint(response, response.slice(from: "\"", to: "\n"))
-                                if self.channels.count > cont
+                                debugPrint("get MIXER:Current/InCh/Label/Name \(cont) 0 ")
+                                
+                                debugPrint(response, response.slice(from: "\"", to: "\""))
+                                if response.components(separatedBy: " ").count > 3
                                 {
-                                    self.channels[cont] = response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? ""
+                                    debugPrint(Int(response.components(separatedBy: " ")[3]),"indice")
+                                    if response.components(separatedBy: " ")[0].contains(where: {$0 == "K"})
+                                    {
+                                        debugPrint("OK")
+                                        if let indice = Int(response.components(separatedBy: " ")[3])
+                                        {
+                                            
+                                            if self.channels.count > cont
+                                            {
+                                                self.channels[indice] = response.slice(from: "\"", to: "\"")?.replacingOccurrences(of: "\"", with: "") ?? ""
+                                            }
+                                            else
+                                            {
+                                                self.channels.append(response.slice(from: "\"", to: "\"")?.replacingOccurrences(of: "\"", with: "") ?? "")
+                                            }
+                                            
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if let indice = Int(response.components(separatedBy: " ")[2])
+                                        {
+                                            
+                                            if self.channels.count > cont
+                                            {
+                                                self.channels[indice] = response.slice(from: "\"", to: "\"")?.replacingOccurrences(of: "\"", with: "") ?? ""
+                                            }
+                                            else
+                                            {
+                                                self.channels.append(response.slice(from: "\"", to: "\"")?.replacingOccurrences(of: "\"", with: "") ?? "")
+                                            }
+                                            
+                                        }
+                                    }
+                                    
                                 }
-                                else
-                                {
-                                    self.channels.append(response.slice(from: "\"", to: "\n")?.replacingOccurrences(of: "\"", with: "") ?? "")
-                                }
+                                
+                                
+                                
+                                
                                 debugPrint(self.channels[cont])
-                                if self.channels[cont] == ""
-                                {
-                                    self.channels[cont] = "Canal \(cont + 1)"
-                                }
-                                debugPrint(self.channels[cont])
+                                cont = cont + 1
                             }
-                            cont = cont + 1
+//                            if self.channels[indice] == ""
+//                            {
+//                                self.channels[indice] = "Canal \(cont + 1)"
+//                            }
+                            
                         }
+                        
+                        debugPrint("21",self.channels)
                         DispatchQueue.main.async {
+                            for (x,y) in self.channels.enumerated()
+                            {
+                                if y == ""
+                                {
+                                    self.channels[x] = "Canal \(x + 1)"
+                                }
+                            }
                             self.pickerCanal.reloadAllComponents()
                         }
                     }

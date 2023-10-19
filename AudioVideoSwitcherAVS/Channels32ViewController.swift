@@ -46,7 +46,7 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
     var selctedSoloIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]
     var isModeConfig = false
     var volume = -16
-    var yamahaStats = false
+    var yamahaStats = true
     var ipYamaha : String?
     var pinger2 : SwiftyPing?
     var leer = false
@@ -216,39 +216,39 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
     func pingFunction()
     {
         
-        let pingInterval:TimeInterval = 2
-        let timeoutInterval:TimeInterval = 1
-        let configuration = PingConfiguration(interval: pingInterval, with: timeoutInterval)
-        if let ipYamaha = ipYamaha {
-             pinger2 = try? SwiftyPing(host: ipYamaha, configuration: PingConfiguration(interval: 5, with: 6), queue: DispatchQueue.global())
-            pinger2?.observer = { (response) in
-                let duration = response.duration
-//                print(duration,response)
-                if let _ = response.error
-                {
-                    DispatchQueue.main.async {
-                        self.yamahaStats = false
-                        self.yamahaUltrix.backgroundColor = .red
-                    }
-                }
-                else
-                {
-                    DispatchQueue.main.async {
-                        if !self.leer
-                        {
-                            let timer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(self.status(_:)), userInfo: nil, repeats: true)
-                            self.status(timer)
-//                            self.getStatusSlider()
-//                            self.getStatus()
-                            self.leer.toggle()
-                        }
-                        self.yamahaStats = true
-                        self.yamahaUltrix.backgroundColor = .green
-                    }
-                }
-            }
-            try? pinger2?.startPinging()
-        }
+//        let pingInterval:TimeInterval = 2
+//        let timeoutInterval:TimeInterval = 1
+//        let configuration = PingConfiguration(interval: pingInterval, with: timeoutInterval)
+//        if let ipYamaha = ipYamaha {
+//             pinger2 = try? SwiftyPing(host: ipYamaha, configuration: PingConfiguration(interval: 5, with: 6), queue: DispatchQueue.global())
+//            pinger2?.observer = { (response) in
+//                let duration = response.duration
+////                print(duration,response)
+//                if let _ = response.error
+//                {
+//                    DispatchQueue.main.async {
+//                        self.yamahaStats = false
+//                        self.yamahaUltrix.backgroundColor = .red
+//                    }
+//                }
+//                else
+//                {
+//                    DispatchQueue.main.async {
+//                        if !self.leer
+//                        {
+//                            let timer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(self.status(_:)), userInfo: nil, repeats: true)
+//                            self.status(timer)
+////                            self.getStatusSlider()
+////                            self.getStatus()
+//                            self.leer.toggle()
+//                        }
+//                        self.yamahaStats = true
+//                        self.yamahaUltrix.backgroundColor = .green
+//                    }
+//                }
+//            }
+//            try? pinger2?.startPinging()
+//        }
         
     }
     @objc func status(_ timer : Timer)
