@@ -92,13 +92,14 @@ class ConfiguracionViewController: UIViewController, UITextFieldDelegate {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         if origen == "20"
         {
-            
+            UserDefaults.standard.setValue("yamaha", forKey: "root")
             let viewController = mainStoryboard.instantiateViewController(withIdentifier: "segundo") as! Channels32ViewController
             UIApplication.shared.windows.first?.rootViewController = viewController
             UIApplication.shared.windows.first?.makeKeyAndVisible()
         }
         else
         {
+            UserDefaults.standard.setValue("ultrix", forKey: "root")
             let viewController = mainStoryboard.instantiateViewController(withIdentifier: "primero") as! ViewController
             UIApplication.shared.windows.first?.rootViewController = viewController
             UIApplication.shared.windows.first?.makeKeyAndVisible()
