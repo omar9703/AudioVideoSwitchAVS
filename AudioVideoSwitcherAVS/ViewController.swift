@@ -531,7 +531,7 @@ class ViewController: UIViewController {
             if let e = response.error
             {
                 DispatchQueue.main.async {
-                    self.ultrixstats = false
+                    self.ultrixstats = true
                     self.ultrixStatus.backgroundColor = .red
                 }
             }
