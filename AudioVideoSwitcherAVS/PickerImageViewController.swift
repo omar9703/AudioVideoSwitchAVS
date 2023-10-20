@@ -60,8 +60,8 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
                         while cont < 64 {
                             var message = ([UInt8])("get MIXER:Current/InCh/Label/Name \(cont) 0  \n".utf8)
                             try client.write(message)
-                            var buffer = [UInt8](repeating: 0, count: 50)
-                            let v = try client.read(&buffer, size: 50)
+                            var buffer = [UInt8](repeating: 0, count: 58)
+                            let v = try client.read(&buffer, size: 58)
                             if let response = String(bytes: buffer, encoding: .utf8)
                             {
                                 debugPrint("get MIXER:Current/InCh/Label/Name \(cont) 0 ")

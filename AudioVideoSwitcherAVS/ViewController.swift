@@ -122,7 +122,7 @@ class ViewController: UIViewController {
         {
             self.pingFunction()
         }
-//        getStatus()
+        getStatus()
     }
     @objc func appMovedToBackground() {
         print("App moved to background!")
@@ -546,36 +546,36 @@ class ViewController: UIViewController {
         }
         try? pinger?.startPinging()
         }
-//        if let ipYamaha = ipYamaha {
-//             pinger2 = try? SwiftyPing(host: ipYamaha, configuration: PingConfiguration(interval: 5, with: 6), queue: DispatchQueue.global())
-//            pinger2?.observer = { (response) in
-//                let duration = response.duration
-////                print(duration,response)
-//                if let _ = response.error
-//                {
-//                    DispatchQueue.main.async {
-//                        self.yamahaStats = false
-//                        self.yamahaUltrix.backgroundColor = .red
-//                    }
-//                }
-//                else
-//                {
-//                    DispatchQueue.main.async {
-//                        if !self.leer
-//                        {
-//                            let timer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(self.status(_:)), userInfo: nil, repeats: true)
-//                            self.status(timer)
-////                            self.getStatusSlider()
-////                            self.getStatus()
-//                            self.leer.toggle()
-//                        }
-//                        self.yamahaStats = true
-//                        self.yamahaUltrix.backgroundColor = .green
-//                    }
-//                }
-//            }
-//            try? pinger2?.startPinging()
-//        }
+        if let ipYamaha = ipYamaha {
+             pinger2 = try? SwiftyPing(host: ipYamaha, configuration: PingConfiguration(interval: 5, with: 6), queue: DispatchQueue.global())
+            pinger2?.observer = { (response) in
+                let duration = response.duration
+//                print(duration,response)
+                if let _ = response.error
+                {
+                    DispatchQueue.main.async {
+                        self.yamahaStats = true
+                        self.yamahaUltrix.backgroundColor = .red
+                    }
+                }
+                else
+                {
+                    DispatchQueue.main.async {
+                        if !self.leer
+                        {
+                            let timer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(self.status(_:)), userInfo: nil, repeats: true)
+                            self.status(timer)
+//                            self.getStatusSlider()
+//                            self.getStatus()
+                            self.leer.toggle()
+                        }
+                        self.yamahaStats = true
+                        self.yamahaUltrix.backgroundColor = .green
+                    }
+                }
+            }
+            try? pinger2?.startPinging()
+        }
         
     }
     @IBAction func clearChnnels(_ sender: UIButton) {
