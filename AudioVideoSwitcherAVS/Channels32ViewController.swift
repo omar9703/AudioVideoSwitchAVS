@@ -771,6 +771,20 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
             vc.delegate = self
             ChannelSetting = imagen
             vc.imagenData = imagendata
+            for x in imagen.subviews
+            {
+                debugPrint(x)
+                if x.isKind(of: UILabel.self)
+                {
+                    if let text = (x as? UILabel)?.text
+                    {
+                        if !text.contains("Canal")
+                        {
+                            vc.nombreCustom = text
+                        }
+                    }
+                }
+            }
             vc.row = SelectedChannelsIds[tag]
             self.present(vc, animated: true, completion: nil)
         }

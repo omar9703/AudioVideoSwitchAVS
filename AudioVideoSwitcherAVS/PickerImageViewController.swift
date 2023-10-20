@@ -19,6 +19,7 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var row = 0
     var imagen = ""
     var imagenData : Data?
+    var nombreCustom = ""
     @IBOutlet weak var imageCanal: UIImageView!
     @IBOutlet weak var pickerCanal: UIPickerView!
     override func viewDidLoad() {
@@ -42,7 +43,10 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
+       if nombreCustom != ""
+        {
+           nombreField.text = nombreCustom
+       }
         if let ip = UserDefaults.standard.string(forKey: "yamaha")
         {
             DispatchQueue.global(qos: .utility).async {
@@ -83,9 +87,25 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
                                             
                                         }
                                     }
-                                    else
+                                    else if response.components(separatedBy: " ")[0].contains(where: {$0 == "g"})
                                     {
                                         if let indice = Int(response.components(separatedBy: " ")[2])
+                                        {
+                                            
+                                            if self.channels.count > cont
+                                            {
+                                                self.channels[indice] = response.slice(from: "\"", to: "\"")?.replacingOccurrences(of: "\"", with: "") ?? ""
+                                            }
+                                            else
+                                            {
+                                                self.channels.append(response.slice(from: "\"", to: "\"")?.replacingOccurrences(of: "\"", with: "") ?? "")
+                                            }
+                                            
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if let indice = Int(response.components(separatedBy: " ")[1])
                                         {
                                             
                                             if self.channels.count > cont
@@ -102,18 +122,11 @@ class PickerImageViewController: UIViewController, UIPickerViewDelegate, UIPicke
                                     
                                 }
                                 
-                                
-                                
-                                
-                                debugPrint(self.channels[cont])
-                                cont = cont + 1
                             }
-//                            if self.channels[indice] == ""
-//                            {
-//                                self.channels[indice] = "Canal \(cont + 1)"
-//                            }
-                            
+
+                            cont = cont + 1
                         }
+                        
                         
                         debugPrint("21",self.channels)
                         DispatchQueue.main.async {
