@@ -271,8 +271,8 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
                         for (x,y) in SelectedChannelsIds.enumerated()
                         {
                             
-                          
-                            let message = ([UInt8])("get MIXER:Current/InCh/ToMix/Level  \(y) 0\n".utf8)
+                            let vtag = self.sliderView.tag - 1
+                            let message = ([UInt8])("get MIXER:Current/InCh/ToMix/Level  \(y) \(vtag)\n".utf8)
                             try client?.write(message)
                             debugPrint(y)
                             var buffer = [UInt8](repeating: 0, count: 52)
@@ -366,7 +366,7 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
             
             if let ipYamaha = ipYamaha {
                 var client : Socket?
-                let vTag = self.sliderView.tag
+                let vTag = self.sliderView.tag - 1
                 do{
                     client = try Socket(.inet, type: .stream, protocol: .tcp)
                    try client?.connect(port: 49280, address: ipYamaha)
@@ -376,7 +376,7 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
                         {
                             if y
                             {
-                                let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.SelectedChannelsIds[x]) \(0) \(-32000) \n".utf8)
+                                let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(self.SelectedChannelsIds[x]) \(vTag) \(-32000) \n".utf8)
                                 try client?.write(message)
                                 
                                 debugPrint("holis")
@@ -677,8 +677,9 @@ class Channels32ViewController: UIViewController,ImageActionDelegate,channelSetD
                         try client?.connect(port: 49280, address: ipYamaha)
                         if let u = try client?.wait(for: .write, timeout: 2), u
                         {
+                            let vTag = self.sliderView.tag - 1
                             //client.close()
-                            let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(t) 0 \(nivel) \n".utf8)
+                            let message = ([UInt8])("set MIXER:Current/InCh/ToMix/Level \(t) \(vTag) \(nivel) \n".utf8)
                             try client?.write(message)
                             debugPrint("holis",t)
                             var buffer = [UInt8](repeating: 0, count: 1500)

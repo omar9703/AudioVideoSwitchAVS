@@ -636,6 +636,12 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func openEditor(_ sender: UIButton) {
+        let vc = EditorViewController()
+        self.present(vc, animated: true)
+    }
+    
     @IBAction func soloButton(_ sender: UIButton) {
         if !isModeConfig && yamahaStats && bandera
         {

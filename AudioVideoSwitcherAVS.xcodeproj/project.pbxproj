@@ -18,6 +18,8 @@
 		0756AA9C28CD46090052CC48 /* SourceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0756AA9B28CD46090052CC48 /* SourceButton.swift */; };
 		078F191228CD60F200710740 /* CanalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F191128CD60F200710740 /* CanalButtonView.swift */; };
 		078F191428CD677500710740 /* PickerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F191328CD677500710740 /* PickerImageViewController.swift */; };
+		100FDFCF2AE9DC56000CD671 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100FDFCD2AE9DC56000CD671 /* EditorViewController.swift */; };
+		100FDFD02AE9DC56000CD671 /* EditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 100FDFCE2AE9DC56000CD671 /* EditorViewController.xib */; };
 		1049971228EB2E24001E9ED6 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049971128EB2E24001E9ED6 /* SwiftyPing.swift */; };
 		1049971528EB3FB4001E9ED6 /* pickerFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049971328EB3FB3001E9ED6 /* pickerFieldViewController.swift */; };
 		10CA89EB2AD9CC54002C6A38 /* Channels32ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89EA2AD9CC54002C6A38 /* Channels32ViewController.swift */; };
@@ -44,6 +46,8 @@
 		0756AA9B28CD46090052CC48 /* SourceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceButton.swift; sourceTree = "<group>"; };
 		078F191128CD60F200710740 /* CanalButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanalButtonView.swift; sourceTree = "<group>"; };
 		078F191328CD677500710740 /* PickerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerImageViewController.swift; sourceTree = "<group>"; };
+		100FDFCD2AE9DC56000CD671 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		100FDFCE2AE9DC56000CD671 /* EditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditorViewController.xib; sourceTree = "<group>"; };
 		1049971128EB2E24001E9ED6 /* SwiftyPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyPing.swift; sourceTree = "<group>"; };
 		1049971328EB3FB3001E9ED6 /* pickerFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerFieldViewController.swift; sourceTree = "<group>"; };
 		10CA89EA2AD9CC54002C6A38 /* Channels32ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channels32ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 				1049971328EB3FB3001E9ED6 /* pickerFieldViewController.swift */,
 				10CA89EA2AD9CC54002C6A38 /* Channels32ViewController.swift */,
 				10CA89EC2ADEEF55002C6A38 /* Xtensions.swift */,
+				100FDFCD2AE9DC56000CD671 /* EditorViewController.swift */,
+				100FDFCE2AE9DC56000CD671 /* EditorViewController.xib */,
 			);
 			path = AudioVideoSwitcherAVS;
 			sourceTree = "<group>";
@@ -217,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				100FDFD02AE9DC56000CD671 /* EditorViewController.xib in Resources */,
 				072A560728C969E40032F59C /* LaunchScreen.storyboard in Resources */,
 				10CC198F29085D4B00672B20 /* Knockout HTF49Liteweight Regular.otf in Resources */,
 				072A560428C969E40032F59C /* Assets.xcassets in Resources */,
@@ -288,6 +295,7 @@
 				10CA89EB2AD9CC54002C6A38 /* Channels32ViewController.swift in Sources */,
 				07359D7628DBA57800CA7C1F /* ConfiguracionViewController.swift in Sources */,
 				0756AA9A28CD33590052CC48 /* PickerDestinyViewController.swift in Sources */,
+				100FDFCF2AE9DC56000CD671 /* EditorViewController.swift in Sources */,
 				10CBA4E528E772B800C0A28A /* AVModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
