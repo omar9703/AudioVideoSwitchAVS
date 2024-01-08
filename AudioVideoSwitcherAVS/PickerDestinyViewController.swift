@@ -223,8 +223,8 @@ class PickerDestinyViewController: UIViewController, UIPickerViewDelegate, UIPic
                            let message = ([UInt8])("get MIXER:Current/Mix/Label/Name \(cont) 0  \n".utf8)
                            try client.write(message)
                            //                        debugPrint(message)
-                           var buffer = [UInt8](repeating: 0, count: 48)
-                           let v = try client.read(&buffer, size: 50)
+                           var buffer = [UInt8](repeating: 0, count: 70)
+                           let v = try client.read(&buffer, size: 70)
                            if let response = String(bytes: buffer, encoding: .utf8)
                            {
                                debugPrint(response, response.slice(from: "\"", to: "\n"))
